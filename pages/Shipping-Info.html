@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shipping Info — Hamdan Store</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg: #0c0c0f;
+      --surface: rgba(255, 255, 255, 0.03);
+      --surface2: rgba(255, 255, 255, 0.05);
+      --border: rgba(255, 255, 255, 0.08);
+      --border-md: rgba(167, 139, 250, 0.3);
+      --accent: #a78bfa;
+      --accent-dark: #7c3aed;
+      --accent-glow: rgba(167, 139, 250, 0.1);
+      --muted: rgba(255, 255, 255, 0.45);
+      --muted2: rgba(255, 255, 255, 0.25);
+      --white: #fff;
+      --green: #34d399;
+      --red: #f87171;
+      --amber: #fbbf24;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--white);
+      font-family: 'Sora', system-ui, sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ── BACK BUTTON ── */
+    .back-btn {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 999;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(167, 139, 250, 0.25);
+      border-radius: 999px;
+      color: var(--accent);
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.22s ease;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    .back-btn i {
+      font-size: 12px;
+      transition: transform 0.22s;
+    }
+
+    .back-btn:hover {
+      background: rgba(167, 139, 250, 0.12);
+      border-color: var(--accent);
+      color: var(--white);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 20px rgba(124, 58, 237, 0.25);
+    }
+
+    .back-btn:hover i {
+      transform: translateX(-3px);
+    }
+
+    /* ── HERO ── */
+    .hero {
+      text-align: center;
+      padding: 50px 24px 50px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -80px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 700px;
+      height: 500px;
+      background: radial-gradient(ellipse, rgba(124, 58, 237, 0.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .grid-bg {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, .025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, .025) 1px, transparent 1px);
+      background-size: 48px 48px;
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: rgba(167, 139, 250, 0.1);
+      border: 1px solid rgba(167, 139, 250, 0.25);
+      border-radius: 999px;
+      padding: 6px 18px;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 22px;
+    }
+
+    .hero h1 {
+      font-size: clamp(30px, 5vw, 56px);
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 14px;
+      letter-spacing: -1.5px;
+    }
+
+    .hero h1 span {
+      background: linear-gradient(135deg, #c4b5fd, #a78bfa, #7c3aed);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    /* ── PAGE WRAP ── */
+    .page-wrap {
+      max-width: 1060px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+    }
+
+    /* ── SECTION TITLE ── */
+    .section-title {
+      font-size: 22px;
+      font-weight: 800;
+      margin-bottom: 22px;
+      letter-spacing: -0.5px;
+    }
+
+    .section-title span {
+      background: linear-gradient(135deg, #c4b5fd, #a78bfa, #7c3aed);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* ── STAT CARDS ── */
+    .stat-strip {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+      gap: 14px;
+      margin-bottom: 56px;
+    }
+
+    .stat-card {
+      background: rgba(255, 255, 255, 0.025);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px 22px;
+      text-align: center;
+      transition: all 0.25s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .stat-card::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent-dark), var(--accent));
+      opacity: 0;
+      transition: opacity 0.25s;
+    }
+
+    .stat-card:hover {
+      border-color: rgba(167, 139, 250, 0.3);
+      transform: translateY(-4px);
+      box-shadow: 0 14px 36px rgba(0, 0, 0, 0.3);
+    }
+
+    .stat-card:hover::after {
+      opacity: 1;
+    }
+
+    .stat-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 12px;
+      background: var(--accent-glow);
+      border: 1px solid rgba(167, 139, 250, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      color: var(--accent);
+      margin: 0 auto 16px;
+    }
+
+    .stat-num {
+      font-size: 34px;
+      font-weight: 800;
+      background: linear-gradient(135deg, #c4b5fd, #a78bfa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+      margin-bottom: 7px;
+    }
+
+    .stat-label {
+      font-size: 12px;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    /* ── SHIPPING TABLE ── */
+    .ship-table {
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      margin-bottom: 56px;
+    }
+
+    .ship-head {
+      display: grid;
+      grid-template-columns: 2fr 1.3fr 1.2fr 1fr;
+      padding: 13px 22px;
+      background: rgba(255, 255, 255, 0.04);
+      border-bottom: 1px solid var(--border);
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--muted2);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+
+    .ship-row {
+      display: grid;
+      grid-template-columns: 2fr 1.3fr 1.2fr 1fr;
+      padding: 18px 22px;
+      border-bottom: 1px solid var(--border);
+      font-size: 13px;
+      align-items: center;
+      transition: background 0.15s;
+    }
+
+    .ship-row:last-child {
+      border-bottom: none;
+    }
+
+    .ship-row:hover {
+      background: rgba(167, 139, 250, 0.04);
+    }
+
+    .ship-name {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      color: var(--white);
+    }
+
+    .ship-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
+      background: var(--accent-glow);
+      border: 1px solid rgba(167, 139, 250, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+      font-size: 13px;
+      flex-shrink: 0;
+    }
+
+    .ship-time {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .ship-price {
+      font-weight: 700;
+      font-size: 13px;
+    }
+
+    .ship-price.free {
+      color: var(--green);
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 4px 11px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 700;
+      width: fit-content;
+    }
+
+    .pill-green {
+      background: rgba(52, 211, 153, 0.1);
+      color: var(--green);
+      border: 1px solid rgba(52, 211, 153, 0.2);
+    }
+
+    .pill-purple {
+      background: rgba(167, 139, 250, 0.1);
+      color: var(--accent);
+      border: 1px solid rgba(167, 139, 250, 0.2);
+    }
+
+    .pill-amber {
+      background: rgba(251, 191, 36, 0.1);
+      color: var(--amber);
+      border: 1px solid rgba(251, 191, 36, 0.2);
+    }
+
+    /* ── ZONES ── */
+    .zones-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 16px;
+      margin-bottom: 56px;
+    }
+
+    .zone-card {
+      background: rgba(255, 255, 255, 0.025);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px;
+      transition: all 0.25s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .zone-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      opacity: 0;
+      transition: opacity 0.25s;
+    }
+
+    .zone-card.zone-a::before {
+      background: linear-gradient(90deg, #059669, var(--green));
+    }
+
+    .zone-card.zone-b::before {
+      background: linear-gradient(90deg, var(--accent-dark), var(--accent));
+    }
+
+    .zone-card.zone-c::before {
+      background: linear-gradient(90deg, #b45309, var(--amber));
+    }
+
+    .zone-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 36px rgba(0, 0, 0, 0.3);
+    }
+
+    .zone-card.zone-a:hover {
+      border-color: rgba(52, 211, 153, 0.3);
+    }
+
+    .zone-card.zone-b:hover {
+      border-color: rgba(167, 139, 250, 0.3);
+    }
+
+    .zone-card.zone-c:hover {
+      border-color: rgba(251, 191, 36, 0.3);
+    }
+
+    .zone-card:hover::before {
+      opacity: 1;
+    }
+
+    .zone-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+
+    .zone-name {
+      font-size: 17px;
+      font-weight: 800;
+      letter-spacing: -0.3px;
+    }
+
+    .zone-detail {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 7px;
+      line-height: 1.6;
+    }
+
+    .zone-detail strong {
+      color: var(--white);
+    }
+
+    .zone-cities {
+      margin-top: 14px;
+      padding: 12px 14px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    /* ── CALC CARD ── */
+    .calc-card {
+      background: rgba(255, 255, 255, 0.025);
+      border: 1px solid rgba(167, 139, 250, 0.2);
+      border-radius: 18px;
+      padding: 40px;
+      margin-bottom: 56px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .calc-card::before {
+      content: '';
+      position: absolute;
+      top: -50px;
+      right: -50px;
+      width: 220px;
+      height: 220px;
+      background: radial-gradient(circle, rgba(124, 58, 237, 0.1), transparent 70%);
+      pointer-events: none;
+    }
+
+    .calc-card h3 {
+      font-size: 20px;
+      font-weight: 800;
+      margin-bottom: 6px;
+      letter-spacing: -0.3px;
+    }
+
+    .calc-card>p {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 24px;
+    }
+
+    .calc-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+
+    .calc-select {
+      flex: 1;
+      min-width: 180px;
+      padding: 12px 15px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      color: var(--white);
+      font-family: inherit;
+      font-size: 14px;
+      outline: none;
+      transition: border-color .2s, box-shadow .2s;
+      appearance: none;
+      cursor: pointer;
+    }
+
+    .calc-select:focus {
+      border-color: rgba(167, 139, 250, 0.5);
+      box-shadow: 0 0 0 3px rgba(167, 139, 250, 0.1);
+    }
+
+    .calc-select option {
+      background: #1a1a2e;
+    }
+
+    .calc-btn {
+      padding: 12px 24px;
+      background: var(--accent-dark);
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.22s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+    }
+
+    .calc-btn:hover {
+      background: #6d28d9;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(124, 58, 237, 0.4);
+    }
+
+    .calc-result {
+      display: none;
+      padding: 18px 20px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      font-size: 14px;
+      gap: 14px;
+      align-items: center;
+      animation: fadeUp 0.3s ease;
+    }
+
+    .calc-result.show {
+      display: flex;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ── COURIERS ── */
+    .couriers-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 14px;
+      margin-bottom: 56px;
+    }
+
+    .courier-card {
+      background: rgba(255, 255, 255, 0.025);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 22px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      transition: all 0.22s;
+    }
+
+    .courier-card:hover {
+      border-color: rgba(167, 139, 250, 0.3);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+    }
+
+    .courier-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+
+    .courier-name {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 3px;
+    }
+
+    .courier-detail {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    /* ── MINI FAQ ── */
+    .mini-faq {
+      margin-bottom: 56px;
+    }
+
+    .mfaq-item {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .mfaq-item:first-child {
+      border-top: 1px solid var(--border);
+    }
+
+    .mfaq-q {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 4px;
+      cursor: pointer;
+      gap: 14px;
+    }
+
+    .mfaq-text {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--white);
+      transition: color .2s;
+      flex: 1;
+      line-height: 1.4;
+    }
+
+    .mfaq-q:hover .mfaq-text {
+      color: var(--accent);
+    }
+
+    .mfaq-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: rgba(167, 139, 250, 0.06);
+      border: 1px solid rgba(167, 139, 250, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+      font-size: 11px;
+      flex-shrink: 0;
+      transition: all 0.3s;
+    }
+
+    .mfaq-item.open .mfaq-icon {
+      background: rgba(167, 139, 250, 0.15);
+      border-color: var(--accent);
+      transform: rotate(45deg);
+    }
+
+    .mfaq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s cubic-bezier(0.4, 0, .2, 1);
+    }
+
+    .mfaq-item.open .mfaq-answer {
+      max-height: 200px;
+    }
+
+    .mfaq-answer p {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.8;
+      padding-bottom: 20px;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      text-align: center;
+      padding: 20px 24px 36px;
+      border-top: 1px solid var(--border);
+      color: var(--muted2);
+      font-size: 13px;
+    }
+
+    .footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 760px) {
+
+      .ship-head,
+      .ship-row {
+        grid-template-columns: 1.5fr 1fr 1fr;
+      }
+
+      .ship-head span:last-child,
+      .ship-row>span:last-child {
+        display: none;
+      }
+
+      .zones-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .calc-row {
+        flex-direction: column;
+      }
+
+      .calc-btn {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .couriers-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .back-btn span {
+        display: none;
+      }
+
+      .back-btn {
+        padding: 10px 14px;
+      }
+
+      .couriers-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .stat-strip {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .calc-card {
+        padding: 24px 18px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Back Button -->
+  <a href="../index.html" class="back-btn">
+    <i class="fas fa-arrow-left"></i>
+    <span>Back to Home</span>
+  </a>
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="grid-bg"></div>
+    <div class="hero-inner">
+      <div class="hero-badge"><i class="fas fa-truck"></i> Fast Delivery</div>
+      <h1>Shipping <span>Information</span></h1>
+      <p>Everything you need to know about delivery times, zones, rates, and couriers.</p>
+    </div>
+  </div>
+
+  <div class="page-wrap">
+
+    <!-- Stats -->
+    <div class="stat-strip">
+      <div class="stat-card">
+        <div class="stat-icon"><i class="fas fa-shipping-fast"></i></div>
+        <div class="stat-num">2–3</div>
+        <div class="stat-label">Days Average Delivery</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon"><i class="fas fa-box"></i></div>
+        <div class="stat-num">500+</div>
+        <div class="stat-label">Cities Covered</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon"><i class="fas fa-tag"></i></div>
+        <div class="stat-num">Free</div>
+        <div class="stat-label">Shipping Over $50</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon"><i class="fas fa-shield-alt"></i></div>
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Insured Packages</div>
+      </div>
+    </div>
+
+    <!-- Shipping Options -->
+    <h2 class="section-title">Shipping <span>Options</span></h2>
+    <div class="ship-table">
+      <div class="ship-head">
+        <span>Method</span>
+        <span>Delivery Time</span>
+        <span>Cost</span>
+        <span>Availability</span>
+      </div>
+      <div class="ship-row">
+        <span class="ship-name">
+          <span class="ship-icon"><i class="fas fa-truck"></i></span>
+          Standard Shipping
+        </span>
+        <span class="ship-time">3–5 Business Days</span>
+        <span class="ship-price">Rs. 200</span>
+        <span><span class="pill pill-green">All Cities</span></span>
+      </div>
+      <div class="ship-row">
+        <span class="ship-name">
+          <span class="ship-icon"><i class="fas fa-bolt"></i></span>
+          Express Shipping
+        </span>
+        <span class="ship-time">1–2 Business Days</span>
+        <span class="ship-price">Rs. 400</span>
+        <span><span class="pill pill-purple">Major Cities</span></span>
+      </div>
+      <div class="ship-row">
+        <span class="ship-name">
+          <span class="ship-icon"><i class="fas fa-star"></i></span>
+          Free Shipping
+        </span>
+        <span class="ship-time">3–5 Business Days</span>
+        <span class="ship-price free">FREE</span>
+        <span><span class="pill pill-green">Orders $50+</span></span>
+      </div>
+      <div class="ship-row">
+        <span class="ship-name">
+          <span class="ship-icon"><i class="fas fa-globe"></i></span>
+          International
+        </span>
+        <span class="ship-time">7–14 Business Days</span>
+        <span class="ship-price">At checkout</span>
+        <span><span class="pill pill-amber">Select Countries</span></span>
+      </div>
+    </div>
+
+    <!-- Delivery Zones -->
+    <h2 class="section-title">Delivery <span>Zones</span></h2>
+    <div class="zones-grid">
+      <div class="zone-card zone-a">
+        <div class="zone-header">
+          <div class="zone-name">Major Cities</div>
+          <span class="pill pill-green">Zone A</span>
+        </div>
+        <div class="zone-detail">Delivery in <strong>1–2 days</strong></div>
+        <div class="zone-detail">Standard: <strong>Rs. 200</strong> &nbsp;|&nbsp; Express: <strong>Rs. 400</strong>
+        </div>
+        <div class="zone-cities">Karachi, Lahore, Islamabad, Rawalpindi, Faisalabad, Multan, Peshawar</div>
+      </div>
+      <div class="zone-card zone-b">
+        <div class="zone-header">
+          <div class="zone-name">Secondary Cities</div>
+          <span class="pill pill-purple">Zone B</span>
+        </div>
+        <div class="zone-detail">Delivery in <strong>2–4 days</strong></div>
+        <div class="zone-detail">Standard: <strong>Rs. 250</strong> &nbsp;|&nbsp; Express: <strong>Rs. 500</strong>
+        </div>
+        <div class="zone-cities">Bahawalpur, Gujranwala, Sialkot, Hyderabad, Quetta, Sukkur, Sargodha</div>
+      </div>
+      <div class="zone-card zone-c">
+        <div class="zone-header">
+          <div class="zone-name">Remote Areas</div>
+          <span class="pill pill-amber">Zone C</span>
+        </div>
+        <div class="zone-detail">Delivery in <strong>4–7 days</strong></div>
+        <div class="zone-detail">Standard: <strong>Rs. 350</strong> &nbsp;|&nbsp; Express: <strong>On request</strong>
+        </div>
+        <div class="zone-cities">Gilgit, Skardu, Chitral, Zhob, Khuzdar, Turbat, and other remote regions</div>
+      </div>
+    </div>
+
+    <!-- Shipping Calculator -->
+    <div class="calc-card">
+      <h3>Estimate Shipping Cost</h3>
+      <p>Select your city and order amount to get an instant shipping estimate.</p>
+      <div class="calc-row">
+        <select class="calc-select" id="citySelect">
+          <option value="">Select your city</option>
+          <option value="A">Karachi</option>
+          <option value="A">Lahore</option>
+          <option value="A">Islamabad</option>
+          <option value="A">Faisalabad</option>
+          <option value="A">Multan</option>
+          <option value="B">Bahawalpur</option>
+          <option value="B">Gujranwala</option>
+          <option value="B">Sialkot</option>
+          <option value="B">Hyderabad</option>
+          <option value="C">Gilgit</option>
+          <option value="C">Skardu</option>
+          <option value="C">Chitral</option>
+        </select>
+        <select class="calc-select" id="orderAmt">
+          <option value="">Order amount</option>
+          <option value="low">Under $50</option>
+          <option value="high">$50 or above</option>
+        </select>
+        <button class="calc-btn" onclick="calcShipping()">
+          <i class="fas fa-calculator"></i> Calculate
+        </button>
+      </div>
+      <div class="calc-result" id="calcResult"></div>
+    </div>
+
+    <!-- Courier Partners -->
+    <h2 class="section-title">Our Courier <span>Partners</span></h2>
+    <div class="couriers-grid">
+      <div class="courier-card">
+        <div class="courier-icon">🐆</div>
+        <div>
+          <div class="courier-name">Leopards Courier</div>
+          <div class="courier-detail">Nationwide, reliable tracking</div>
+        </div>
+      </div>
+      <div class="courier-card">
+        <div class="courier-icon">📦</div>
+        <div>
+          <div class="courier-name">TCS Courier</div>
+          <div class="courier-detail">Next-day delivery in major cities</div>
+        </div>
+      </div>
+      <div class="courier-card">
+        <div class="courier-icon">🚀</div>
+        <div>
+          <div class="courier-name">PostEx</div>
+          <div class="courier-detail">COD specialist, fast delivery</div>
+        </div>
+      </div>
+      <div class="courier-card">
+        <div class="courier-icon">📮</div>
+        <div>
+          <div class="courier-name">Pakistan Post</div>
+          <div class="courier-detail">Remote areas coverage</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Shipping FAQs -->
+    <h2 class="section-title">Shipping <span>FAQs</span></h2>
+    <div class="mini-faq">
+      <div class="mfaq-item open">
+        <div class="mfaq-q" onclick="toggleMfaq(this)">
+          <span class="mfaq-text">When will my order be dispatched?</span>
+          <div class="mfaq-icon"><i class="fas fa-plus"></i></div>
+        </div>
+        <div class="mfaq-answer">
+          <p>Orders placed before 3:00 PM are dispatched the same business day. Orders after 3 PM are dispatched the
+            next morning. We ship Monday to Saturday (excluding public holidays).</p>
+        </div>
+      </div>
+      <div class="mfaq-item">
+        <div class="mfaq-q" onclick="toggleMfaq(this)">
+          <span class="mfaq-text">Can I change my delivery address after ordering?</span>
+          <div class="mfaq-icon"><i class="fas fa-plus"></i></div>
+        </div>
+        <div class="mfaq-answer">
+          <p>Yes, but only within 2 hours of placing your order. Contact us immediately via WhatsApp at +92 300 0000000.
+            Once dispatched, the address cannot be changed.</p>
+        </div>
+      </div>
+      <div class="mfaq-item">
+        <div class="mfaq-q" onclick="toggleMfaq(this)">
+          <span class="mfaq-text">What if my package arrives damaged?</span>
+          <div class="mfaq-icon"><i class="fas fa-plus"></i></div>
+        </div>
+        <div class="mfaq-answer">
+          <p>All our shipments are insured. If your package arrives damaged, take photos immediately and contact us
+            within 24 hours. We'll arrange a free replacement or full refund — no questions asked.</p>
+        </div>
+      </div>
+      <div class="mfaq-item">
+        <div class="mfaq-q" onclick="toggleMfaq(this)">
+          <span class="mfaq-text">Do you ship internationally?</span>
+          <div class="mfaq-icon"><i class="fas fa-plus"></i></div>
+        </div>
+        <div class="mfaq-answer">
+          <p>Yes! We currently ship to UAE, Saudi Arabia, UK, Canada, and the USA. International shipping rates are
+            calculated at checkout based on weight and destination. Delivery takes 7–14 business days.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    &copy; 2026 <a href="../index.html">HamdanStore</a>. All rights reserved.
+    Made with <i class="fas fa-heart" style="color:#f87171;font-size:10px"></i> in Pakistan.
+  </div>
+
+  <script>
+    function calcShipping() {
+      const zone = document.getElementById('citySelect').value;
+      const amt = document.getElementById('orderAmt').value;
+      const res = document.getElementById('calcResult');
+      if (!zone || !amt) { res.className = 'calc-result'; return; }
+
+      let msg = '';
+      if (amt === 'high') {
+        msg = `
+          <i class="fas fa-circle-check" style="color:var(--green);font-size:22px;flex-shrink:0"></i>
+          <div>
+            <strong style="color:var(--green);display:block;margin-bottom:3px">FREE Shipping!</strong>
+            <span style="font-size:13px;color:var(--muted)">Your order qualifies for free standard delivery (3–5 business days).</span>
+          </div>`;
+      } else {
+        const rates = { A: 'Rs. 200 · 1–2 days', B: 'Rs. 250 · 2–4 days', C: 'Rs. 350 · 4–7 days' };
+        msg = `
+          <i class="fas fa-truck" style="color:var(--accent);font-size:22px;flex-shrink:0"></i>
+          <div>
+            <strong style="display:block;margin-bottom:3px">Standard: ${rates[zone]}</strong>
+            <span style="font-size:13px;color:var(--muted)">Add more items to reach $50 and get FREE shipping!</span>
+          </div>`;
+      }
+      res.innerHTML = msg;
+      res.className = 'calc-result show';
+    }
+
+    function toggleMfaq(el) {
+      const item = el.closest('.mfaq-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.mfaq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    }
+  </script>
+</body>
+
+</html>

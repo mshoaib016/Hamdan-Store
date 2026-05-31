@@ -1,0 +1,1667 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Detail — Hamdan Store</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Sora:wght@600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --bg: #0c0c0f;
+            --surface: #141418;
+            --surface2: #1a1a20;
+            --surface3: #202028;
+            --border: rgba(255, 255, 255, 0.07);
+            --border-md: rgba(255, 255, 255, 0.13);
+            --accent: #6c63ff;
+            --accent2: #a78bfa;
+            --accent-glow: rgba(108, 99, 255, 0.18);
+            --accent-dark: #4f46c8;
+            --white: #f0f0f5;
+            --muted: rgba(240, 240, 245, 0.45);
+            --muted2: rgba(240, 240, 245, 0.22);
+            --green: #22c55e;
+            --amber: #f59e0b;
+            --red: #ef4444;
+            --r-sm: 10px;
+            --r-md: 14px;
+            --r-lg: 18px;
+            --r-xl: 24px;
+            --font-body: 'Outfit', sans-serif;
+            --font-heading: 'Sora', sans-serif;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--bg);
+            color: var(--white);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        /* ── BREADCRUMB ── */
+        .breadcrumb {
+            max-width: 1360px;
+            margin: 0 auto;
+            padding: 35px 48px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12.5px;
+            color: var(--muted2);
+            animation: fadeInDown 0.6s ease-out;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .breadcrumb a {
+            color: var(--muted);
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .breadcrumb a:hover {
+            color: var(--accent2);
+            transform: translateX(2px);
+        }
+
+        .breadcrumb i {
+            font-size: 10px;
+            opacity: 0.4;
+        }
+
+        .breadcrumb span {
+            color: var(--accent2);
+            font-weight: 600;
+        }
+
+        /* ── MAIN PRODUCT SECTION ── */
+        .product-wrap {
+            max-width: 1360px;
+            margin: 0 auto;
+            padding: 40px 48px 100px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 72px;
+            align-items: start;
+        }
+
+        /* ── IMAGE GALLERY ── */
+        .gallery-col {
+            position: sticky;
+            top: 120px;
+            animation: fadeInLeft 0.6s ease-out 0.1s backwards;
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .main-img-wrap {
+            position: relative;
+            border-radius: var(--r-xl);
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--surface2) 0%, rgba(26, 26, 32, 0.6) 100%);
+            border: 1px solid var(--border);
+            aspect-ratio: 1/1;
+            margin-bottom: 18px;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .main-img-wrap:hover {
+            border-color: rgba(108, 99, 255, 0.4);
+            box-shadow: 0 0 0 1px rgba(108, 99, 255, 0.1);
+        }
+
+        .main-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .main-img-wrap:hover img {
+            transform: scale(1.06);
+        }
+
+        .img-badge {
+            position: absolute;
+            top: 18px;
+            left: 18px;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            padding: 6px 14px;
+            border-radius: 999px;
+            z-index: 3;
+            backdrop-filter: blur(6px);
+            transition: all 0.3s;
+        }
+
+        .img-badge.hot {
+            background: rgba(239, 68, 68, 0.2);
+            color: #fca5a5;
+            border: 1px solid rgba(239, 68, 68, 0.35);
+        }
+
+        .img-badge.new {
+            background: rgba(108, 99, 255, 0.2);
+            color: #a78bfa;
+            border: 1px solid rgba(108, 99, 255, 0.35);
+        }
+
+        .img-badge.sale {
+            background: rgba(34, 197, 94, 0.2);
+            color: #86efac;
+            border: 1px solid rgba(34, 197, 94, 0.35);
+        }
+
+        .thumb-row {
+            display: flex;
+            gap: 12px;
+        }
+
+        .thumb {
+            width: 84px;
+            height: 84px;
+            border-radius: var(--r-md);
+            overflow: hidden;
+            border: 2px solid var(--border);
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            flex-shrink: 0;
+        }
+
+        .thumb:hover {
+            border-color: rgba(108, 99, 255, 0.3);
+            transform: translateY(-3px);
+        }
+
+        .thumb.active {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 2px rgba(108, 99, 255, 0.25);
+            transform: translateY(-3px);
+        }
+
+        .thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* ── PRODUCT INFO ── */
+        .info-col {
+            padding-top: 4px;
+            animation: fadeInRight 0.6s ease-out 0.1s backwards;
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .p-category {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--accent2);
+            margin-bottom: 14px;
+            transition: all 0.3s;
+        }
+
+        .p-category::before {
+            content: '';
+            display: block;
+            width: 16px;
+            height: 1.5px;
+            background: var(--accent2);
+            border-radius: 2px;
+            transition: width 0.3s;
+        }
+
+        .p-category:hover::before {
+            width: 24px;
+        }
+
+        .p-title {
+            font-family: var(--font-heading);
+            font-size: 38px;
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -1px;
+            margin-bottom: 16px;
+            color: var(--white);
+        }
+
+        .p-rating-row {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border);
+            flex-wrap: wrap;
+        }
+
+        .p-stars {
+            display: flex;
+            gap: 3px;
+        }
+
+        .p-stars i {
+            color: var(--amber);
+            font-size: 14px;
+            transition: transform 0.2s;
+        }
+
+        .p-stars i:hover {
+            transform: scale(1.15);
+        }
+
+        .p-rating-num {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--white);
+        }
+
+        .p-reviews {
+            font-size: 13.5px;
+            color: var(--muted);
+        }
+
+        .p-reviews span {
+            color: var(--accent2);
+            font-weight: 600;
+        }
+
+        .p-in-stock {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--green);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.7;
+            }
+        }
+
+        .p-in-stock i {
+            font-size: 12px;
+        }
+
+        /* PRICE */
+        .price-block {
+            margin-bottom: 26px;
+        }
+
+        .price-orig {
+            font-size: 14px;
+            color: var(--muted2);
+            text-decoration: line-through;
+            margin-bottom: 6px;
+            transition: color 0.3s;
+        }
+
+        .price-main {
+            display: flex;
+            align-items: baseline;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .price-now {
+            font-family: var(--font-heading);
+            font-size: 48px;
+            font-weight: 800;
+            color: var(--white);
+            line-height: 1;
+            letter-spacing: -1.2px;
+        }
+
+        .price-now .sym {
+            font-size: 22px;
+            font-weight: 500;
+            color: var(--muted);
+            vertical-align: super;
+        }
+
+        .price-save {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(34, 197, 94, 0.15);
+            color: #86efac;
+            border: 1.5px solid rgba(34, 197, 94, 0.35);
+            border-radius: 999px;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 6px 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            transition: all 0.3s;
+        }
+
+        .price-save:hover {
+            background: rgba(34, 197, 94, 0.25);
+            border-color: rgba(34, 197, 94, 0.5);
+            transform: scale(1.05);
+        }
+
+        /* HIGHLIGHTS */
+        .highlights {
+            margin-bottom: 28px;
+        }
+
+        .highlights h4 {
+            font-family: var(--font-heading);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1.6px;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 14px;
+        }
+
+        .highlight-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .highlight-item {
+            display: flex;
+            align-items: center;
+            gap: 11px;
+            font-size: 14px;
+            color: var(--muted);
+            transition: all 0.3s;
+            padding: 2px 0;
+        }
+
+        .highlight-item:hover {
+            color: var(--white);
+            transform: translateX(4px);
+        }
+
+        .highlight-item i {
+            color: var(--accent2);
+            font-size: 13px;
+            flex-shrink: 0;
+            width: 18px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .highlight-item:hover i {
+            transform: scale(1.2);
+        }
+
+        /* QTY + ACTIONS */
+        .qty-row {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .qty-label {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--muted);
+            letter-spacing: 0.6px;
+            text-transform: uppercase;
+            min-width: 40px;
+        }
+
+        .qty-ctrl {
+            display: flex;
+            align-items: center;
+            gap: 0;
+            background: var(--surface2);
+            border: 1.5px solid rgba(108, 99, 255, 0.25);
+            border-radius: var(--r-sm);
+            padding: 2px;
+        }
+
+        .qty-btn {
+            width: 40px;
+            height: 40px;
+            border: none;
+            background: transparent;
+            color: var(--accent2);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            border-radius: var(--r-sm);
+            margin: 2px;
+        }
+
+        .qty-btn:hover {
+            background: var(--accent);
+            color: #fff;
+            transform: scale(1.05);
+        }
+
+        .qty-num {
+            width: 50px;
+            height: 40px;
+            border: none;
+            background: transparent;
+            color: var(--white);
+            text-align: center;
+            font-family: var(--font-heading);
+            font-size: 15px;
+            font-weight: 700;
+            outline: none;
+        }
+
+        .action-row {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .btn-buy {
+            flex: 1;
+            padding: 16px 20px;
+            background: var(--accent);
+            color: #fff;
+            border: none;
+            border-radius: var(--r-md);
+            font-family: var(--font-body);
+            font-size: 15.5px;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 11px;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            min-height: 52px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-buy::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateX(-100%);
+            transition: transform 0.3s;
+        }
+
+        .btn-buy:hover::before {
+            transform: translateX(100%);
+        }
+
+        .btn-buy:hover {
+            background: var(--accent-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 36px rgba(108, 99, 255, 0.5);
+        }
+
+        .btn-cart {
+            padding: 16px 22px;
+            background: var(--surface2);
+            border: 1.5px solid var(--border-md);
+            color: var(--white);
+            border-radius: var(--r-md);
+            font-family: var(--font-body);
+            font-size: 14.5px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            min-height: 52px;
+        }
+
+        .btn-cart:hover {
+            border-color: rgba(108, 99, 255, 0.5);
+            color: var(--accent2);
+            background: var(--accent-glow);
+            transform: translateY(-2px);
+        }
+
+        .btn-cart.added {
+            background: rgba(34, 197, 94, 0.15);
+            border-color: rgba(34, 197, 94, 0.4);
+            color: #86efac;
+        }
+
+        /* TRUST BADGES */
+        .trust-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            padding: 22px;
+            background: linear-gradient(135deg, var(--surface2) 0%, rgba(26, 26, 32, 0.5) 100%);
+            border: 1px solid var(--border);
+            border-radius: var(--r-lg);
+            margin-bottom: 24px;
+            transition: all 0.3s;
+        }
+
+        .trust-row:hover {
+            border-color: rgba(108, 99, 255, 0.3);
+            box-shadow: 0 0 0 1px rgba(108, 99, 255, 0.1);
+        }
+
+        .trust-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .trust-item:hover {
+            transform: translateY(-2px);
+        }
+
+        .trust-item i {
+            font-size: 20px;
+            color: var(--accent2);
+            transition: all 0.3s;
+        }
+
+        .trust-item:hover i {
+            transform: scale(1.15);
+        }
+
+        .trust-item span {
+            font-size: 12px;
+            color: var(--muted);
+            line-height: 1.4;
+            font-weight: 500;
+        }
+
+        .share-btn {
+            width: 38px;
+            height: 38px;
+            border-radius: var(--r-sm);
+            background: var(--surface2);
+            border: 1.5px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--muted);
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            text-decoration: none;
+        }
+
+        .share-btn:hover {
+            border-color: rgba(108, 99, 255, 0.5);
+            color: var(--accent2);
+            background: var(--accent-glow);
+            transform: translateY(-3px);
+        }
+
+        /* ── TABS ── */
+        .tabs-section {
+            max-width: 1360px;
+            margin: 0 auto;
+            padding: 0 48px 100px;
+        }
+
+        .tab-nav {
+            display: flex;
+            gap: 8px;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 36px;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .tab-btn {
+            padding: 13px 24px;
+            background: transparent;
+            border: none;
+            color: var(--muted);
+            font-family: var(--font-body);
+            font-size: 14.5px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            border-bottom: 2.5px solid transparent;
+            margin-bottom: -1px;
+            white-space: nowrap;
+            position: relative;
+        }
+
+        .tab-btn:hover {
+            color: var(--white);
+            border-bottom-color: rgba(108, 99, 255, 0.3);
+        }
+
+        .tab-btn.active {
+            color: var(--accent2);
+            border-bottom-color: var(--accent2);
+            font-weight: 600;
+        }
+
+        .tab-panel {
+            display: none;
+            animation: fadeIn 0.4s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .tab-panel.active {
+            display: block;
+        }
+
+        /* SPECS TABLE */
+        .specs-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .specs-table tr:nth-child(odd) td {
+            background: var(--surface2);
+        }
+
+        .specs-table td {
+            padding: 14px 18px;
+            font-size: 14px;
+            border-bottom: 1px solid var(--border);
+            transition: all 0.2s;
+        }
+
+        .specs-table tr:hover td {
+            background: var(--surface3);
+        }
+
+        .specs-table td:first-child {
+            color: var(--muted);
+            font-weight: 600;
+            width: 38%;
+            font-size: 13px;
+            letter-spacing: 0.3px;
+        }
+
+        .specs-table td:last-child {
+            color: var(--white);
+        }
+
+        .specs-wrap {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--r-lg);
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        /* REVIEWS in TAB */
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 18px;
+        }
+
+        .review-card {
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            border-radius: var(--r-lg);
+            padding: 24px;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .review-card:hover {
+            border-color: rgba(108, 99, 255, 0.3);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(108, 99, 255, 0.1);
+        }
+
+        .review-quote {
+            font-size: 36px;
+            line-height: 1;
+            color: var(--accent);
+            font-family: var(--font-heading);
+            margin-bottom: 12px;
+            opacity: 0.4;
+        }
+
+        .review-text {
+            font-size: 13.5px;
+            color: var(--muted);
+            line-height: 1.7;
+            margin-bottom: 16px;
+            font-style: italic;
+        }
+
+        .review-stars {
+            display: flex;
+            gap: 4px;
+            margin-bottom: 14px;
+        }
+
+        .review-stars i {
+            color: var(--amber);
+            font-size: 13px;
+        }
+
+        .review-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding-top: 16px;
+            border-top: 1px solid var(--border);
+        }
+
+        .review-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent), var(--accent2));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-heading);
+            font-size: 14px;
+            font-weight: 700;
+            color: #fff;
+            flex-shrink: 0;
+            box-shadow: 0 4px 12px rgba(108, 99, 255, 0.3);
+        }
+
+        .review-name {
+            font-size: 13.5px;
+            font-weight: 600;
+            color: var(--white);
+        }
+
+        .review-loc {
+            font-size: 11px;
+            color: var(--muted);
+        }
+
+        /* ── BUY MODAL ── */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(12, 12, 15, 0.92);
+            backdrop-filter: blur(12px);
+            z-index: 4000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            padding: 20px;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal {
+            background: var(--surface);
+            border: 1px solid rgba(108, 99, 255, 0.25);
+            border-radius: var(--r-xl);
+            width: 100%;
+            max-width: 500px;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 40px 96px rgba(0, 0, 0, 0.8), 0 0 1px rgba(108, 99, 255, 0.2);
+            transform: scale(0.95);
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .modal-overlay.active .modal {
+            transform: scale(1);
+        }
+
+        .modal-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 22px 26px 18px;
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            background: var(--surface);
+            z-index: 1;
+        }
+
+        .modal-title {
+            font-family: var(--font-heading);
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--white);
+        }
+
+        .modal-close {
+            background: var(--surface2);
+            border: 1.5px solid var(--border);
+            color: var(--muted);
+            width: 36px;
+            height: 36px;
+            border-radius: var(--r-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .modal-close:hover {
+            color: var(--white);
+            border-color: rgba(108, 99, 255, 0.4);
+            background: var(--accent-glow);
+            transform: rotate(90deg);
+        }
+
+        .modal-body {
+            padding: 26px 26px 28px;
+        }
+
+        .order-preview {
+            background: linear-gradient(135deg, var(--surface2) 0%, rgba(26, 26, 32, 0.6) 100%);
+            border: 1px solid var(--border);
+            border-radius: var(--r-md);
+            padding: 16px 18px;
+            display: flex;
+            gap: 16px;
+            align-items: center;
+            margin-bottom: 24px;
+            transition: all 0.3s;
+        }
+
+        .order-preview:hover {
+            border-color: rgba(108, 99, 255, 0.3);
+            box-shadow: 0 0 0 1px rgba(108, 99, 255, 0.1);
+        }
+
+        .order-preview img {
+            width: 68px;
+            height: 68px;
+            border-radius: 12px;
+            object-fit: cover;
+            border: 1.5px solid var(--border);
+            transition: transform 0.3s;
+        }
+
+        .order-preview:hover img {
+            transform: scale(1.05);
+        }
+
+        .order-preview-info .name {
+            font-size: 14.5px;
+            font-weight: 700;
+            margin-bottom: 4px;
+            color: var(--white);
+        }
+
+        .order-preview-info .price {
+            font-size: 18px;
+            font-weight: 800;
+            color: var(--accent2);
+            font-family: var(--font-heading);
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--muted);
+            letter-spacing: 0.6px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .form-input,
+        .form-select {
+            width: 100%;
+            background: var(--surface2);
+            border: 1.5px solid var(--border);
+            border-radius: var(--r-sm);
+            padding: 12px 15px;
+            color: var(--white);
+            font-family: var(--font-body);
+            font-size: 14px;
+            outline: none;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .form-input:focus,
+        .form-select:focus {
+            border-color: rgba(108, 99, 255, 0.6);
+            background: rgba(26, 26, 32, 0.8);
+            box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.12);
+        }
+
+        .form-input::placeholder {
+            color: var(--muted2);
+        }
+
+        .form-select option {
+            background: var(--surface2);
+            color: var(--white);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: var(--accent);
+            color: #fff;
+            border: none;
+            border-radius: var(--r-md);
+            font-family: var(--font-body);
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            margin-top: 22px;
+            min-height: 48px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .submit-btn::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateX(-100%);
+            transition: transform 0.3s;
+        }
+
+        .submit-btn:hover::before {
+            transform: translateX(100%);
+        }
+
+        .submit-btn:hover {
+            background: var(--accent-dark);
+            box-shadow: 0 12px 32px rgba(108, 99, 255, 0.5);
+            transform: translateY(-2px);
+        }
+
+        .success-panel {
+            text-align: center;
+            padding: 20px 0;
+            animation: scaleIn 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .success-icon {
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            background: rgba(34, 197, 94, 0.15);
+            border: 2.5px solid rgba(34, 197, 94, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 32px;
+            color: var(--green);
+            animation: bounceIn 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @keyframes bounceIn {
+            0% {
+                transform: scale(0.3);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .success-panel h3 {
+            font-family: var(--font-heading);
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--white);
+        }
+
+        .success-panel p {
+            font-size: 14px;
+            color: var(--muted);
+            line-height: 1.7;
+        }
+
+        .order-id-box {
+            display: inline-block;
+            background: var(--accent-glow);
+            border: 1.5px solid rgba(108, 99, 255, 0.35);
+            border-radius: var(--r-sm);
+            padding: 8px 18px;
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--accent2);
+            margin: 16px 0;
+            font-family: var(--font-heading);
+            transition: all 0.3s;
+        }
+
+        .order-id-box:hover {
+            border-color: rgba(108, 99, 255, 0.6);
+            box-shadow: 0 0 0 1px rgba(108, 99, 255, 0.15);
+        }
+
+        /* ── TOAST ── */
+        .toast {
+            position: fixed;
+            bottom: 28px;
+            right: 28px;
+            background: var(--surface2);
+            border: 1.5px solid rgba(108, 99, 255, 0.4);
+            border-radius: var(--r-md);
+            padding: 14px 22px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--white);
+            z-index: 5000;
+            opacity: 0;
+            transform: translateY(20px) translateX(20px);
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            pointer-events: none;
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(8px);
+        }
+
+        .toast.show {
+            opacity: 1;
+            transform: translateY(0) translateX(0);
+            pointer-events: auto;
+        }
+
+        .toast i {
+            color: var(--green);
+            font-size: 16px;
+        }
+
+        /* ── RESPONSIVE ── */
+        @media(max-width:1024px) {
+            .product-wrap {
+                grid-template-columns: 1fr;
+                gap: 42px;
+            }
+
+            .gallery-col {
+                position: static;
+            }
+
+            .breadcrumb,
+            .product-wrap,
+            .tabs-section {
+                padding-left: 32px;
+                padding-right: 32px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .trust-row {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media(max-width:768px) {
+            .breadcrumb {
+                padding-top: 100px;
+                font-size: 12px;
+            }
+
+            .p-title {
+                font-size: 28px;
+            }
+
+            .price-now {
+                font-size: 36px;
+            }
+
+            .action-row {
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+
+            .btn-buy,
+            .btn-cart {
+                flex: 1;
+                min-width: 0;
+            }
+
+            .trust-row {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+
+            .tab-btn {
+                font-size: 13px;
+                padding: 11px 16px;
+            }
+
+            .reviews-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .modal {
+                max-width: 90vw;
+            }
+
+            .breadcrumb,
+            .product-wrap,
+            .tabs-section {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+        }
+
+        @media(max-width:480px) {
+            .p-rating-row {
+                gap: 8px;
+            }
+
+            .price-main {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+
+            .qty-row {
+                gap: 12px;
+            }
+
+            .share-row {
+                gap: 8px;
+            }
+
+            .thumb-row {
+                gap: 8px;
+            }
+
+            .thumb {
+                width: 72px;
+                height: 72px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- BREADCRUMB -->
+    <div class="breadcrumb">
+        <a href="../index.html"><i class="fas fa-home" style="margin-right:4px;"></i>Home</a>
+        <i class="fas fa-chevron-right"></i>
+        <a href="products.html">All Products</a>
+        <i class="fas fa-chevron-right"></i>
+        <span id="bc-name">Product</span>
+    </div>
+
+    <!-- PRODUCT DETAIL -->
+    <div class="product-wrap">
+        <!-- LEFT: GALLERY -->
+        <div class="gallery-col">
+            <div class="main-img-wrap" id="mainImgWrap">
+                <span class="img-badge" id="badgeEl" style="display:none"></span>
+                <img id="mainImg" src="" alt="Product" />
+            </div>
+            <div class="thumb-row" id="thumbRow"></div>
+        </div>
+
+        <!-- RIGHT: INFO -->
+        <div class="info-col">
+            <p class="p-category" id="pCat">Category</p>
+            <h1 class="p-title" id="pTitle">Product Name</h1>
+
+            <div class="p-rating-row">
+                <div class="p-stars" id="pStars"></div>
+                <span class="p-rating-num" id="pRatingNum">0.0</span>
+                <span class="p-reviews"><span id="pReviewCount">0</span> verified reviews</span>
+                <span class="p-in-stock"><i class="fas fa-circle-check"></i> In Stock</span>
+            </div>
+
+            <div class="price-block">
+                <p class="price-orig" id="priceOrig" style="display:none"></p>
+                <div class="price-main">
+                    <p class="price-now" id="priceNow"><span class="sym">$</span><span id="priceVal">0</span></p>
+                    <span class="price-save" id="priceSave" style="display:none"></span>
+                </div>
+            </div>
+
+            <div class="highlights">
+                <h4>Key Highlights</h4>
+                <div class="highlight-list" id="highlightList"></div>
+            </div>
+
+            <div class="qty-row">
+                <span class="qty-label">Qty</span>
+                <div class="qty-ctrl">
+                    <button class="qty-btn" onclick="changeQty(-1)"><i class="fas fa-minus"
+                            style="font-size:12px"></i></button>
+                    <input class="qty-num" id="qtyInput" type="number" value="1" min="1" max="99" readonly />
+                    <button class="qty-btn" onclick="changeQty(1)"><i class="fas fa-plus"
+                            style="font-size:12px"></i></button>
+                </div>
+            </div>
+
+            <div class="action-row">
+                <button class="btn-buy" onclick="openBuyModal()">
+                    <i class="fas fa-bolt"></i> Buy Now
+                </button>
+                <button class="btn-cart" id="addCartBtn" onclick="addToCart()">
+                    <i class="fas fa-cart-shopping"></i> Add to Cart
+                </button>
+                </button>
+            </div>
+
+            <div class="trust-row">
+                <div class="trust-item"><i class="fas fa-shield-alt"></i><span>100% Authentic<br>Guaranteed</span></div>
+                <div class="trust-item"><i class="fas fa-undo-alt"></i><span>30-Day Easy<br>Returns</span></div>
+                <div class="trust-item"><i class="fas fa-shipping-fast"></i><span>Fast & Free<br>Delivery</span></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TABS: SPECS + REVIEWS -->
+    <div class="tabs-section">
+        <div class="tab-nav">
+            <button class="tab-btn active" onclick="switchTab('specs',this)">Specifications</button>
+            <button class="tab-btn" onclick="switchTab('reviews',this)">Customer Reviews</button>
+            <button class="tab-btn" onclick="switchTab('shipping',this)">Shipping & Returns</button>
+        </div>
+
+        <div class="tab-panel active" id="tab-specs">
+            <div class="specs-wrap">
+                <table class="specs-table" id="specsTable"></table>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-reviews">
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-quote">"</div>
+                    <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                            class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="review-text">Absolutely love this product! Build quality is premium and it works exactly
+                        as described. Delivery was super fast too.</p>
+                    <div class="review-author">
+                        <div class="review-avatar">AK</div>
+                        <div>
+                            <div class="review-name">Ahmed Khan</div>
+                            <div class="review-loc">Lahore, Pakistan</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="review-quote">"</div>
+                    <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                            class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="review-text">Great value for money. Very satisfied with the purchase. Hamdan Store always
+                        delivers quality products on time!</p>
+                    <div class="review-author">
+                        <div class="review-avatar">SR</div>
+                        <div>
+                            <div class="review-name">Sara Rahman</div>
+                            <div class="review-loc">Karachi, Pakistan</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="review-quote">"</div>
+                    <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                            class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-stroke"></i>
+                    </div>
+                    <p class="review-text">Packaging was very nice and product quality excellent. Customer support
+                        helped me quickly when I had a question. Highly recommend!</p>
+                    <div class="review-author">
+                        <div class="review-avatar">UF</div>
+                        <div>
+                            <div class="review-name">Usman Farooq</div>
+                            <div class="review-loc">Islamabad, Pakistan</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-panel" id="tab-shipping">
+            <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px;">
+                <div
+                    style="background:linear-gradient(135deg,var(--surface) 0%,rgba(26,26,32,0.6) 100%);border:1px solid var(--border);border-radius:var(--r-lg);padding:26px;transition:all 0.3s;cursor:pointer;">
+                    <div
+                        style="width:48px;height:48px;border-radius:var(--r-md);background:var(--accent-glow);border:1.5px solid rgba(108,99,255,0.25);display:flex;align-items:center;justify-content:center;font-size:20px;color:var(--accent2);margin-bottom:16px;transition:all 0.3s;">
+                        <i class="fas fa-shipping-fast"></i>
+                    </div>
+                    <h4
+                        style="font-family:var(--font-heading);font-size:16px;font-weight:700;margin-bottom:10px;color:var(--white);">
+                        Standard Delivery</h4>
+                    <p style="font-size:13.5px;color:var(--muted);line-height:1.7;">2–5 business days within Pakistan.
+                        Express 1–2 days available for major cities. Free shipping on orders over $50.</p>
+                </div>
+                <div
+                    style="background:linear-gradient(135deg,var(--surface) 0%,rgba(26,26,32,0.6) 100%);border:1px solid var(--border);border-radius:var(--r-lg);padding:26px;transition:all 0.3s;cursor:pointer;">
+                    <div
+                        style="width:48px;height:48px;border-radius:var(--r-md);background:var(--accent-glow);border:1.5px solid rgba(108,99,255,0.25);display:flex;align-items:center;justify-content:center;font-size:20px;color:var(--accent2);margin-bottom:16px;transition:all 0.3s;">
+                        <i class="fas fa-undo-alt"></i>
+                    </div>
+                    <h4
+                        style="font-family:var(--font-heading);font-size:16px;font-weight:700;margin-bottom:10px;color:var(--white);">
+                        30-Day
+                        Returns</h4>
+                    <p style="font-size:13.5px;color:var(--muted);line-height:1.7;">Not satisfied? Return within 30
+                        days,
+                        no questions asked. Refunds processed within 3–5 business days after we receive the item.</p>
+                </div>
+                <div
+                    style="background:linear-gradient(135deg,var(--surface) 0%,rgba(26,26,32,0.6) 100%);border:1px solid var(--border);border-radius:var(--r-lg);padding:26px;transition:all 0.3s;cursor:pointer;">
+                    <div
+                        style="width:48px;height:48px;border-radius:var(--r-md);background:var(--accent-glow);border:1.5px solid rgba(108,99,255,0.25);display:flex;align-items:center;justify-content:center;font-size:20px;color:var(--accent2);margin-bottom:16px;transition:all 0.3s;">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h4
+                        style="font-family:var(--font-heading);font-size:16px;font-weight:700;margin-bottom:10px;color:var(--white);">
+                        Warranty Coverage</h4>
+                    <p style="font-size:13.5px;color:var(--muted);line-height:1.7;">All products include manufacturer
+                        warranty (6–18 months depending on item). Contact support for warranty claims via WhatsApp or
+                        email.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- BUY NOW MODAL -->
+    <div class="modal-overlay" id="buyModal">
+        <div class="modal">
+            <div class="modal-head">
+                <h3 class="modal-title">Complete Your Order</h3>
+                <button class="modal-close" onclick="closeBuyModal()"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body" id="modalBodyContent">
+                <div class="order-preview">
+                    <img id="modalImg" src="" alt="Product" />
+                    <div class="order-preview-info">
+                        <div class="name" id="modalProdName">Product</div>
+                        <div style="font-size:13px;color:var(--muted);margin-bottom:6px;" id="modalQtyLabel">Qty: 1
+                        </div>
+                        <div class="price" id="modalPrice">$0.00</div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group"><label class="form-label">First Name</label><input class="form-input"
+                            id="m-fname" placeholder="Ahmed" /></div>
+                    <div class="form-group"><label class="form-label">Last Name</label><input class="form-input"
+                            id="m-lname" placeholder="Khan" /></div>
+                </div>
+                <div class="form-group"><label class="form-label">Phone (WhatsApp preferred)</label><input
+                        class="form-input" id="m-phone" placeholder="+92 300 0000000" /></div>
+                <div class="form-group"><label class="form-label">Email Address</label><input class="form-input"
+                        id="m-email" type="email" placeholder="you@example.com" /></div>
+                <div class="form-group"><label class="form-label">Delivery Address</label><input class="form-input"
+                        id="m-addr" placeholder="Street, Area, City" /></div>
+                <div class="form-row">
+                    <div class="form-group"><label class="form-label">City</label><input class="form-input" id="m-city"
+                            placeholder="Bahawalpur" /></div>
+                    <div class="form-group"><label class="form-label">Province</label><select class="form-select"
+                            id="m-prov">
+                            <option value="">Select...</option>
+                            <option>Punjab</option>
+                            <option>Sindh</option>
+                            <option>KPK</option>
+                            <option>Balochistan</option>
+                            <option>AJK</option>
+                            <option>Other</option>
+                        </select></div>
+                </div>
+                <div class="form-group"><label class="form-label">Payment Method</label>
+                    <select class="form-select" id="m-pay">
+                        <option value="cod">Cash on Delivery (COD)</option>
+                        <option value="bank">Bank Transfer</option>
+                        <option value="easypaisa">EasyPaisa / JazzCash</option>
+                    </select>
+                </div>
+                <button class="submit-btn" onclick="placeOrder()"><i class="fas fa-check-circle"></i> Place Order
+                    Now</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="toast" id="toast"><i class="fa-solid fa-circle-check"></i><span id="toast-msg">Done!</span></div>
+
+    <script>
+        // ── SAME PRODUCTS DATA ──
+        const PRODUCTS = [
+            {
+                id: 1, name: 'Gaming Headset Pro', desc: '7.1 Surround Sound with RGB lighting and noise-cancelling mic', price: 89.99, origPrice: 119.99, cat: 'gaming', badge: 'hot', stars: 4.8, reviews: 124, img: 'https://images.unsplash.com/photo-1583394838336-acd977736f90?auto=format&fit=crop&w=800&q=80',
+                images: ['https://images.unsplash.com/photo-1583394838336-acd977736f90?auto=format&fit=crop&w=800&q=80', 'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?auto=format&fit=crop&w=800&q=80', 'https://images.unsplash.com/photo-1618366712010-f4ae9c647dcb?auto=format&fit=crop&w=800&q=80'],
+                specs: [{ k: 'Driver Size', v: '50mm Neodymium' }, { k: 'Frequency', v: '20Hz – 20KHz' }, { k: 'Impedance', v: '32 Ohm' }, { k: 'Connectivity', v: 'USB + 3.5mm Jack' }, { k: 'Mic', v: 'Retractable Noise-Cancelling' }, { k: 'Lighting', v: 'RGB 16.8M Colors' }, { k: 'Weight', v: '280g' }, { k: 'Warranty', v: '12 Months' }],
+                highlights: ['7.1 Virtual Surround Sound', 'RGB LED Lighting with 10 modes', 'Noise-cancelling flip mic', 'Memory foam ear cushions', 'Compatible with PC, PS5, Xbox']
+            },
+            {
+                id: 2, name: 'RGB Controller X', desc: 'Wireless Pro Gaming Controller with 20-hour battery and haptic feedback', price: 59.99, origPrice: null, cat: 'gaming', badge: '', stars: 4.5, reviews: 89, img: 'https://images.unsplash.com/photo-1609081219090-a6d81d3085bf?auto=format&fit=crop&w=800&q=80',
+                images: ['https://images.unsplash.com/photo-1609081219090-a6d81d3085bf?auto=format&fit=crop&w=800&q=80', 'https://images.unsplash.com/photo-1592840062661-a5a7f78e2056?auto=format&fit=crop&w=800&q=80', 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=800&q=80'],
+                specs: [{ k: 'Battery Life', v: '20 Hours' }, { k: 'Connectivity', v: 'Bluetooth 5.2 + USB-C' }, { k: 'Vibration', v: 'Dual Haptic Motors' }, { k: 'Trigger', v: 'Adjustable Hair Trigger' }, { k: 'Buttons', v: 'Programmable Mapping' }, { k: 'Lighting', v: 'RGB Backlit' }, { k: 'Compatibility', v: 'PC / Android / iOS' }, { k: 'Warranty', v: '12 Months' }],
+                highlights: ['20-hour wireless battery', 'Bluetooth 5.2 low-latency', 'Dual rumble haptic motors', 'Adjustable hair triggers', 'Works on PC, Android & iOS']
+            },
+            {
+                id: 3, name: '65W GaN Charger', desc: '3-port ultra-fast charging adapter — USB-C & USB-A, charges laptop too', price: 34.99, origPrice: 44.99, cat: 'accessories', badge: 'sale', stars: 4.7, reviews: 210, img: 'https://images.unsplash.com/photo-1622434641406-a158123450f9?auto=format&fit=crop&w=800&q=80',
+                images: ['https://images.unsplash.com/photo-1622434641406-a158123450f9?auto=format&fit=crop&w=800&q=80', 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80', 'https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?auto=format&fit=crop&w=800&q=80'],
+                specs: [{ k: 'Total Power', v: '65W GaN II' }, { k: 'Ports', v: '2× USB-C + 1× USB-A' }, { k: 'USB-C 1', v: '45W PD Fast Charge' }, { k: 'USB-C 2', v: '20W PD' }, { k: 'USB-A', v: '12W QC 3.0' }, { k: 'Input', v: '100–240V Universal' }, { k: 'Size', v: '62×62×32mm' }, { k: 'Warranty', v: '18 Months' }],
+                highlights: ['Gallium Nitride (GaN) technology', 'Charges laptop + 2 phones simultaneously', 'Auto-detects device wattage', 'No-heat foldable plug design', 'CE / FCC / RoHS certified']
+            },
+            {
+                id: 4, name: 'BassBoom Speaker', desc: 'Portable Bluetooth 5.3 speaker with 360° sound and IPX6 waterproofing', price: 49.99, origPrice: null, cat: 'audio', badge: '', stars: 4.4, reviews: 67, img: 'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?auto=format&fit=crop&w=800&q=80',
+                images: ['https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?auto=format&fit=crop&w=800&q=80', 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80', 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80'],
+                specs: [{ k: 'Driver', v: '2× 40mm Full-Range' }, { k: 'Output', v: '20W RMS' }, { k: 'Bluetooth', v: '5.3 (40m range)' }, { k: 'Battery', v: '5200mAh / 18hrs' }, { k: 'Water Rating', v: 'IPX6 Waterproof' }, { k: 'Charging', v: 'USB-C 20W Fast' }, { k: 'Weight', v: '520g' }, { k: 'Warranty', v: '12 Months' }],
+                highlights: ['360° omnidirectional sound', 'IPX6 fully waterproof', '18-hour battery life', 'Pair 2 speakers in stereo mode', 'Built-in mic for calls']
+            },
+            {
+                id: 5, name: 'Studio Headphones HD', desc: '40mm premium drivers, foldable design, 32-hour playtime, Hi-Res Audio', price: 79.99, origPrice: 99.99, cat: 'audio', badge: 'sale', stars: 4.6, reviews: 156, img: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=800&q=80',
+                images: ['https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=800&q=80', 'https://images.unsplash.com/photo-1524678714210-9917a6c619c2?auto=format&fit=crop&w=800&q=80', 'https://images.unsplash.com/photo-1546435770-a3e426bf472b?auto=format&fit=crop&w=800&q=80'],
+                specs: [{ k: 'Driver', v: '40mm Hi-Res Audio' }, { k: 'Frequency', v: '10Hz – 40KHz' }, { k: 'Battery', v: '32 Hours Wireless' }, { k: 'ANC', v: 'Active Noise Cancelling' }, { k: 'Connectivity', v: 'Bluetooth 5.0 + 3.5mm' }, { k: 'Foldable', v: 'Yes — carry pouch included' }, { k: 'Weight', v: '240g' }, { k: 'Warranty', v: '12 Months' }],
+                highlights: ['Hi-Res Audio certified', 'Active Noise Cancellation', '32-hour wireless playback', 'Foldable with carry case', 'Works wired with 3.5mm cable']
+            },
+            {
+                id: 6, name: 'True Wireless Earbuds', desc: 'ANC earbuds with 30-hour total battery, transparency mode & wireless case', price: 99.99, origPrice: null, cat: 'audio', badge: 'hot', stars: 4.9, reviews: 301, img: 'https://images.unsplash.com/photo-1572536147248-ac59a8abfa4b?auto=format&fit=crop&w=800&q=80',
+                images: ['https://images.unsplash.com/photo-1572536147248-ac59a8abfa4b?auto=format&fit=crop&w=800&q=80', 'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?auto=format&fit=crop&w=800&q=80', 'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?auto=format&fit=crop&w=800&q=80'],
+                specs: [{ k: 'Driver', v: '10mm Dynamic + Planar' }, { k: 'ANC', v: '-42dB Active Noise Cancel' }, { k: 'Earbud Battery', v: '8 Hours' }, { k: 'Case Battery', v: '22 Hours Extra' }, { k: 'Charging', v: 'Wireless + USB-C' }, { k: 'Codec', v: 'LDAC / AAC / SBC' }, { k: 'IPX', v: 'IPX4 Sweat Proof' }, { k: 'Warranty', v: '12 Months' }],
+                highlights: ['Industry-leading -42dB ANC', 'Transparency / Ambient mode', '30-hour total battery life', 'Wireless charging case', 'LDAC Hi-Res audio support']
+            },
+            {
+                id: 7, name: 'USB-C Hub 7-in-1', desc: '4K HDMI, 100W PD passthrough, SD/TF card reader and 3× USB-A 3.0 ports', price: 44.99, origPrice: null, cat: 'accessories', badge: 'new', stars: 4.5, reviews: 78, img: 'https://images.unsplash.com/photo-1625846628099-36cda0d7f4e3?auto=format&fit=crop&w=800&q=80',
+                images: ['https://images.unsplash.com/photo-1625846628099-36cda0d7f4e3?auto=format&fit=crop&w=800&q=80', 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80', 'https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?auto=format&fit=crop&w=800&q=80'],
+                specs: [{ k: 'Ports', v: '7-in-1 Hub' }, { k: 'HDMI', v: '4K@60Hz' }, { k: 'USB-A', v: '3× USB 3.0 (5Gbps)' }, { k: 'PD Charging', v: '100W Passthrough' }, { k: 'Card Reader', v: 'SD + MicroSD' }, { k: 'Material', v: 'Aluminium Alloy' }, { k: 'Cable', v: '18cm fixed USB-C' }, { k: 'Warranty', v: '18 Months' }],
+                highlights: ['4K 60Hz HDMI output', '100W power delivery passthrough', '3× USB 3.0 at 5Gbps', 'SD and MicroSD slots', 'Plug & play — no drivers needed']
+            },
+            {
+                id: 8, name: 'Phone Stand Pro', desc: 'Adjustable aluminum desk stand with 360° rotation for phones & tablets', price: 24.99, origPrice: null, cat: 'mobile', badge: 'new', stars: 4.3, reviews: 44, img: 'https://images.unsplash.com/photo-1585298723682-7115561c51b7?auto=format&fit=crop&w=800&q=80',
+                images: ['https://images.unsplash.com/photo-1585298723682-7115561c51b7?auto=format&fit=crop&w=800&q=80', 'https://images.unsplash.com/photo-1551816230-ef5deaed4a26?auto=format&fit=crop&w=800&q=80', 'https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?auto=format&fit=crop&w=800&q=80'],
+                specs: [{ k: 'Material', v: 'Aircraft-grade Aluminium' }, { k: 'Rotation', v: '360° horizontal + tilt' }, { k: 'Compatibility', v: '4" to 13" devices' }, { k: 'Base', v: 'Anti-slip silicone pad' }, { k: 'Height', v: 'Adjustable 13–22cm' }, { k: 'Foldable', v: 'Yes — travel-friendly' }, { k: 'Weight', v: '185g' }, { k: 'Warranty', v: '12 Months' }],
+                highlights: ['Holds phones & tablets up to 13"', '360° rotation + angle tilt', 'Anti-slip weighted base', 'Foldable compact design', 'Scratch-free silicone pads']
+            },
+            {
+                id: 9, name: 'MagSafe Power Bank', desc: '15W wireless MagSafe power bank — 10000mAh, folds flat, LED indicator', price: 54.99, origPrice: 69.99, cat: 'mobile', badge: 'hot', stars: 4.7, reviews: 133, img: 'https://images.unsplash.com/photo-1609592806978-cd0c4ed5b8b8?auto=format&fit=crop&w=800&q=80',
+                images: ['https://images.unsplash.com/photo-1609592806978-cd0c4ed5b8b8?auto=format&fit=crop&w=800&q=80', 'https://images.unsplash.com/photo-1585298723682-7115561c51b7?auto=format&fit=crop&w=800&q=80', 'https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?auto=format&fit=crop&w=800&q=80'],
+                specs: [{ k: 'Capacity', v: '10000mAh' }, { k: 'Wireless Output', v: '15W MagSafe' }, { k: 'USB-C Output', v: '20W PD' }, { k: 'Input', v: 'USB-C 18W' }, { k: 'Indicator', v: '4-LED battery dots' }, { k: 'Thickness', v: '11.5mm slim' }, { k: 'Weight', v: '195g' }, { k: 'Warranty', v: '12 Months' }],
+                highlights: ['MagSafe 15W snaps to iPhone', 'Slim 11.5mm pocket design', '10000mAh — 3 full charges', 'USB-C wired output for others', 'LED battery level indicator']
+            },
+            {
+                id: 10, name: 'Mechanical Keyboard TKL', desc: 'Tenkeyless mechanical keyboard, hot-swappable red switches, RGB per-key', price: 74.99, origPrice: 94.99, cat: 'gaming', badge: 'new', stars: 4.6, reviews: 98, img: 'https://images.unsplash.com/photo-1595225476474-87563907a212?auto=format&fit=crop&w=800&q=80',
+                images: ['https://images.unsplash.com/photo-1595225476474-87563907a212?auto=format&fit=crop&w=800&q=80', 'https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&w=800&q=80', 'https://images.unsplash.com/photo-1618384887929-16ec33fab9ef?auto=format&fit=crop&w=800&q=80'],
+                specs: [{ k: 'Layout', v: 'TKL 87-Key' }, { k: 'Switch', v: 'Hot-swap Red Linear' }, { k: 'Actuation', v: '1.5mm / 45g' }, { k: 'Lighting', v: 'Per-key RGB 16.8M' }, { k: 'Connectivity', v: 'USB-C braided cable' }, { k: 'Polling Rate', v: '1000Hz' }, { k: 'Keycaps', v: 'PBT Double-shot' }, { k: 'Warranty', v: '12 Months' }],
+                highlights: ['Hot-swappable switches', 'PBT double-shot keycaps', 'Per-key RGB customization', '1000Hz polling rate', 'Includes USB-C braided cable']
+            },
+            {
+                id: 11, name: 'Webcam 4K AutoFocus', desc: '4K 30fps webcam with AI autofocus, built-in ring light, privacy shutter', price: 69.99, origPrice: 89.99, cat: 'accessories', badge: 'sale', stars: 4.5, reviews: 61, img: 'https://images.unsplash.com/photo-1617550523898-b3e8dba9c7b0?auto=format&fit=crop&w=800&q=80',
+                images: ['https://images.unsplash.com/photo-1617550523898-b3e8dba9c7b0?auto=format&fit=crop&w=800&q=80', 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80', 'https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?auto=format&fit=crop&w=800&q=80'],
+                specs: [{ k: 'Resolution', v: '4K @ 30fps / 1080p@60fps' }, { k: 'Autofocus', v: 'AI Face Tracking' }, { k: 'FOV', v: '90° wide angle' }, { k: 'Mic', v: 'Dual noise-cancel mics' }, { k: 'Ring Light', v: '3-level built-in LED' }, { k: 'Privacy', v: 'Physical shutter cover' }, { k: 'Connection', v: 'USB-A plug & play' }, { k: 'Warranty', v: '12 Months' }],
+                highlights: ['4K ultra-clear video', 'AI autofocus + face tracking', 'Built-in 3-level ring light', 'Physical privacy shutter', 'Plug & play — zero drivers']
+            },
+            {
+                id: 12, name: 'RGB Gaming Mouse', desc: '16000 DPI optical sensor, 7 programmable buttons, ultralight 68g design', price: 39.99, origPrice: 49.99, cat: 'gaming', badge: 'sale', stars: 4.7, reviews: 187, img: 'https://images.unsplash.com/photo-1527814050087-3793815479db?auto=format&fit=crop&w=800&q=80',
+                images: ['https://images.unsplash.com/photo-1527814050087-3793815479db?auto=format&fit=crop&w=800&q=80', 'https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&w=800&q=80', 'https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?auto=format&fit=crop&w=800&q=80'],
+                specs: [{ k: 'Sensor', v: '16000 DPI Optical' }, { k: 'DPI Steps', v: '400/800/1600/3200/16000' }, { k: 'Buttons', v: '7 Programmable' }, { k: 'Weight', v: '68g Ultralight' }, { k: 'Polling Rate', v: '1000Hz' }, { k: 'Click Life', v: '50M click rated' }, { k: 'Feet', v: 'PTFE pure white pads' }, { k: 'Warranty', v: '12 Months' }],
+                highlights: ['16000 DPI adjustable sensor', 'Ultralight 68g honeycomb shell', '7 programmable buttons', 'PTFE glide feet for smooth aim', 'RGB logo + scroll wheel glow']
+            },
+        ];
+
+        const CAT_LABELS = { gaming: 'Gaming', audio: 'Audio', accessories: 'Accessories', mobile: 'Mobile' };
+        let currentProduct = null, qty = 1, wished = false, cartAdded = false;
+
+        function getIdFromUrl() { const p = new URLSearchParams(window.location.search); return parseInt(p.get('id')) || 1; }
+
+        function starsHtml(r) { let h = ''; for (let i = 1; i <= 5; i++) { if (r >= i) h += '<i class="fa-solid fa-star"></i>'; else if (r >= i - .5) h += '<i class="fa-solid fa-star-half-stroke"></i>'; else h += '<i class="fa-regular fa-star"></i>'; } return h; }
+
+        function loadProduct() {
+            const id = getIdFromUrl();
+            const p = PRODUCTS.find(x => x.id === id) || PRODUCTS[0];
+            currentProduct = p;
+            document.title = p.name + ' — Hamdan Store';
+            document.getElementById('bc-name').textContent = p.name;
+            document.getElementById('pCat').textContent = CAT_LABELS[p.cat] || p.cat;
+            document.getElementById('pTitle').textContent = p.name;
+            document.getElementById('pStars').innerHTML = starsHtml(p.stars);
+            document.getElementById('pRatingNum').textContent = p.stars.toFixed(1);
+            document.getElementById('pReviewCount').textContent = p.reviews;
+            document.getElementById('priceVal').textContent = p.price.toFixed(2);
+            if (p.origPrice) {
+                document.getElementById('priceOrig').textContent = '$' + p.origPrice.toFixed(2);
+                document.getElementById('priceOrig').style.display = 'block';
+                const save = Math.round((1 - p.price / p.origPrice) * 100);
+                document.getElementById('priceSave').textContent = 'SAVE ' + save + '%';
+                document.getElementById('priceSave').style.display = 'inline-flex';
+            }
+            if (p.badge) {
+                const b = document.getElementById('badgeEl');
+                b.textContent = p.badge; b.className = 'img-badge ' + p.badge; b.style.display = '';
+            }
+            document.getElementById('highlightList').innerHTML = (p.highlights || []).map(h => `<div class="highlight-item"><i class="fas fa-check-circle"></i>${h}</div>`).join('');
+            document.getElementById('specsTable').innerHTML = (p.specs || []).map(s => `<tr><td>${s.k}</td><td>${s.v}</td></tr>`).join('');
+            document.getElementById('mainImg').src = p.images[0];
+            document.getElementById('thumbRow').innerHTML = p.images.map((img, i) => `<div class="thumb ${i === 0 ? 'active' : ''}" onclick="switchImg(this,'${img}')"><img src="${img}" alt="view ${i + 1}" loading="lazy"/></div>`).join('');
+        }
+
+        function switchImg(el, src) { document.getElementById('mainImg').src = src; document.querySelectorAll('.thumb').forEach(t => t.classList.remove('active')); el.classList.add('active'); }
+        function changeQty(d) { qty = Math.max(1, qty + d); document.getElementById('qtyInput').value = qty; }
+        function addToCart() { cartAdded = true; const btn = document.getElementById('addCartBtn'); btn.className = 'btn-cart added'; btn.innerHTML = '<i class="fas fa-check"></i> Added to Cart'; showToast(currentProduct.name + ' added to cart!'); setTimeout(() => { btn.className = 'btn-cart'; btn.innerHTML = '<i class="fas fa-cart-shopping"></i> Add to Cart'; cartAdded = false; }, 2500); }
+        function openBuyModal() { if (!currentProduct) return; document.getElementById('modalImg').src = currentProduct.images[0]; document.getElementById('modalProdName').textContent = currentProduct.name; document.getElementById('modalQtyLabel').textContent = 'Qty: ' + qty; document.getElementById('modalPrice').textContent = '$' + (currentProduct.price * qty).toFixed(2); document.getElementById('buyModal').classList.add('active'); document.body.style.overflow = 'hidden'; }
+        function closeBuyModal() { document.getElementById('buyModal').classList.remove('active'); document.body.style.overflow = ''; }
+        document.getElementById('buyModal').addEventListener('click', function (e) { if (e.target === this) closeBuyModal(); });
+        function placeOrder() { const fname = document.getElementById('m-fname').value.trim(); const phone = document.getElementById('m-phone').value.trim(); const addr = document.getElementById('m-addr').value.trim(); if (!fname || !phone || !addr) { showToast('Please fill all required fields', 'warn'); return; } const orderId = '#HS-' + Math.floor(100000 + Math.random() * 900000); document.getElementById('modalBodyContent').innerHTML = `<div class="success-panel"><div class="success-icon"><i class="fas fa-check"></i></div><h3>Order Placed! 🎉</h3><p>Thank you, <strong>${fname}</strong>! Your order has been confirmed.</p><div class="order-id-box">${orderId}</div><p style="margin-bottom:20px;">Our team will contact you on <strong>${phone}</strong> to confirm delivery details.</p><button class="submit-btn" onclick="closeBuyModal();window.location.href='products.html'"><i class="fas fa-arrow-left"></i> Continue Shopping</button></div>`; }
+        function switchTab(id, btn) { document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active')); document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active')); btn.classList.add('active'); document.getElementById('tab-' + id).classList.add('active'); }
+        let _tt; function showToast(msg) { const t = document.getElementById('toast'); document.getElementById('toast-msg').textContent = msg; t.classList.add('show'); clearTimeout(_tt); _tt = setTimeout(() => t.classList.remove('show'), 2800); }
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') closeBuyModal(); });
+        loadProduct();
+    </script>
+</body>
+
+</html>

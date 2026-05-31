@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terms of Service — Hamdan Store</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg: #0c0c0f;
+      --surface: rgba(255, 255, 255, 0.03);
+      --surface2: rgba(255, 255, 255, 0.05);
+      --border: rgba(255, 255, 255, 0.08);
+      --border-md: rgba(167, 139, 250, 0.3);
+      --accent: #a78bfa;
+      --accent-dark: #7c3aed;
+      --accent-glow: rgba(167, 139, 250, 0.1);
+      --muted: rgba(255, 255, 255, 0.45);
+      --muted2: rgba(255, 255, 255, 0.25);
+      --white: #fff;
+      --green: #34d399;
+      --red: #f87171;
+      --amber: #fbbf24;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--white);
+      font-family: 'Sora', system-ui, sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ── BACK BUTTON ── */
+    .back-btn {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 999;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(167, 139, 250, 0.25);
+      border-radius: 999px;
+      color: var(--accent);
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.22s ease;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    .back-btn i {
+      font-size: 12px;
+      transition: transform 0.22s;
+    }
+
+    .back-btn:hover {
+      background: rgba(167, 139, 250, 0.12);
+      border-color: var(--accent);
+      color: var(--white);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 20px rgba(124, 58, 237, 0.25);
+    }
+
+    .back-btn:hover i {
+      transform: translateX(-3px);
+    }
+
+    /* ── HERO ── */
+    .hero {
+      text-align: center;
+      padding: 50px 24px 50px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -80px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 700px;
+      height: 500px;
+      background: radial-gradient(ellipse, rgba(124, 58, 237, 0.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .grid-bg {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, .025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, .025) 1px, transparent 1px);
+      background-size: 48px 48px;
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: rgba(167, 139, 250, 0.1);
+      border: 1px solid rgba(167, 139, 250, 0.25);
+      border-radius: 999px;
+      padding: 6px 18px;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 22px;
+    }
+
+    .hero h1 {
+      font-size: clamp(30px, 5vw, 56px);
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 14px;
+      letter-spacing: -1.5px;
+    }
+
+    .hero h1 span {
+      background: linear-gradient(135deg, #c4b5fd, #a78bfa, #7c3aed);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    /* ── PAGE WRAP ── */
+    .page-wrap {
+      max-width: 1060px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+    }
+
+    /* ── SECTION TITLE ── */
+    .section-title {
+      font-size: 22px;
+      font-weight: 800;
+      margin-bottom: 22px;
+      letter-spacing: -0.5px;
+    }
+
+    .section-title span {
+      background: linear-gradient(135deg, #c4b5fd, #a78bfa, #7c3aed);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* ── STAT CARDS ── */
+    .stat-strip {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+      gap: 14px;
+      margin-bottom: 56px;
+    }
+
+    .stat-card {
+      background: rgba(255, 255, 255, 0.025);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px 22px;
+      text-align: center;
+      transition: all 0.25s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .stat-card::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent-dark), var(--accent));
+      opacity: 0;
+      transition: opacity 0.25s;
+    }
+
+    .stat-card:hover {
+      border-color: rgba(167, 139, 250, 0.3);
+      transform: translateY(-4px);
+      box-shadow: 0 14px 36px rgba(0, 0, 0, 0.3);
+    }
+
+    .stat-card:hover::after {
+      opacity: 1;
+    }
+
+    .stat-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 12px;
+      background: var(--accent-glow);
+      border: 1px solid rgba(167, 139, 250, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      color: var(--accent);
+      margin: 0 auto 16px;
+    }
+
+    .stat-num {
+      font-size: 34px;
+      font-weight: 800;
+      background: linear-gradient(135deg, #c4b5fd, #a78bfa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+      margin-bottom: 7px;
+    }
+
+    .stat-label {
+      font-size: 12px;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    /* ── INFO BOX ── */
+    .info-box {
+      background: var(--accent-glow);
+      border: 1px solid rgba(167, 139, 250, 0.25);
+      border-radius: 14px;
+      padding: 18px 22px;
+      margin-bottom: 40px;
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.75;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .info-box i {
+      color: var(--accent);
+      font-size: 16px;
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+
+    .info-box strong {
+      color: var(--accent);
+    }
+
+    /* ── ALERT BOX ── */
+    .alert-box {
+      background: rgba(248, 113, 113, 0.07);
+      border: 1px solid rgba(248, 113, 113, 0.2);
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin: 18px 0;
+      font-size: 13px;
+      color: #fca5a5;
+      line-height: 1.7;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+
+    .alert-box i {
+      font-size: 15px;
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+
+    /* ── TOS LAYOUT ── */
+    .tos-layout {
+      display: grid;
+      grid-template-columns: 230px 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    /* ── SIDEBAR NAV ── */
+    .tos-nav {
+      position: sticky;
+      top: 24px;
+      background: rgba(255, 255, 255, 0.025);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px;
+    }
+
+    .nav-title {
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--muted2);
+      text-transform: uppercase;
+      letter-spacing: 1.8px;
+      margin-bottom: 12px;
+      padding: 0 4px;
+    }
+
+    .nav-link {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 12px;
+      border-radius: 10px;
+      font-size: 13px;
+      color: var(--muted);
+      text-decoration: none;
+      transition: all 0.18s;
+      margin-bottom: 2px;
+      font-family: inherit;
+      font-weight: 500;
+    }
+
+    .nav-link i {
+      font-size: 11px;
+      width: 14px;
+      flex-shrink: 0;
+    }
+
+    .nav-link:hover {
+      color: var(--white);
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .nav-link.active {
+      color: var(--accent);
+      background: var(--accent-glow);
+      border: 1px solid rgba(167, 139, 250, 0.15);
+    }
+
+    .nav-updated {
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px solid var(--border);
+      font-size: 11px;
+      color: var(--muted2);
+      line-height: 1.7;
+    }
+
+    .nav-updated strong {
+      color: var(--white);
+    }
+
+    /* ── TOS BLOCKS ── */
+    .tos-block {
+      margin-bottom: 48px;
+      scroll-margin-top: 24px;
+    }
+
+    .tos-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 20px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .tos-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: var(--accent-glow);
+      border: 1px solid rgba(167, 139, 250, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 17px;
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .tos-section-title {
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: -0.4px;
+    }
+
+    .tos-body {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.85;
+    }
+
+    .tos-body h4 {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--white);
+      margin: 20px 0 8px;
+    }
+
+    .tos-body p {
+      margin-bottom: 12px;
+    }
+
+    .tos-body ul,
+    .tos-body ol {
+      margin: 0 0 14px 20px;
+    }
+
+    .tos-body li {
+      margin-bottom: 6px;
+    }
+
+    .tos-body a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .tos-body a:hover {
+      text-decoration: underline;
+    }
+
+    .tos-body strong {
+      color: var(--white);
+      font-weight: 600;
+    }
+
+    /* ── KEY TERMS TABLE ── */
+    .key-terms {
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      margin: 16px 0 20px;
+    }
+
+    .kt-row {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      padding: 13px 18px;
+      border-bottom: 1px solid var(--border);
+      font-size: 13px;
+      transition: background 0.15s;
+    }
+
+    .kt-row:last-child {
+      border-bottom: none;
+    }
+
+    .kt-row:hover {
+      background: rgba(167, 139, 250, 0.04);
+    }
+
+    .kt-term {
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .kt-def {
+      color: var(--muted);
+    }
+
+    /* ── PILL ── */
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 4px 11px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .pill-green {
+      background: rgba(52, 211, 153, 0.1);
+      color: var(--green);
+      border: 1px solid rgba(52, 211, 153, 0.2);
+    }
+
+    .pill-purple {
+      background: rgba(167, 139, 250, 0.1);
+      color: var(--accent);
+      border: 1px solid rgba(167, 139, 250, 0.2);
+    }
+
+    .pill-amber {
+      background: rgba(251, 191, 36, 0.1);
+      color: var(--amber);
+      border: 1px solid rgba(251, 191, 36, 0.2);
+    }
+
+    /* ── CONTACT CARD ── */
+    .contact-card {
+      background: rgba(255, 255, 255, 0.025);
+      border: 1px solid rgba(167, 139, 250, 0.2);
+      border-radius: 18px;
+      padding: 40px;
+      text-align: center;
+      margin-top: 48px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-card::before {
+      content: '';
+      position: absolute;
+      top: -50px;
+      right: -50px;
+      width: 220px;
+      height: 220px;
+      background: radial-gradient(circle, rgba(124, 58, 237, 0.1), transparent 70%);
+      pointer-events: none;
+    }
+
+    .contact-card h3 {
+      font-size: 20px;
+      font-weight: 800;
+      margin-bottom: 8px;
+      letter-spacing: -0.3px;
+    }
+
+    .contact-card p {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 22px;
+      line-height: 1.6;
+    }
+
+    .contact-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 13px 30px;
+      background: var(--accent-dark);
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.22s;
+      text-decoration: none;
+    }
+
+    .contact-btn:hover {
+      background: #6d28d9;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(124, 58, 237, 0.4);
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      text-align: center;
+      padding: 20px 24px 36px;
+      border-top: 1px solid var(--border);
+      color: var(--muted2);
+      font-size: 13px;
+    }
+
+    .footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 860px) {
+      .tos-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .tos-nav {
+        position: static;
+      }
+
+      .kt-row {
+        grid-template-columns: 1fr;
+        gap: 4px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .back-btn span {
+        display: none;
+      }
+
+      .back-btn {
+        padding: 10px 14px;
+      }
+
+      .stat-strip {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .contact-card {
+        padding: 24px 18px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Back Button -->
+  <a href="../index.html" class="back-btn">
+    <i class="fas fa-arrow-left"></i>
+    <span>Back to Home</span>
+  </a>
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="grid-bg"></div>
+    <div class="hero-inner">
+      <div class="hero-badge"><i class="fas fa-file-contract"></i> Legal</div>
+      <h1>Terms of <span>Service</span></h1>
+      <p>Please read these terms carefully before using Hamdan Store. They govern your use of our website and services.
+      </p>
+    </div>
+  </div>
+
+  <div class="page-wrap">
+
+    <!-- Stats -->
+    <div class="stat-strip">
+      <div class="stat-card">
+        <div class="stat-icon"><i class="fas fa-shield-alt"></i></div>
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Secure Payments</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon"><i class="fas fa-clock"></i></div>
+        <div class="stat-num">2hr</div>
+        <div class="stat-label">Order Cancellation Window</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon"><i class="fas fa-headset"></i></div>
+        <div class="stat-num">5</div>
+        <div class="stat-label">Days Dispute Resolution</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon"><i class="fas fa-lock"></i></div>
+        <div class="stat-num">256</div>
+        <div class="stat-label">Bit SSL Encryption</div>
+      </div>
+    </div>
+
+    <!-- Plain English Banner -->
+    <div class="info-box">
+      <i class="fas fa-circle-info"></i>
+      <div><strong>Plain English Summary:</strong> By shopping at Hamdan Store, you agree to these terms. We'll always
+        be fair — sell real products, handle issues professionally, and treat you with respect. We expect the same in
+        return.</div>
+    </div>
+
+    <!-- TOS Layout -->
+    <div class="tos-layout">
+
+      <!-- Sidebar -->
+      <div class="tos-nav">
+        <div class="nav-title">Sections</div>
+        <a class="nav-link active" href="#acceptance"><i class="fas fa-handshake"></i> Acceptance</a>
+        <a class="nav-link" href="#definitions"><i class="fas fa-book"></i> Definitions</a>
+        <a class="nav-link" href="#use"><i class="fas fa-laptop"></i> Use of Website</a>
+        <a class="nav-link" href="#orders"><i class="fas fa-shopping-cart"></i> Orders</a>
+        <a class="nav-link" href="#pricing"><i class="fas fa-tag"></i> Pricing</a>
+        <a class="nav-link" href="#ip"><i class="fas fa-copyright"></i> Intellectual Property</a>
+        <a class="nav-link" href="#liability"><i class="fas fa-scale-balanced"></i> Liability</a>
+        <a class="nav-link" href="#dispute"><i class="fas fa-gavel"></i> Disputes</a>
+        <a class="nav-link" href="#termination"><i class="fas fa-ban"></i> Termination</a>
+        <a class="nav-link" href="#changes"><i class="fas fa-pen"></i> Changes</a>
+        <div class="nav-updated">
+          <i class="fas fa-clock" style="margin-right:6px;color:var(--accent)"></i>
+          Last updated:<br><strong>May 29, 2026</strong>
+        </div>
+      </div>
+
+      <!-- Content -->
+      <div>
+
+        <!-- 1 -->
+        <div class="tos-block" id="acceptance">
+          <div class="tos-header">
+            <div class="tos-icon"><i class="fas fa-handshake"></i></div>
+            <h2 class="tos-section-title">1. Acceptance of Terms</h2>
+          </div>
+          <div class="tos-body">
+            <p>By accessing or using the Hamdan Store website at <strong>hamdanstore.pk</strong>, placing an order, or
+              creating an account, you agree to be bound by these Terms of Service and our <a
+                href="./Privacy-Policy.html">Privacy Policy</a>.</p>
+            <p>If you do not agree with any part of these terms, you may not use our website or services. These terms
+              apply to all visitors, customers, and users of our website.</p>
+            <p>We reserve the right to update these terms at any time. Continued use of the site after changes
+              constitutes acceptance of the new terms.</p>
+          </div>
+        </div>
+
+        <!-- 2 -->
+        <div class="tos-block" id="definitions">
+          <div class="tos-header">
+            <div class="tos-icon"><i class="fas fa-book"></i></div>
+            <h2 class="tos-section-title">2. Definitions</h2>
+          </div>
+          <div class="tos-body">
+            <div class="key-terms">
+              <div class="kt-row"><span class="kt-term">"We" / "Us"</span><span class="kt-def">Hamdan Store, based in
+                  Bahawalpur, Punjab, Pakistan</span></div>
+              <div class="kt-row"><span class="kt-term">"You" / "User"</span><span class="kt-def">Any person who visits
+                  or uses our website or services</span></div>
+              <div class="kt-row"><span class="kt-term">"Website"</span><span class="kt-def">hamdanstore.pk and all
+                  associated subdomains</span></div>
+              <div class="kt-row"><span class="kt-term">"Order"</span><span class="kt-def">A confirmed purchase
+                  transaction submitted through our website</span></div>
+              <div class="kt-row"><span class="kt-term">"Products"</span><span class="kt-def">All items listed for sale
+                  on our website</span></div>
+              <div class="kt-row"><span class="kt-term">"Services"</span><span class="kt-def">All features provided on
+                  our website including ordering, tracking, and support</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3 -->
+        <div class="tos-block" id="use">
+          <div class="tos-header">
+            <div class="tos-icon"><i class="fas fa-laptop"></i></div>
+            <h2 class="tos-section-title">3. Use of the Website</h2>
+          </div>
+          <div class="tos-body">
+            <p>You agree to use this website only for lawful purposes and in a manner that does not infringe the rights
+              of others. You must not:</p>
+            <ul>
+              <li>Attempt to gain unauthorized access to any part of the website or its systems</li>
+              <li>Transmit any harmful, offensive, or fraudulent content</li>
+              <li>Use automated tools to scrape or extract data without our written permission</li>
+              <li>Impersonate Hamdan Store or any of its staff</li>
+              <li>Submit false orders or fraudulent payment information</li>
+              <li>Engage in any activity that disrupts or damages our website or servers</li>
+            </ul>
+            <p>We reserve the right to terminate access for users who violate these conditions without prior notice.</p>
+          </div>
+        </div>
+
+        <!-- 4 -->
+        <div class="tos-block" id="orders">
+          <div class="tos-header">
+            <div class="tos-icon"><i class="fas fa-shopping-cart"></i></div>
+            <h2 class="tos-section-title">4. Orders &amp; Contract</h2>
+          </div>
+          <div class="tos-body">
+            <p>Placing an order constitutes an offer to purchase the item(s) at the listed price. An order is confirmed
+              when you receive a confirmation email from us with an order ID. We reserve the right to cancel any order
+              and issue a full refund in cases of:</p>
+            <ul>
+              <li>Stock unavailability after order placement</li>
+              <li>Pricing errors on the website</li>
+              <li>Suspected fraudulent activity</li>
+              <li>Inability to verify payment or delivery address</li>
+            </ul>
+            <h4>Order Cancellation by Customer</h4>
+            <p>You may cancel an order within <strong>2 hours</strong> of placing it by contacting us via WhatsApp.
+              After dispatch, orders cannot be cancelled but may be returned per our <a href="./Returns-Refunds.html">Returns
+                Policy</a>.</p>
+          </div>
+        </div>
+
+        <!-- 5 -->
+        <div class="tos-block" id="pricing">
+          <div class="tos-header">
+            <div class="tos-icon"><i class="fas fa-tag"></i></div>
+            <h2 class="tos-section-title">5. Pricing &amp; Payment</h2>
+          </div>
+          <div class="tos-body">
+            <p>All prices are displayed in USD and include applicable taxes unless otherwise stated. We reserve the
+              right to change prices at any time without prior notice. Price changes do not affect already confirmed
+              orders.</p>
+            <h4>Payment Security</h4>
+            <p>All online payments are secured with 256-bit SSL encryption and processed through certified payment
+              gateways. We do not store your card details. Cash on Delivery (COD) is subject to additional verification
+              for large orders.</p>
+            <div class="alert-box">
+              <i class="fas fa-triangle-exclamation"></i>
+              <div><strong style="color:#fca5a5">Fraudulent Payments:</strong> Any use of stolen or fraudulent payment
+                methods will result in immediate order cancellation and may be reported to relevant authorities.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6 -->
+        <div class="tos-block" id="ip">
+          <div class="tos-header">
+            <div class="tos-icon"><i class="fas fa-copyright"></i></div>
+            <h2 class="tos-section-title">6. Intellectual Property</h2>
+          </div>
+          <div class="tos-body">
+            <p>All content on this website — including but not limited to text, images, logos, graphics, product
+              descriptions, and code — is the property of Hamdan Store or its content suppliers and is protected by
+              applicable intellectual property laws.</p>
+            <p>You may not reproduce, duplicate, copy, sell, resell, or exploit any portion of the website without our
+              explicit written permission. Product images and descriptions are provided solely for your personal,
+              non-commercial use.</p>
+          </div>
+        </div>
+
+        <!-- 7 -->
+        <div class="tos-block" id="liability">
+          <div class="tos-header">
+            <div class="tos-icon"><i class="fas fa-scale-balanced"></i></div>
+            <h2 class="tos-section-title">7. Limitation of Liability</h2>
+          </div>
+          <div class="tos-body">
+            <p>To the maximum extent permitted by law, Hamdan Store shall not be liable for any indirect, incidental,
+              special, or consequential damages arising from:</p>
+            <ul>
+              <li>Use or inability to use our website or products</li>
+              <li>Delays in delivery caused by courier partners or external factors</li>
+              <li>Unauthorized access to your account or data</li>
+              <li>Errors or omissions in website content</li>
+            </ul>
+            <p>Our total liability in any case shall not exceed the amount you paid for the specific order in question.
+              Nothing in these terms limits our liability for death, personal injury, or fraud caused by our negligence.
+            </p>
+          </div>
+        </div>
+
+        <!-- 8 -->
+        <div class="tos-block" id="dispute">
+          <div class="tos-header">
+            <div class="tos-icon"><i class="fas fa-gavel"></i></div>
+            <h2 class="tos-section-title">8. Dispute Resolution</h2>
+          </div>
+          <div class="tos-body">
+            <p>We encourage you to contact us directly to resolve any issue before pursuing formal action. Our support
+              team aims to resolve all disputes within 5 business days.</p>
+            <p>These terms are governed by the laws of Pakistan. Any disputes that cannot be resolved amicably will be
+              subject to the exclusive jurisdiction of the courts of Bahawalpur, Punjab, Pakistan.</p>
+            <p>Contact our support team at <a href="mailto:support@hamdanstore.pk">support@hamdanstore.pk</a> or
+              WhatsApp <strong>+92 300 0000000</strong>.</p>
+          </div>
+        </div>
+
+        <!-- 9 -->
+        <div class="tos-block" id="termination">
+          <div class="tos-header">
+            <div class="tos-icon"><i class="fas fa-ban"></i></div>
+            <h2 class="tos-section-title">9. Termination</h2>
+          </div>
+          <div class="tos-body">
+            <p>We reserve the right to terminate or suspend your access to our website and services, without prior
+              notice, if we determine that you have violated these Terms of Service, engaged in fraudulent activity, or
+              posed a risk to other users or our operations.</p>
+            <p>Upon termination, your right to use the website ceases immediately. Provisions that by their nature
+              should survive termination (including intellectual property, liability limitations, and dispute
+              resolution) will continue to apply.</p>
+          </div>
+        </div>
+
+        <!-- 10 -->
+        <div class="tos-block" id="changes">
+          <div class="tos-header">
+            <div class="tos-icon"><i class="fas fa-pen"></i></div>
+            <h2 class="tos-section-title">10. Changes to Terms</h2>
+          </div>
+          <div class="tos-body">
+            <p>We may update these Terms of Service at any time. The most current version will always be published on
+              this page with the updated date shown above. For significant changes, we may notify registered customers
+              by email.</p>
+            <p>Your continued use of the website after changes are posted constitutes your agreement to the revised
+              terms. We encourage you to review this page periodically.</p>
+            <p>If you have questions about these terms, contact us at <a
+                href="mailto:support@hamdanstore.pk">support@hamdanstore.pk</a>.</p>
+          </div>
+        </div>
+
+        <!-- Contact Card -->
+        <div class="contact-card">
+          <h3>Questions About Our Terms?</h3>
+          <p>Our team is happy to clarify anything in plain language.<br>We believe in transparency — just ask us.</p>
+          <a href="mailto:support@hamdanstore.pk" class="contact-btn">
+            <i class="fas fa-envelope"></i> Contact Legal Team
+          </a>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    &copy; 2026 <a href="../index.html">HamdanStore</a>. All rights reserved.
+    Made with <i class="fas fa-heart" style="color:#f87171;font-size:10px"></i> in Pakistan.
+  </div>
+
+  <script>
+    const sections = document.querySelectorAll('.tos-block');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(sec => {
+        if (window.scrollY >= sec.offsetTop - 80) current = sec.id;
+      });
+      navLinks.forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === '#' + current);
+      });
+    });
+  </script>
+
+</body>
+
+</html>

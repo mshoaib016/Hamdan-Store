@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Products — Hamdan Store</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Sora:wght@600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --bg: #0c0c0f;
+            --surface: #141418;
+            --surface2: #1a1a20;
+            --surface3: #202028;
+            --border: rgba(255, 255, 255, 0.07);
+            --border-md: rgba(255, 255, 255, 0.13);
+            --accent: #6c63ff;
+            --accent2: #a78bfa;
+            --accent-glow: rgba(108, 99, 255, 0.18);
+            --accent-dark: #4f46c8;
+            --white: #f0f0f5;
+            --muted: rgba(240, 240, 245, 0.45);
+            --muted2: rgba(240, 240, 245, 0.22);
+            --green: #22c55e;
+            --amber: #f59e0b;
+            --red: #ef4444;
+            --r-sm: 10px;
+            --r-md: 14px;
+            --r-lg: 18px;
+            --r-xl: 24px;
+            --font-body: 'Outfit', sans-serif;
+            --font-heading: 'Sora', sans-serif;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--bg);
+            color: var(--white);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        /* ── HEADER ── */
+        .header-wrapper {
+            background: linear-gradient(180deg, rgba(20, 20, 24, 0.8) 0%, rgba(20, 20, 24, 0.4) 100%);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header {
+            max-width: 1360px;
+            margin: 0 auto;
+            padding: 16px 48px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .icon-btn {
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            color: var(--muted);
+            width: 38px;
+            height: 38px;
+            border-radius: var(--r-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .icon-btn:hover {
+            border-color: rgba(108, 99, 255, 0.5);
+            color: var(--accent2);
+            background: var(--accent-glow);
+            transform: translateY(-2px);
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 10px 20px;
+            border: 1px solid var(--border);
+            border-radius: var(--r-md);
+            color: var(--muted);
+            font-family: var(--font-body);
+            font-size: 13px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            white-space: nowrap;
+        }
+
+        .back-btn:hover {
+            color: var(--white);
+            border-color: rgba(108, 99, 255, 0.5);
+            background: var(--accent-glow);
+            transform: translateX(-4px);
+        }
+
+        /* ── PAGE HERO ── */
+        .page-hero {
+            padding: 50px 25px 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse 60% 50% at 50% 0%, rgba(108, 99, 255, 0.15), transparent 70%);
+            pointer-events: none;
+        }
+
+        .page-hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: linear-gradient(rgba(108, 99, 255, 0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(108, 99, 255, 0.04) 1px, transparent 1px);
+            background-size: 56px 56px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .page-hero-content {
+            position: relative;
+            z-index: 1;
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--accent2);
+            margin-bottom: 16px;
+            animation: fadeInUp 0.6s ease-out 0.1s backwards;
+        }
+
+        .eyebrow::before {
+            content: '';
+            display: block;
+            width: 16px;
+            height: 1.5px;
+            background: var(--accent2);
+            border-radius: 2px;
+        }
+
+        .page-hero h1 {
+            font-family: var(--font-heading);
+            font-size: 56px;
+            font-weight: 800;
+            letter-spacing: -1.5px;
+            line-height: 1.08;
+            margin-bottom: 18px;
+            animation: fadeInUp 0.6s ease-out 0.2s backwards;
+        }
+
+        .page-hero h1 span {
+            background: linear-gradient(120deg, #6c63ff, #a78bfa, #c4b5fd);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .page-hero p {
+            font-size: 15.5px;
+            color: var(--muted);
+            max-width: 520px;
+            margin: 0 auto;
+            line-height: 1.7;
+            animation: fadeInUp 0.6s ease-out 0.3s backwards;
+        }
+
+        /* ── MAIN CONTENT ── */
+        .main-wrap {
+            max-width: 1360px;
+            margin: 0 auto;
+            padding: 0 48px 100px;
+        }
+
+        /* ── FILTER BAR ── */
+        .filter-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 32px;
+            padding: 22px 26px;
+            background: linear-gradient(135deg, var(--surface) 0%, rgba(26, 26, 32, 0.6) 100%);
+            border: 1px solid var(--border);
+            border-radius: var(--r-lg);
+            backdrop-filter: blur(4px);
+        }
+
+        .cat-tabs {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .cat-tab {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 9px 18px;
+            border-radius: 999px;
+            border: 1.5px solid var(--border);
+            background: transparent;
+            color: var(--muted);
+            font-family: var(--font-body);
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            white-space: nowrap;
+        }
+
+        .cat-tab:hover {
+            border-color: rgba(108, 99, 255, 0.4);
+            color: var(--accent2);
+            background: rgba(108, 99, 255, 0.08);
+            transform: translateY(-2px);
+        }
+
+        .cat-tab.active {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: #fff;
+            font-weight: 600;
+            box-shadow: 0 8px 24px rgba(108, 99, 255, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .cnt {
+            font-size: 10px;
+            font-weight: 700;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 999px;
+            padding: 2px 7px;
+            min-width: 20px;
+            text-align: center;
+        }
+
+        .cat-tab:not(.active) .cnt {
+            background: var(--surface3);
+            color: var(--muted2);
+        }
+
+        .cat-tab.active .cnt {
+            background: rgba(255, 255, 255, 0.25);
+        }
+
+        .filter-right {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-shrink: 0;
+        }
+
+        .s-search-wrap {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--surface2);
+            border: 1.5px solid var(--border);
+            border-radius: var(--r-md);
+            padding: 10px 16px;
+            width: 220px;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .s-search-wrap:focus-within {
+            border-color: rgba(108, 99, 255, 0.6);
+            background: rgba(26, 26, 32, 0.8);
+            box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.1);
+        }
+
+        .s-search-wrap input {
+            background: none;
+            border: none;
+            outline: none;
+            font-family: var(--font-body);
+            font-size: 13px;
+            color: var(--white);
+            width: 100%;
+            transition: color 0.2s;
+        }
+
+        .s-search-wrap input::placeholder {
+            color: var(--muted2);
+        }
+
+        .s-search-wrap i {
+            color: var(--muted2);
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+
+        .s-search-wrap:focus-within i {
+            color: var(--accent2);
+        }
+
+        .sort-select {
+            appearance: none;
+            -webkit-appearance: none;
+            background: var(--surface2);
+            border: 1.5px solid var(--border);
+            border-radius: var(--r-md);
+            padding: 10px 38px 10px 16px;
+            color: var(--white);
+            font-family: var(--font-body);
+            font-size: 13px;
+            font-weight: 500;
+            outline: none;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23a78bfa' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 14px center;
+        }
+
+        .sort-select:hover {
+            border-color: rgba(108, 99, 255, 0.4);
+            background-color: rgba(26, 26, 32, 0.8);
+        }
+
+        .sort-select:focus {
+            border-color: rgba(108, 99, 255, 0.6);
+            box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.1);
+        }
+
+        .sort-select option {
+            background: #1a1a24;
+            color: var(--white);
+        }
+
+        /* ── META ROW ── */
+        .meta-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 26px;
+        }
+
+        .results-text {
+            font-size: 13.5px;
+            color: var(--muted);
+        }
+
+        .results-text strong {
+            color: var(--white);
+            font-weight: 600;
+        }
+
+        /* ── PRODUCT CARDS ── */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 24px;
+            animation: fadeIn 0.5s ease-out 0.2s backwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .p-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--r-lg);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            cursor: pointer;
+        }
+
+        .p-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(108, 99, 255, 0.4);
+            box-shadow: 0 20px 60px rgba(108, 99, 255, 0.15), 0 0 1px rgba(108, 99, 255, 0.2);
+        }
+
+        .p-badge {
+            position: absolute;
+            top: 14px;
+            left: 14px;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            padding: 5px 12px;
+            border-radius: 999px;
+            z-index: 3;
+            backdrop-filter: blur(4px);
+            transition: all 0.3s;
+        }
+
+        .p-badge.hot {
+            background: rgba(239, 68, 68, 0.2);
+            color: #fca5a5;
+            border: 1px solid rgba(239, 68, 68, 0.35);
+        }
+
+        .p-badge.new {
+            background: rgba(108, 99, 255, 0.2);
+            color: #a78bfa;
+            border: 1px solid rgba(108, 99, 255, 0.35);
+        }
+
+        .p-badge.sale {
+            background: rgba(34, 197, 94, 0.2);
+            color: #86efac;
+            border: 1px solid rgba(34, 197, 94, 0.35);
+        }
+
+        .p-wish {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            z-index: 3;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(12, 12, 15, 0.7);
+            border: 1.5px solid var(--border);
+            backdrop-filter: blur(8px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: var(--muted);
+            font-size: 14px;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .p-wish:hover {
+            transform: scale(1.1);
+        }
+
+        .p-wish:hover,
+        .p-wish.on {
+            color: #f87171;
+            border-color: rgba(248, 113, 113, 0.5);
+            background: rgba(248, 113, 113, 0.1);
+        }
+
+        .p-img-wrap {
+            height: 220px;
+            overflow: hidden;
+            background: var(--surface2);
+            position: relative;
+        }
+
+        .p-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            display: block;
+        }
+
+        .p-card:hover .p-img {
+            transform: scale(1.08);
+        }
+
+        .p-body {
+            padding: 20px 19px 21px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        .p-tag {
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            color: var(--accent2);
+            margin-bottom: 9px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .p-name {
+            font-family: var(--font-heading);
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--white);
+            line-height: 1.25;
+            margin-bottom: 8px;
+            transition: color 0.3s;
+        }
+
+        .p-desc {
+            font-size: 13px;
+            color: var(--muted);
+            line-height: 1.6;
+            margin-bottom: 13px;
+            flex: 1;
+        }
+
+        .p-stars {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            margin-bottom: 14px;
+        }
+
+        .p-stars i {
+            color: var(--amber);
+            font-size: 11px;
+            transition: color 0.2s;
+        }
+
+        .p-stars .rev {
+            font-size: 12px;
+            color: var(--muted);
+            margin-left: 5px;
+        }
+
+        .p-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding-top: 15px;
+            border-top: 1px solid var(--border);
+        }
+
+        .p-orig {
+            font-size: 11px;
+            color: var(--muted2);
+            text-decoration: line-through;
+            margin-bottom: 2px;
+            transition: color 0.2s;
+        }
+
+        .p-price {
+            font-family: var(--font-heading);
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--white);
+            letter-spacing: -0.5px;
+            line-height: 1;
+            transition: color 0.3s;
+        }
+
+        .p-price .sym {
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--muted);
+            vertical-align: super;
+            font-family: var(--font-body);
+        }
+
+        .p-btn-group {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .p-view {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 7px;
+            padding: 10px 15px;
+            background: var(--accent-glow);
+            color: var(--accent2);
+            border: 1.5px solid rgba(108, 99, 255, 0.4);
+            border-radius: var(--r-sm);
+            font-family: var(--font-body);
+            font-size: 12.5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            white-space: nowrap;
+            text-decoration: none;
+        }
+
+        .p-view:hover {
+            background: var(--accent);
+            color: #fff;
+            border-color: var(--accent);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(108, 99, 255, 0.3);
+        }
+
+        .p-add {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 7px;
+            padding: 10px 15px;
+            background: var(--surface2);
+            color: var(--muted);
+            border: 1.5px solid var(--border);
+            border-radius: var(--r-sm);
+            font-family: var(--font-body);
+            font-size: 12.5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            white-space: nowrap;
+        }
+
+        .p-add:hover {
+            background: var(--surface3);
+            color: var(--white);
+            border-color: var(--border-md);
+            transform: translateY(-2px);
+        }
+
+        .p-add.added {
+            background: rgba(34, 197, 94, 0.15);
+            color: #86efac;
+            border-color: rgba(34, 197, 94, 0.4);
+        }
+
+        .p-add.added:hover {
+            background: rgba(34, 197, 94, 0.25);
+            border-color: rgba(34, 197, 94, 0.6);
+        }
+
+        .empty-state {
+            grid-column: 1/-1;
+            padding: 100px 20px;
+            text-align: center;
+            color: var(--muted);
+        }
+
+        .empty-state i {
+            font-size: 48px;
+            display: block;
+            margin-bottom: 18px;
+            opacity: 0.25;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .empty-state p {
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        /* ── TOAST ── */
+        .toast {
+            position: fixed;
+            bottom: 28px;
+            right: 28px;
+            background: var(--surface2);
+            border: 1.5px solid rgba(108, 99, 255, 0.4);
+            border-radius: var(--r-md);
+            padding: 14px 22px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 13.5px;
+            font-weight: 500;
+            color: var(--white);
+            z-index: 5000;
+            opacity: 0;
+            transform: translateY(20px) translateX(20px);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            pointer-events: none;
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(8px);
+        }
+
+        .toast.show {
+            opacity: 1;
+            transform: translateY(0) translateX(0);
+            pointer-events: auto;
+        }
+
+        .toast i {
+            color: var(--green);
+            font-size: 16px;
+        }
+
+        /* ── RESPONSIVE ── */
+        @media(max-width:1000px) {
+            .main-wrap {
+                padding: 0 32px 80px;
+            }
+
+            .header {
+                padding: 14px 32px;
+            }
+
+            .filter-bar {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 16px;
+            }
+
+            .filter-right {
+                width: 100%;
+                flex-wrap: wrap;
+            }
+
+            .s-search-wrap {
+                width: 100%;
+                flex: 1;
+            }
+
+            .sort-select {
+                flex: 1;
+            }
+        }
+
+        @media(max-width:768px) {
+            .main-wrap {
+                padding: 0 20px 60px;
+            }
+
+            .header {
+                padding: 12px 20px;
+            }
+
+            .page-hero {
+                padding: 40px 20px 50px;
+            }
+
+            .page-hero h1 {
+                font-size: 40px;
+                margin-bottom: 14px;
+            }
+
+            .page-hero p {
+                font-size: 14px;
+            }
+
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+                gap: 16px;
+            }
+
+            .cat-tabs {
+                gap: 6px;
+            }
+
+            .cat-tab {
+                padding: 8px 14px;
+                font-size: 12px;
+            }
+
+            .cnt {
+                min-width: 18px;
+                padding: 1px 5px;
+                font-size: 9px;
+            }
+
+            .s-search-wrap {
+                padding: 8px 12px;
+            }
+
+            .toast {
+                bottom: 16px;
+                right: 16px;
+                font-size: 12px;
+                padding: 12px 18px;
+            }
+        }
+
+        @media(max-width:480px) {
+            .page-hero h1 {
+                font-size: 32px;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .filter-right {
+                flex-direction: column;
+            }
+
+            .s-search-wrap,
+            .sort-select {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <div class="header-wrapper">
+        <header class="header">
+            <div class="header-actions">
+                <a href="../index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Home</a>
+            </div>
+        </header>
+    </div>
+
+    <!-- PAGE HERO -->
+    <div class="page-hero">
+        <div class="page-hero-content">
+            <p class="eyebrow"><i class="fas fa-th-large"></i> Complete Collection</p>
+            <h1>All <span>Products</span></h1>
+            <p>Browse our full range of premium tech accessories — from gaming gear to audio, chargers and beyond.</p>
+        </div>
+    </div>
+
+    <!-- MAIN -->
+    <div class="main-wrap">
+        <!-- FILTER BAR -->
+        <div class="filter-bar">
+            <div class="cat-tabs">
+                <button class="cat-tab active" onclick="onCat(this,'all')"><i class="fa-solid fa-grip"></i> All <span
+                        class="cnt" id="cnt-all">12</span></button>
+                <button class="cat-tab" onclick="onCat(this,'gaming')"><i class="fa-solid fa-gamepad"></i> Gaming <span
+                        class="cnt" id="cnt-gaming">0</span></button>
+                <button class="cat-tab" onclick="onCat(this,'audio')"><i class="fa-solid fa-headphones"></i> Audio <span
+                        class="cnt" id="cnt-audio">0</span></button>
+                <button class="cat-tab" onclick="onCat(this,'accessories')"><i class="fa-solid fa-plug"></i> Accessories
+                    <span class="cnt" id="cnt-accessories">0</span></button>
+                <button class="cat-tab" onclick="onCat(this,'mobile')"><i class="fa-solid fa-mobile-screen"></i> Mobile
+                    <span class="cnt" id="cnt-mobile">0</span></button>
+            </div>
+            <div class="filter-right">
+                <div class="s-search-wrap">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" placeholder="Search products..." id="s-input" oninput="onSearch()" />
+                </div>
+                <select class="sort-select" onchange="onSort(this.value)">
+                    <option value="default">Sort: Default</option>
+                    <option value="price-low">Price: Low → High</option>
+                    <option value="price-high">Price: High → Low</option>
+                    <option value="name">Name: A–Z</option>
+                    <option value="rating">Top Rated</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="meta-row">
+            <p class="results-text" id="res-text"><strong>12</strong> products found</p>
+        </div>
+
+        <div class="products-grid" id="pgrid"></div>
+    </div>
+
+    <div class="toast" id="toast"><i class="fa-solid fa-circle-check"></i><span id="toast-msg">Done!</span></div>
+
+    <script>
+        const PRODUCTS = [
+            {
+                id: 1, name: 'Gaming Headset Pro', desc: '7.1 Surround Sound with RGB lighting and noise-cancelling mic', price: 89.99, origPrice: 119.99, cat: 'gaming', badge: 'hot', stars: 4.8, reviews: 124, img: 'https://images.unsplash.com/photo-1583394838336-acd977736f90?auto=format&fit=crop&w=600&q=80',
+                images: ['https://images.unsplash.com/photo-1583394838336-acd977736f90?auto=format&fit=crop&w=800&q=80', 'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?auto=format&fit=crop&w=800&q=80', 'https://images.unsplash.com/photo-1618366712010-f4ae9c647dcb?auto=format&fit=crop&w=800&q=80'],
+                specs: [{ k: 'Driver Size', v: '50mm Neodymium' }, { k: 'Frequency', v: '20Hz – 20KHz' }, { k: 'Impedance', v: '32 Ohm' }, { k: 'Connectivity', v: 'USB + 3.5mm Jack' }, { k: 'Mic', v: 'Retractable Noise-Cancelling' }, { k: 'Lighting', v: 'RGB 16.8M Colors' }, { k: 'Weight', v: '280g' }, { k: 'Warranty', v: '12 Months' }],
+                highlights: ['7.1 Virtual Surround Sound', 'RGB LED Lighting with 10 modes', 'Noise-cancelling flip mic', 'Memory foam ear cushions', 'Compatible with PC, PS5, Xbox']
+            },
+            {
+                id: 2, name: 'RGB Controller X', desc: 'Wireless Pro Gaming Controller with 20-hour battery and haptic feedback', price: 59.99, origPrice: null, cat: 'gaming', badge: '', stars: 4.5, reviews: 89, img: 'https://images.unsplash.com/photo-1609081219090-a6d81d3085bf?auto=format&fit=crop&w=600&q=80',
+                images: ['https://images.unsplash.com/photo-1609081219090-a6d81d3085bf?auto=format&fit=crop&w=800&q=80', 'https://images.unsplash.com/photo-1592840062661-a5a7f78e2056?auto=format&fit=crop&w=800&q=80', 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=800&q=80'],
+                specs: [{ k: 'Battery Life', v: '20 Hours' }, { k: 'Connectivity', v: 'Bluetooth 5.2 + USB-C' }, { k: 'Vibration', v: 'Dual Haptic Motors' }, { k: 'Trigger', v: 'Adjustable Hair Trigger' }, { k: 'Buttons', v: 'Programmable Mapping' }, { k: 'Lighting', v: 'RGB Backlit' }, { k: 'Compatibility', v: 'PC / Android / iOS' }, { k: 'Warranty', v: '12 Months' }],
+                highlights: ['20-hour wireless battery', 'Bluetooth 5.2 low-latency', 'Dual rumble haptic motors', 'Adjustable hair triggers', 'Works on PC, Android & iOS']
+            },
+            {
+                id: 3, name: '65W GaN Charger', desc: '3-port ultra-fast charging adapter — USB-C & USB-A, charges laptop too', price: 34.99, origPrice: 44.99, cat: 'accessories', badge: 'sale', stars: 4.7, reviews: 210, img: 'https://images.unsplash.com/photo-1622434641406-a158123450f9?auto=format&fit=crop&w=600&q=80',
+                images: ['https://images.unsplash.com/photo-1622434641406-a158123450f9?auto=format&fit=crop&w=800&q=80', 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80', 'https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?auto=format&fit=crop&w=800&q=80'],
+                specs: [{ k: 'Total Power', v: '65W GaN II' }, { k: 'Ports', v: '2× USB-C + 1× USB-A' }, { k: 'USB-C 1', v: '45W PD Fast Charge' }, { k: 'USB-C 2', v: '20W PD' }, { k: 'USB-A', v: '12W QC 3.0' }, { k: 'Input', v: '100–240V Universal' }, { k: 'Size', v: '62×62×32mm' }, { k: 'Warranty', v: '18 Months' }],
+                highlights: ['Gallium Nitride (GaN) technology', 'Charges laptop + 2 phones simultaneously', 'Auto-detects device wattage', 'No-heat foldable plug design', 'CE / FCC / RoHS certified']
+            },
+            {
+                id: 4, name: 'BassBoom Speaker', desc: 'Portable Bluetooth 5.3 speaker with 360° sound and IPX6 waterproofing', price: 49.99, origPrice: null, cat: 'audio', badge: '', stars: 4.4, reviews: 67, img: 'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?auto=format&fit=crop&w=600&q=80',
+                images: ['https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?auto=format&fit=crop&w=800&q=80', 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80', 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80'],
+                specs: [{ k: 'Driver', v: '2× 40mm Full-Range' }, { k: 'Output', v: '20W RMS' }, { k: 'Bluetooth', v: '5.3 (40m range)' }, { k: 'Battery', v: '5200mAh / 18hrs' }, { k: 'Water Rating', v: 'IPX6 Waterproof' }, { k: 'Charging', v: 'USB-C 20W Fast' }, { k: 'Weight', v: '520g' }, { k: 'Warranty', v: '12 Months' }],
+                highlights: ['360° omnidirectional sound', 'IPX6 fully waterproof', '18-hour battery life', 'Pair 2 speakers in stereo mode', 'Built-in mic for calls']
+            },
+            {
+                id: 5, name: 'Studio Headphones HD', desc: '40mm premium drivers, foldable design, 32-hour playtime, Hi-Res Audio', price: 79.99, origPrice: 99.99, cat: 'audio', badge: 'sale', stars: 4.6, reviews: 156, img: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=600&q=80',
+                images: ['https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=800&q=80', 'https://images.unsplash.com/photo-1524678714210-9917a6c619c2?auto=format&fit=crop&w=800&q=80', 'https://images.unsplash.com/photo-1546435770-a3e426bf472b?auto=format&fit=crop&w=800&q=80'],
+                specs: [{ k: 'Driver', v: '40mm Hi-Res Audio' }, { k: 'Frequency', v: '10Hz – 40KHz' }, { k: 'Battery', v: '32 Hours Wireless' }, { k: 'ANC', v: 'Active Noise Cancelling' }, { k: 'Connectivity', v: 'Bluetooth 5.0 + 3.5mm' }, { k: 'Foldable', v: 'Yes — carry pouch included' }, { k: 'Weight', v: '240g' }, { k: 'Warranty', v: '12 Months' }],
+                highlights: ['Hi-Res Audio certified', 'Active Noise Cancellation', '32-hour wireless playback', 'Foldable with carry case', 'Works wired with 3.5mm cable']
+            },
+            {
+                id: 6, name: 'True Wireless Earbuds', desc: 'ANC earbuds with 30-hour total battery, transparency mode & wireless case', price: 99.99, origPrice: null, cat: 'audio', badge: 'hot', stars: 4.9, reviews: 301, img: 'https://images.unsplash.com/photo-1572536147248-ac59a8abfa4b?auto=format&fit=crop&w=600&q=80',
+                images: ['https://images.unsplash.com/photo-1572536147248-ac59a8abfa4b?auto=format&fit=crop&w=800&q=80', 'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?auto=format&fit=crop&w=800&q=80', 'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?auto=format&fit=crop&w=800&q=80'],
+                specs: [{ k: 'Driver', v: '10mm Dynamic + Planar' }, { k: 'ANC', v: '-42dB Active Noise Cancel' }, { k: 'Earbud Battery', v: '8 Hours' }, { k: 'Case Battery', v: '22 Hours Extra' }, { k: 'Charging', v: 'Wireless + USB-C' }, { k: 'Codec', v: 'LDAC / AAC / SBC' }, { k: 'IPX', v: 'IPX4 Sweat Proof' }, { k: 'Warranty', v: '12 Months' }],
+                highlights: ['Industry-leading -42dB ANC', 'Transparency / Ambient mode', '30-hour total battery life', 'Wireless charging case', 'LDAC Hi-Res audio support']
+            },
+            {
+                id: 7, name: 'USB-C Hub 7-in-1', desc: '4K HDMI, 100W PD passthrough, SD/TF card reader and 3× USB-A 3.0 ports', price: 44.99, origPrice: null, cat: 'accessories', badge: 'new', stars: 4.5, reviews: 78, img: 'https://images.unsplash.com/photo-1625846628099-36cda0d7f4e3?auto=format&fit=crop&w=600&q=80',
+                images: ['https://images.unsplash.com/photo-1625846628099-36cda0d7f4e3?auto=format&fit=crop&w=800&q=80', 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80', 'https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?auto=format&fit=crop&w=800&q=80'],
+                specs: [{ k: 'Ports', v: '7-in-1 Hub' }, { k: 'HDMI', v: '4K@60Hz' }, { k: 'USB-A', v: '3× USB 3.0 (5Gbps)' }, { k: 'PD Charging', v: '100W Passthrough' }, { k: 'Card Reader', v: 'SD + MicroSD' }, { k: 'Material', v: 'Aluminium Alloy' }, { k: 'Cable', v: '18cm fixed USB-C' }, { k: 'Warranty', v: '18 Months' }],
+                highlights: ['4K 60Hz HDMI output', '100W power delivery passthrough', '3× USB 3.0 at 5Gbps', 'SD and MicroSD slots', 'Plug & play — no drivers needed']
+            },
+            {
+                id: 8, name: 'Phone Stand Pro', desc: 'Adjustable aluminum desk stand with 360° rotation for phones & tablets', price: 24.99, origPrice: null, cat: 'mobile', badge: 'new', stars: 4.3, reviews: 44, img: 'https://images.unsplash.com/photo-1585298723682-7115561c51b7?auto=format&fit=crop&w=600&q=80',
+                images: ['https://images.unsplash.com/photo-1585298723682-7115561c51b7?auto=format&fit=crop&w=800&q=80', 'https://images.unsplash.com/photo-1551816230-ef5deaed4a26?auto=format&fit=crop&w=800&q=80', 'https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?auto=format&fit=crop&w=800&q=80'],
+                specs: [{ k: 'Material', v: 'Aircraft-grade Aluminium' }, { k: 'Rotation', v: '360° horizontal + tilt' }, { k: 'Compatibility', v: '4" to 13" devices' }, { k: 'Base', v: 'Anti-slip silicone pad' }, { k: 'Height', v: 'Adjustable 13–22cm' }, { k: 'Foldable', v: 'Yes — travel-friendly' }, { k: 'Weight', v: '185g' }, { k: 'Warranty', v: '12 Months' }],
+                highlights: ['Holds phones & tablets up to 13"', '360° rotation + angle tilt', 'Anti-slip weighted base', 'Foldable compact design', 'Scratch-free silicone pads']
+            },
+            {
+                id: 9, name: 'MagSafe Power Bank', desc: '15W wireless MagSafe power bank — 10000mAh, folds flat, LED indicator', price: 54.99, origPrice: 69.99, cat: 'mobile', badge: 'hot', stars: 4.7, reviews: 133, img: 'https://images.unsplash.com/photo-1609592806978-cd0c4ed5b8b8?auto=format&fit=crop&w=600&q=80',
+                images: ['https://images.unsplash.com/photo-1609592806978-cd0c4ed5b8b8?auto=format&fit=crop&w=800&q=80', 'https://images.unsplash.com/photo-1585298723682-7115561c51b7?auto=format&fit=crop&w=800&q=80', 'https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?auto=format&fit=crop&w=800&q=80'],
+                specs: [{ k: 'Capacity', v: '10000mAh' }, { k: 'Wireless Output', v: '15W MagSafe' }, { k: 'USB-C Output', v: '20W PD' }, { k: 'Input', v: 'USB-C 18W' }, { k: 'Indicator', v: '4-LED battery dots' }, { k: 'Thickness', v: '11.5mm slim' }, { k: 'Weight', v: '195g' }, { k: 'Warranty', v: '12 Months' }],
+                highlights: ['MagSafe 15W snaps to iPhone', 'Slim 11.5mm pocket design', '10000mAh — 3 full charges', 'USB-C wired output for others', 'LED battery level indicator']
+            },
+            {
+                id: 10, name: 'Mechanical Keyboard TKL', desc: 'Tenkeyless mechanical keyboard, hot-swappable red switches, RGB per-key', price: 74.99, origPrice: 94.99, cat: 'gaming', badge: 'new', stars: 4.6, reviews: 98, img: 'https://images.unsplash.com/photo-1595225476474-87563907a212?auto=format&fit=crop&w=600&q=80',
+                images: ['https://images.unsplash.com/photo-1595225476474-87563907a212?auto=format&fit=crop&w=800&q=80', 'https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&w=800&q=80', 'https://images.unsplash.com/photo-1618384887929-16ec33fab9ef?auto=format&fit=crop&w=800&q=80'],
+                specs: [{ k: 'Layout', v: 'TKL 87-Key' }, { k: 'Switch', v: 'Hot-swap Red Linear' }, { k: 'Actuation', v: '1.5mm / 45g' }, { k: 'Lighting', v: 'Per-key RGB 16.8M' }, { k: 'Connectivity', v: 'USB-C braided cable' }, { k: 'Polling Rate', v: '1000Hz' }, { k: 'Keycaps', v: 'PBT Double-shot' }, { k: 'Warranty', v: '12 Months' }],
+                highlights: ['Hot-swappable switches', 'PBT double-shot keycaps', 'Per-key RGB customization', '1000Hz polling rate', 'Includes USB-C braided cable']
+            },
+            {
+                id: 11, name: 'Webcam 4K AutoFocus', desc: '4K 30fps webcam with AI autofocus, built-in ring light, privacy shutter', price: 69.99, origPrice: 89.99, cat: 'accessories', badge: 'sale', stars: 4.5, reviews: 61, img: 'https://images.unsplash.com/photo-1617550523898-b3e8dba9c7b0?auto=format&fit=crop&w=600&q=80',
+                images: ['https://images.unsplash.com/photo-1617550523898-b3e8dba9c7b0?auto=format&fit=crop&w=800&q=80', 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80', 'https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?auto=format&fit=crop&w=800&q=80'],
+                specs: [{ k: 'Resolution', v: '4K @ 30fps / 1080p@60fps' }, { k: 'Autofocus', v: 'AI Face Tracking' }, { k: 'FOV', v: '90° wide angle' }, { k: 'Mic', v: 'Dual noise-cancel mics' }, { k: 'Ring Light', v: '3-level built-in LED' }, { k: 'Privacy', v: 'Physical shutter cover' }, { k: 'Connection', v: 'USB-A plug & play' }, { k: 'Warranty', v: '12 Months' }],
+                highlights: ['4K ultra-clear video', 'AI autofocus + face tracking', 'Built-in 3-level ring light', 'Physical privacy shutter', 'Plug & play — zero drivers']
+            },
+            {
+                id: 12, name: 'RGB Gaming Mouse', desc: '16000 DPI optical sensor, 7 programmable buttons, ultralight 68g design', price: 39.99, origPrice: 49.99, cat: 'gaming', badge: 'sale', stars: 4.7, reviews: 187, img: 'https://images.unsplash.com/photo-1527814050087-3793815479db?auto=format&fit=crop&w=600&q=80',
+                images: ['https://images.unsplash.com/photo-1527814050087-3793815479db?auto=format&fit=crop&w=800&q=80', 'https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&w=800&q=80', 'https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?auto=format&fit=crop&w=800&q=80'],
+                specs: [{ k: 'Sensor', v: '16000 DPI Optical' }, { k: 'DPI Steps', v: '400/800/1600/3200/16000' }, { k: 'Buttons', v: '7 Programmable' }, { k: 'Weight', v: '68g Ultralight' }, { k: 'Polling Rate', v: '1000Hz' }, { k: 'Click Life', v: '50M click rated' }, { k: 'Feet', v: 'PTFE pure white pads' }, { k: 'Warranty', v: '12 Months' }],
+                highlights: ['16000 DPI adjustable sensor', 'Ultralight 68g honeycomb shell', '7 programmable buttons', 'PTFE glide feet for smooth aim', 'RGB logo + scroll wheel glow']
+            },
+        ];
+
+        const CAT_LABELS = { gaming: 'Gaming', audio: 'Audio', accessories: 'Accessories', mobile: 'Mobile' };
+        const CAT_ICONS = { gaming: 'fa-gamepad', audio: 'fa-headphones', accessories: 'fa-plug', mobile: 'fa-mobile-screen' };
+        let liked = {}, activeCat = 'all', activeSort = 'default', searchQ = '';
+
+        function init() {
+            ['all', 'gaming', 'audio', 'accessories', 'mobile'].forEach(c => {
+                const el = document.getElementById('cnt-' + c);
+                if (el) el.textContent = c === 'all' ? PRODUCTS.length : PRODUCTS.filter(p => p.cat === c).length;
+            });
+            render();
+        }
+
+        function filtered() {
+            let list = PRODUCTS.filter(p => (activeCat === 'all' || p.cat === activeCat) && (p.name.toLowerCase().includes(searchQ) || p.desc.toLowerCase().includes(searchQ)));
+            if (activeSort === 'price-low') list.sort((a, b) => a.price - b.price);
+            if (activeSort === 'price-high') list.sort((a, b) => b.price - a.price);
+            if (activeSort === 'name') list.sort((a, b) => a.name.localeCompare(b.name));
+            if (activeSort === 'rating') list.sort((a, b) => b.stars - a.stars);
+            return list;
+        }
+
+        function starsHtml(r) { let h = ''; for (let i = 1; i <= 5; i++) { if (r >= i) h += '<i class="fa-solid fa-star"></i>'; else if (r >= i - .5) h += '<i class="fa-solid fa-star-half-stroke"></i>'; else h += '<i class="fa-regular fa-star"></i>'; } return h; }
+
+        function render() {
+            const list = filtered();
+            const grid = document.getElementById('pgrid');
+            document.getElementById('res-text').innerHTML = `<strong>${list.length}</strong> product${list.length !== 1 ? 's' : ''} found`;
+            if (!list.length) { grid.innerHTML = `<div class="empty-state"><i class="fa-regular fa-face-meh"></i><p>No products found.<br>Try a different search or category.</p></div>`; return; }
+            grid.innerHTML = list.map(p => `
+    <div class="p-card" onclick="goDetail(${p.id})">
+      ${p.badge ? `<span class="p-badge ${p.badge}">${p.badge}</span>` : ''}
+      <button class="p-wish ${liked[p.id] ? 'on' : ''}" onclick="event.stopPropagation();toggleLike(${p.id},this)"><i class="fa-${liked[p.id] ? 'solid' : 'regular'} fa-heart"></i></button>
+      <div class="p-img-wrap"><img class="p-img" src="${p.img}" alt="${p.name}" loading="lazy"/></div>
+      <div class="p-body">
+        <div class="p-tag"><i class="fa-solid ${CAT_ICONS[p.cat] || 'fa-tag'}" style="font-size:10px"></i>${CAT_LABELS[p.cat] || p.cat}</div>
+        <p class="p-name">${p.name}</p>
+        <p class="p-desc">${p.desc}</p>
+        <div class="p-stars">${starsHtml(p.stars)}<span class="rev">(${p.reviews})</span></div>
+        <div class="p-footer">
+          <div>${p.origPrice ? `<p class="p-orig">$${p.origPrice.toFixed(2)}</p>` : ''}<p class="p-price"><span class="sym">$</span>${p.price.toFixed(2)}</p></div>
+          <div class="p-btn-group">
+            <a class="p-view" href="product-detail.html?id=${p.id}" onclick="event.stopPropagation()"><i class="fas fa-eye"></i> View</a>
+          </div>
+        </div>
+      </div>
+    </div>`).join('');
+        }
+
+        function goDetail(id) { window.location.href = `product-detail.html?id=${id}`; }
+        function onCat(el, cat) { document.querySelectorAll('.cat-tab').forEach(b => b.classList.remove('active')); el.classList.add('active'); activeCat = cat; render(); }
+        function onSort(v) { activeSort = v; render(); }
+        function onSearch() { searchQ = document.getElementById('s-input').value.toLowerCase().trim(); render(); }
+        function toggleLike(id, btn) { liked[id] = !liked[id]; btn.classList.toggle('on', liked[id]); btn.innerHTML = `<i class="fa-${liked[id] ? 'solid' : 'regular'} fa-heart"></i>`; }
+
+        let _tt;
+        function showToast(msg) { const t = document.getElementById('toast'); document.getElementById('toast-msg').textContent = msg; t.classList.add('show'); clearTimeout(_tt); _tt = setTimeout(() => t.classList.remove('show'), 2800); }
+
+        init();
+    </script>
+</body>
+
+</html>

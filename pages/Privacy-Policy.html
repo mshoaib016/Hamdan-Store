@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — Hamdan Store</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg: #0c0c0f;
+      --surface: rgba(255, 255, 255, 0.03);
+      --surface2: rgba(255, 255, 255, 0.05);
+      --border: rgba(255, 255, 255, 0.08);
+      --border-md: rgba(167, 139, 250, 0.3);
+      --accent: #a78bfa;
+      --accent-dark: #7c3aed;
+      --accent-glow: rgba(167, 139, 250, 0.1);
+      --muted: rgba(255, 255, 255, 0.45);
+      --muted2: rgba(255, 255, 255, 0.25);
+      --white: #fff;
+      --green: #34d399;
+      --r-sm: 8px;
+      --r-md: 12px;
+      --r-lg: 16px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--white);
+      font-family: 'Sora', system-ui, sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ── BACK BUTTON ── */
+    .back-btn {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 999;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(167, 139, 250, 0.25);
+      border-radius: 999px;
+      color: var(--accent);
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.22s ease;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    .back-btn i {
+      font-size: 12px;
+      transition: transform 0.22s;
+    }
+
+    .back-btn:hover {
+      background: rgba(167, 139, 250, 0.12);
+      border-color: var(--accent);
+      color: var(--white);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 20px rgba(124, 58, 237, 0.25);
+    }
+
+    .back-btn:hover i {
+      transform: translateX(-3px);
+    }
+
+    /* ── HERO ── */
+    .hero {
+      text-align: center;
+      padding: 50px 24px 50px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -80px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 700px;
+      height: 500px;
+      background: radial-gradient(ellipse, rgba(124, 58, 237, 0.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .grid-bg {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, .025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, .025) 1px, transparent 1px);
+      background-size: 48px 48px;
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: rgba(167, 139, 250, 0.1);
+      border: 1px solid rgba(167, 139, 250, 0.25);
+      border-radius: 999px;
+      padding: 6px 18px;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 22px;
+    }
+
+    .hero h1 {
+      font-size: clamp(30px, 5vw, 54px);
+      font-weight: 800;
+      line-height: 1.12;
+      margin-bottom: 14px;
+      letter-spacing: -1px;
+    }
+
+    .hero h1 span {
+      background: linear-gradient(135deg, #c4b5fd, #a78bfa, #7c3aed);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    /* ── LAYOUT ── */
+    .page-wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px 64px;
+    }
+
+    .policy-layout {
+      display: grid;
+      grid-template-columns: 230px 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    /* ── SIDEBAR ── */
+    .sidebar {
+      position: sticky;
+      top: 80px;
+      background: rgba(255, 255, 255, 0.025);
+      border: 1px solid rgba(124, 58, 237, 0.18);
+      border-radius: 16px;
+      padding: 20px 14px;
+      backdrop-filter: blur(12px);
+    }
+
+    .sidebar-label {
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--muted2);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+      padding: 0 6px;
+    }
+
+    .nav-link {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      padding: 9px 12px;
+      border-radius: 10px;
+      font-size: 13px;
+      color: var(--muted);
+      cursor: pointer;
+      transition: all .18s;
+      margin-bottom: 2px;
+      text-decoration: none;
+      font-family: inherit;
+      font-weight: 500;
+    }
+
+    .nav-link i {
+      font-size: 12px;
+      width: 14px;
+      flex-shrink: 0;
+    }
+
+    .nav-link:hover {
+      color: var(--white);
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .nav-link.active {
+      color: var(--accent);
+      background: var(--accent-glow);
+    }
+
+    .nav-updated {
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+      font-size: 12px;
+      color: var(--muted2);
+      padding-left: 6px;
+      line-height: 1.7;
+    }
+
+    .nav-updated i {
+      color: var(--accent);
+      margin-right: 5px;
+    }
+
+    .nav-updated strong {
+      color: var(--white);
+    }
+
+    /* ── SUMMARY BOX ── */
+    .summary-box {
+      background: rgba(167, 139, 250, 0.07);
+      border: 1px solid rgba(167, 139, 250, 0.22);
+      border-radius: 14px;
+      padding: 20px 24px;
+      margin-bottom: 40px;
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.75;
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+
+    .summary-box i {
+      color: var(--accent);
+      font-size: 18px;
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+
+    .summary-box strong {
+      color: var(--accent);
+    }
+
+    /* ── POLICY SECTION ── */
+    .policy-section-block {
+      margin-bottom: 52px;
+      scroll-margin-top: 90px;
+    }
+
+    .ps-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 22px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .ps-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 12px;
+      background: rgba(167, 139, 250, 0.1);
+      border: 1px solid rgba(167, 139, 250, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .ps-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: -0.3px;
+    }
+
+    .ps-body {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.85;
+    }
+
+    .ps-body h4 {
+      font-size: 14px;
+      font-weight: 700;
+      color: rgba(255, 255, 255, 0.8);
+      margin: 20px 0 10px;
+    }
+
+    .ps-body p {
+      margin-bottom: 14px;
+    }
+
+    .ps-body p:last-child {
+      margin-bottom: 0;
+    }
+
+    .ps-body ul {
+      margin: 0 0 14px 20px;
+    }
+
+    .ps-body ul li {
+      margin-bottom: 6px;
+    }
+
+    .ps-body a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .ps-body a:hover {
+      text-decoration: underline;
+    }
+
+    .ps-body strong {
+      color: rgba(255, 255, 255, 0.85);
+      font-weight: 600;
+    }
+
+    /* ── KEY POINTS ── */
+    .key-points {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin: 20px 0;
+    }
+
+    .key-point {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 13px 16px;
+      background: rgba(52, 211, 153, 0.05);
+      border: 1px solid rgba(52, 211, 153, 0.15);
+      border-radius: 10px;
+    }
+
+    .key-point i {
+      color: var(--green);
+      font-size: 13px;
+      flex-shrink: 0;
+    }
+
+    .key-point span {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+
+    /* ── COOKIE TABLE ── */
+    .cookie-table {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      margin: 20px 0;
+    }
+
+    .ct-head {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 2fr;
+      padding: 11px 18px;
+      background: rgba(255, 255, 255, 0.04);
+      border-bottom: 1px solid var(--border);
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--muted2);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+
+    .ct-row {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 2fr;
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--border);
+      font-size: 13px;
+      transition: background .18s;
+    }
+
+    .ct-row:last-child {
+      border-bottom: none;
+    }
+
+    .ct-row:hover {
+      background: rgba(167, 139, 250, 0.04);
+    }
+
+    .ct-name {
+      font-weight: 600;
+      color: var(--white);
+      font-size: 12px;
+      font-family: monospace;
+    }
+
+    .ct-badge {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 600;
+      width: fit-content;
+    }
+
+    .badge-essential {
+      background: rgba(52, 211, 153, 0.12);
+      color: #34d399;
+      border: 1px solid rgba(52, 211, 153, 0.25);
+    }
+
+    .badge-functional {
+      background: rgba(167, 139, 250, 0.12);
+      color: #a78bfa;
+      border: 1px solid rgba(167, 139, 250, 0.25);
+    }
+
+    .badge-analytics {
+      background: rgba(251, 191, 36, 0.1);
+      color: #fbbf24;
+      border: 1px solid rgba(251, 191, 36, 0.2);
+    }
+
+    .badge-marketing {
+      background: rgba(248, 113, 113, 0.1);
+      color: #f87171;
+      border: 1px solid rgba(248, 113, 113, 0.2);
+    }
+
+    .ct-purpose {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* ── CONTACT CARD ── */
+    .contact-card {
+      background: rgba(255, 255, 255, 0.025);
+      border: 1px solid rgba(167, 139, 250, 0.2);
+      border-radius: 18px;
+      padding: 36px 32px;
+      margin-top: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 24px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-card::before {
+      content: '';
+      position: absolute;
+      top: -40px;
+      right: -40px;
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(circle, rgba(124, 58, 237, 0.1), transparent 70%);
+      pointer-events: none;
+    }
+
+    .contact-card h3 {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .contact-card p {
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .contact-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 13px 24px;
+      background: var(--accent-dark);
+      color: #fff;
+      border: none;
+      border-radius: 12px;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all .22s;
+      text-decoration: none;
+      white-space: nowrap;
+      position: relative;
+    }
+
+    .contact-btn:hover {
+      background: #6d28d9;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 22px rgba(124, 58, 237, 0.4);
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      text-align: center;
+      padding: 20px 24px 36px;
+      color: var(--muted2);
+      font-size: 13px;
+    }
+
+    .footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 860px) {
+      .policy-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar {
+        position: static;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        background: none;
+        border: none;
+        padding: 0;
+        backdrop-filter: none;
+      }
+
+      .sidebar-label,
+      .nav-updated {
+        display: none;
+      }
+
+      .nav-link {
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        padding: 7px 13px;
+        font-size: 12px;
+      }
+
+      .nav-link.active {
+        border-color: var(--accent);
+      }
+
+      .key-points {
+        grid-template-columns: 1fr;
+      }
+
+      .ct-head,
+      .ct-row {
+        grid-template-columns: 1.2fr 1fr;
+      }
+
+      .ct-head span:last-child,
+      .ct-purpose {
+        display: none;
+      }
+
+      .contact-card {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .hero h1 {
+        font-size: 28px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .back-btn span {
+        display: none;
+      }
+
+      .back-btn {
+        padding: 10px 14px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Back Button -->
+  <a href="../index.html" class="back-btn">
+    <i class="fas fa-arrow-left"></i>
+    <span>Back to Home</span>
+  </a>
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="grid-bg"></div>
+    <div class="hero-inner">
+      <div class="badge"><i class="fas fa-shield-halved"></i> Your Privacy Matters</div>
+      <h1>Privacy <span>Policy</span></h1>
+      <p>We respect your privacy and are committed to protecting your personal information.</p>
+    </div>
+  </div>
+
+  <!-- Content -->
+  <div class="page-wrap">
+    <div class="policy-layout">
+
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="sidebar-label">Contents</div>
+        <a class="nav-link active" href="#collect"><i class="fas fa-database"></i> Data We Collect</a>
+        <a class="nav-link" href="#use"><i class="fas fa-gears"></i> How We Use It</a>
+        <a class="nav-link" href="#share"><i class="fas fa-share-nodes"></i> Data Sharing</a>
+        <a class="nav-link" href="#cookies"><i class="fas fa-cookie-bite"></i> Cookies</a>
+        <a class="nav-link" href="#security"><i class="fas fa-lock"></i> Security</a>
+        <a class="nav-link" href="#rights"><i class="fas fa-user-shield"></i> Your Rights</a>
+        <a class="nav-link" href="#children"><i class="fas fa-child"></i> Children</a>
+        <a class="nav-link" href="#changes"><i class="fas fa-bell"></i> Policy Changes</a>
+        <div class="nav-updated">
+          <i class="fas fa-clock"></i> Last updated:<br>
+          <strong>May 29, 2026</strong>
+        </div>
+      </aside>
+
+      <!-- Main -->
+      <div>
+
+        <!-- Summary -->
+        <div class="summary-box">
+          <i class="fas fa-circle-info"></i>
+          <div><strong>Quick Summary:</strong> We collect only what's necessary to process your orders and improve your
+            experience. We never sell your data to third parties. You can request deletion of your data at any time.
+          </div>
+        </div>
+
+        <!-- 1. Data We Collect -->
+        <div class="policy-section-block" id="collect">
+          <div class="ps-header">
+            <div class="ps-icon"><i class="fas fa-database"></i></div>
+            <h2 class="ps-title">1. Information We Collect</h2>
+          </div>
+          <div class="ps-body">
+            <h4>Information you provide directly:</h4>
+            <ul>
+              <li>Name, email address, phone number</li>
+              <li>Delivery address and city</li>
+              <li>Payment information (processed securely — we never store card details)</li>
+              <li>Messages you send us via email, WhatsApp, or our contact form</li>
+            </ul>
+            <h4>Information collected automatically:</h4>
+            <ul>
+              <li>IP address and browser type</li>
+              <li>Pages visited and time spent on our website</li>
+              <li>Device type (mobile, tablet, desktop)</li>
+              <li>Referring website (how you found us)</li>
+            </ul>
+            <div class="key-points">
+              <div class="key-point"><i class="fas fa-check"></i><span>We only collect what we need</span></div>
+              <div class="key-point"><i class="fas fa-check"></i><span>No credit card numbers stored</span></div>
+              <div class="key-point"><i class="fas fa-check"></i><span>Data encrypted in transit</span></div>
+              <div class="key-point"><i class="fas fa-check"></i><span>You can request deletion anytime</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. How We Use It -->
+        <div class="policy-section-block" id="use">
+          <div class="ps-header">
+            <div class="ps-icon"><i class="fas fa-gears"></i></div>
+            <h2 class="ps-title">2. How We Use Your Information</h2>
+          </div>
+          <div class="ps-body">
+            <p>We use the information we collect to:</p>
+            <ul>
+              <li><strong>Process and fulfill your orders</strong> — including packing, shipping, and delivery
+                coordination</li>
+              <li><strong>Communicate with you</strong> — order confirmations, shipping updates, and support responses
+              </li>
+              <li><strong>Improve our website</strong> — analyzing usage patterns to make shopping easier</li>
+              <li><strong>Send promotional emails</strong> — only if you subscribed to our newsletter (you can
+                unsubscribe anytime)</li>
+              <li><strong>Prevent fraud</strong> — detecting and investigating suspicious activity</li>
+              <li><strong>Legal compliance</strong> — meeting obligations required by applicable law</li>
+            </ul>
+            <p>We do <strong>not</strong> use your data for automated decision-making or profiling that produces legal
+              effects on you.</p>
+          </div>
+        </div>
+
+        <!-- 3. Data Sharing -->
+        <div class="policy-section-block" id="share">
+          <div class="ps-header">
+            <div class="ps-icon"><i class="fas fa-share-nodes"></i></div>
+            <h2 class="ps-title">3. Sharing Your Information</h2>
+          </div>
+          <div class="ps-body">
+            <p><strong>We never sell your personal data.</strong> We only share it with trusted parties strictly
+              necessary to deliver our service:</p>
+            <ul>
+              <li><strong>Courier partners</strong> (Leopards, TCS, PostEx) — your name, address, and phone number to
+                deliver your order</li>
+              <li><strong>Payment processors</strong> — your payment details are handled directly by certified payment
+                gateways. We never see or store your full card number</li>
+              <li><strong>Email service providers</strong> — to send order confirmations and newsletters (only if
+                subscribed)</li>
+              <li><strong>Analytics tools</strong> — anonymized website usage data to improve user experience</li>
+            </ul>
+            <p>All third parties we work with are contractually required to protect your data and use it only for the
+              specified purpose.</p>
+          </div>
+        </div>
+
+        <!-- 4. Cookies -->
+        <div class="policy-section-block" id="cookies">
+          <div class="ps-header">
+            <div class="ps-icon"><i class="fas fa-cookie-bite"></i></div>
+            <h2 class="ps-title">4. Cookies &amp; Tracking</h2>
+          </div>
+          <div class="ps-body">
+            <p>We use cookies to enhance your browsing experience and remember your preferences. You can control cookie
+              settings in your browser.</p>
+            <div class="cookie-table">
+              <div class="ct-head">
+                <span>Cookie</span>
+                <span>Type</span>
+                <span>Purpose</span>
+              </div>
+              <div class="ct-row">
+                <span class="ct-name">hs_session</span>
+                <span><span class="ct-badge badge-essential">Essential</span></span>
+                <span class="ct-purpose">Keeps your cart active during your visit</span>
+              </div>
+              <div class="ct-row">
+                <span class="ct-name">hs_pref</span>
+                <span><span class="ct-badge badge-functional">Functional</span></span>
+                <span class="ct-purpose">Saves your language and display preferences</span>
+              </div>
+              <div class="ct-row">
+                <span class="ct-name">_ga</span>
+                <span><span class="ct-badge badge-analytics">Analytics</span></span>
+                <span class="ct-purpose">Google Analytics — anonymized traffic analysis</span>
+              </div>
+              <div class="ct-row">
+                <span class="ct-name">fbp</span>
+                <span><span class="ct-badge badge-marketing">Marketing</span></span>
+                <span class="ct-purpose">Facebook Pixel — ad performance measurement</span>
+              </div>
+            </div>
+            <p>You can disable non-essential cookies in your browser settings without affecting core site functionality.
+            </p>
+          </div>
+        </div>
+
+        <!-- 5. Security -->
+        <div class="policy-section-block" id="security">
+          <div class="ps-header">
+            <div class="ps-icon"><i class="fas fa-lock"></i></div>
+            <h2 class="ps-title">5. Data Security</h2>
+          </div>
+          <div class="ps-body">
+            <p>We take security seriously and implement industry-standard measures to protect your data:</p>
+            <ul>
+              <li>256-bit SSL encryption on all pages</li>
+              <li>Secure payment processing through certified gateways</li>
+              <li>Regular security audits and vulnerability assessments</li>
+              <li>Staff trained on data protection and privacy</li>
+              <li>Access to personal data restricted to authorized personnel only</li>
+            </ul>
+            <p>While we implement strong safeguards, no system is 100% secure. If you suspect unauthorized use of your
+              account, contact us immediately at <a href="mailto:support@hamdanstore.pk">support@hamdanstore.pk</a>.</p>
+          </div>
+        </div>
+
+        <!-- 6. Your Rights -->
+        <div class="policy-section-block" id="rights">
+          <div class="ps-header">
+            <div class="ps-icon"><i class="fas fa-user-shield"></i></div>
+            <h2 class="ps-title">6. Your Rights</h2>
+          </div>
+          <div class="ps-body">
+            <p>You have the following rights regarding your personal data:</p>
+            <ul>
+              <li><strong>Access</strong> — request a copy of the data we hold about you</li>
+              <li><strong>Correction</strong> — ask us to correct inaccurate information</li>
+              <li><strong>Deletion</strong> — request deletion of your personal data ("right to be forgotten")</li>
+              <li><strong>Opt-out</strong> — unsubscribe from marketing emails at any time</li>
+              <li><strong>Data portability</strong> — receive your data in a structured, machine-readable format</li>
+            </ul>
+            <p>To exercise any of these rights, email us at <a
+                href="mailto:support@hamdanstore.pk">support@hamdanstore.pk</a>. We will respond within 7 business days.
+            </p>
+          </div>
+        </div>
+
+        <!-- 7. Children -->
+        <div class="policy-section-block" id="children">
+          <div class="ps-header">
+            <div class="ps-icon"><i class="fas fa-child"></i></div>
+            <h2 class="ps-title">7. Children's Privacy</h2>
+          </div>
+          <div class="ps-body">
+            <p>Our website is not directed at children under the age of 13. We do not knowingly collect personal
+              information from children. If you believe a child has provided us with personal information, please
+              contact us and we will delete it promptly.</p>
+          </div>
+        </div>
+
+        <!-- 8. Changes -->
+        <div class="policy-section-block" id="changes">
+          <div class="ps-header">
+            <div class="ps-icon"><i class="fas fa-bell"></i></div>
+            <h2 class="ps-title">8. Changes to This Policy</h2>
+          </div>
+          <div class="ps-body">
+            <p>We may update this Privacy Policy from time to time. When we make significant changes, we will notify you
+              by email (if subscribed) and post a notice on our website. The date at the top of this page reflects the
+              most recent update.</p>
+            <p>Your continued use of our website after changes are posted constitutes your acceptance of the updated
+              policy.</p>
+          </div>
+        </div>
+
+        <!-- Contact Card -->
+        <div class="contact-card">
+          <div>
+            <h3>Privacy Questions?</h3>
+            <p>Our team is happy to address any data or privacy concerns.</p>
+          </div>
+          <a href="mailto:support@hamdanstore.pk" class="contact-btn">
+            <i class="fas fa-envelope"></i> Email Our Privacy Team
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    &copy; 2026 <a href="../index.html">HamdanStore</a>. All rights reserved.
+    Made with <i class="fas fa-heart" style="color:#f87171;font-size:10px"></i> in Pakistan.
+  </div>
+
+  <script>
+    const sections = document.querySelectorAll('.policy-section-block');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(sec => {
+        if (window.scrollY >= sec.offsetTop - 130) current = sec.id;
+      });
+      navLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        link.classList.toggle('active', href === '#' + current);
+      });
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ — Hamdan Store</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg: #0c0c0f;
+      --surface: rgba(255, 255, 255, 0.03);
+      --surface2: rgba(255, 255, 255, 0.06);
+      --border: rgba(255, 255, 255, 0.08);
+      --border-md: rgba(167, 139, 250, 0.3);
+      --accent: #a78bfa;
+      --accent-dark: #7c3aed;
+      --accent-glow: rgba(167, 139, 250, 0.1);
+      --muted: rgba(255, 255, 255, 0.45);
+      --muted2: rgba(255, 255, 255, 0.25);
+      --white: #fff;
+      --green: #25d366;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--white);
+      font-family: 'Sora', system-ui, sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ── BACK BUTTON ── */
+    .back-btn {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 999;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(167, 139, 250, 0.25);
+      border-radius: 999px;
+      color: var(--accent);
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.22s ease;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    .back-btn i {
+      font-size: 12px;
+      transition: transform 0.22s;
+    }
+
+    .back-btn:hover {
+      background: rgba(167, 139, 250, 0.12);
+      border-color: var(--accent);
+      color: var(--white);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 20px rgba(124, 58, 237, 0.25);
+    }
+
+    .back-btn:hover i {
+      transform: translateX(-3px);
+    }
+
+    /* ── HERO ── */
+    .hero {
+      text-align: center;
+      padding: 50px 24px 50px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -100px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 700px;
+      height: 500px;
+      background: radial-gradient(ellipse, rgba(124, 58, 237, 0.2) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .grid-bg {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, .025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, .025) 1px, transparent 1px);
+      background-size: 48px 48px;
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: rgba(167, 139, 250, 0.1);
+      border: 1px solid rgba(167, 139, 250, 0.25);
+      border-radius: 999px;
+      padding: 6px 18px;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 22px;
+    }
+
+    .hero h1 {
+      font-size: clamp(30px, 5vw, 54px);
+      font-weight: 800;
+      line-height: 1.12;
+      margin-bottom: 14px;
+      letter-spacing: -1px;
+    }
+
+    .hero h1 span {
+      background: linear-gradient(135deg, #c4b5fd, #a78bfa, #7c3aed);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    /* ── SEARCH ── */
+    .search-wrap {
+      max-width: 620px;
+      margin: 32px auto 0;
+      position: relative;
+    }
+
+    .search-wrap input {
+      width: 100%;
+      height: 58px;
+      padding: 0 54px 0 54px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(167, 139, 250, 0.2);
+      border-radius: 999px;
+      color: var(--white);
+      font-family: inherit;
+      font-size: 15px;
+      outline: none;
+      transition: border-color .22s, box-shadow .22s;
+    }
+
+    .search-wrap input:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 4px rgba(167, 139, 250, 0.12);
+    }
+
+    .search-wrap input::placeholder {
+      color: var(--muted2);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 22px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--accent);
+      font-size: 15px;
+      pointer-events: none;
+    }
+
+    .clear-btn {
+      position: absolute;
+      right: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      border: 1px solid var(--border-md);
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--muted);
+      font-size: 11px;
+      cursor: pointer;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      transition: all .2s;
+    }
+
+    .clear-btn.show {
+      display: flex;
+    }
+
+    .clear-btn:hover {
+      color: var(--white);
+      border-color: var(--accent);
+    }
+
+    /* ── LAYOUT ── */
+    .page-wrap {
+      max-width: 1100px;
+      margin: 48px auto 0;
+      padding: 0 24px;
+    }
+
+    .faq-layout {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    /* ── SIDEBAR ── */
+    .sidebar {
+      position: sticky;
+      top: 80px;
+      background: rgba(255, 255, 255, 0.025);
+      border: 1px solid rgba(124, 58, 237, 0.18);
+      border-radius: 16px;
+      padding: 20px 14px;
+      backdrop-filter: blur(12px);
+    }
+
+    .sidebar-label {
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--muted2);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+      padding: 0 6px;
+    }
+
+    .slink {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+      padding: 10px 14px;
+      border: none;
+      border-radius: 10px;
+      background: none;
+      color: var(--muted);
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all .18s;
+      text-align: left;
+      margin-bottom: 2px;
+    }
+
+    .slink i {
+      width: 15px;
+      font-size: 13px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .slink:hover {
+      color: var(--white);
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .slink.active {
+      color: var(--accent);
+      background: rgba(167, 139, 250, 0.1);
+    }
+
+    /* ── FAQ GROUPS ── */
+    .faq-group {
+      margin-bottom: 52px;
+    }
+
+    .group-header {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--muted2);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .group-header i {
+      color: var(--accent);
+      font-size: 14px;
+    }
+
+    /* ── FAQ CARD ── */
+    .faq-card {
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.025);
+      margin-bottom: 10px;
+      overflow: hidden;
+      transition: border-color .25s, transform .25s, box-shadow .25s;
+    }
+
+    .faq-card:hover {
+      border-color: rgba(167, 139, 250, 0.3);
+      transform: translateY(-1px);
+      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.25);
+    }
+
+    .faq-card.open {
+      border-color: rgba(167, 139, 250, 0.5);
+      background: rgba(124, 58, 237, 0.04);
+      box-shadow: 0 0 30px rgba(124, 58, 237, 0.1);
+    }
+
+    .fq {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 22px;
+      cursor: pointer;
+      gap: 14px;
+    }
+
+    .fq-text {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--white);
+      flex: 1;
+      line-height: 1.45;
+      transition: color .2s;
+    }
+
+    .fq:hover .fq-text {
+      color: var(--accent);
+    }
+
+    .fq-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      border: 1px solid rgba(167, 139, 250, 0.2);
+      background: rgba(167, 139, 250, 0.06);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+      font-size: 11px;
+      flex-shrink: 0;
+      transition: all .3s ease;
+    }
+
+    .faq-card.open .fq-icon {
+      transform: rotate(45deg);
+      background: rgba(167, 139, 250, 0.15);
+      border-color: var(--accent);
+    }
+
+    .fq-ans {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .38s cubic-bezier(.4, 0, .2, 1);
+    }
+
+    .faq-card.open .fq-ans {
+      max-height: 400px;
+    }
+
+    .fq-ans-inner {
+      padding: 0 22px 22px;
+      font-size: 13.5px;
+      color: var(--muted);
+      line-height: 1.85;
+    }
+
+    .fq-ans-inner p {
+      margin-bottom: 8px;
+    }
+
+    .fq-ans-inner p:last-child {
+      margin-bottom: 0;
+    }
+
+    .fq-ans-inner a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .fq-ans-inner a:hover {
+      text-decoration: underline;
+    }
+
+    .fq-ans-inner ul {
+      margin: 8px 0 0 18px;
+    }
+
+    .fq-ans-inner ul li {
+      margin-bottom: 4px;
+    }
+
+    .fq-ans-inner strong {
+      color: rgba(255, 255, 255, 0.85);
+      font-weight: 600;
+    }
+
+    mark {
+      background: rgba(167, 139, 250, 0.2);
+      color: var(--accent);
+      border-radius: 3px;
+      padding: 0 2px;
+    }
+
+    /* ── NO RESULTS ── */
+    .no-results {
+      display: none;
+      text-align: center;
+      padding: 60px 20px;
+      color: var(--muted);
+    }
+
+    .no-results i {
+      font-size: 42px;
+      display: block;
+      margin-bottom: 14px;
+      opacity: .2;
+    }
+
+    .no-results p {
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    .no-results a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    /* ── HELP CARD ── */
+    .help-card {
+      margin: 56px 0 64px;
+      background: rgba(255, 255, 255, 0.025);
+      border: 1px solid rgba(167, 139, 250, 0.2);
+      border-radius: 20px;
+      padding: 52px 40px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .help-card::before {
+      content: '';
+      position: absolute;
+      top: -60px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 400px;
+      height: 300px;
+      background: radial-gradient(ellipse, rgba(124, 58, 237, 0.12), transparent 70%);
+      pointer-events: none;
+    }
+
+    .help-card h2 {
+      font-size: 30px;
+      font-weight: 800;
+      margin-bottom: 10px;
+      position: relative;
+    }
+
+    .help-card p {
+      color: var(--muted);
+      font-size: 15px;
+      margin-bottom: 30px;
+      line-height: 1.65;
+      position: relative;
+    }
+
+    .help-btns {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+      position: relative;
+    }
+
+    .hbtn {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 13px 26px;
+      border-radius: 12px;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      border: none;
+      transition: all .22s ease;
+    }
+
+    .hbtn-wa {
+      background: #25d366;
+      color: #0c0c0f;
+    }
+
+    .hbtn-wa:hover {
+      background: #1ebe5d;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 22px rgba(37, 211, 102, 0.35);
+    }
+
+    .hbtn-em {
+      background: transparent;
+      color: var(--muted);
+      border: 1px solid rgba(167, 139, 250, 0.3);
+    }
+
+    .hbtn-em:hover {
+      color: var(--white);
+      border-color: var(--accent);
+      background: rgba(167, 139, 250, 0.08);
+      transform: translateY(-2px);
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      text-align: center;
+      padding: 20px 24px 36px;
+      color: var(--muted2);
+      font-size: 13px;
+    }
+
+    .footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 800px) {
+      .faq-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar {
+        position: static;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        background: none;
+        border: none;
+        padding: 0;
+      }
+
+      .sidebar-label {
+        display: none;
+      }
+
+      .slink {
+        width: auto;
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        padding: 8px 14px;
+        font-size: 12px;
+      }
+
+      .slink.active {
+        border-color: var(--accent);
+      }
+
+      .hero {
+        padding: 90px 20px 32px;
+      }
+
+      .hero h1 {
+        font-size: 28px;
+      }
+
+      .help-card {
+        padding: 36px 24px;
+      }
+
+      .help-card h2 {
+        font-size: 24px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .back-btn span {
+        display: none;
+      }
+
+      .back-btn {
+        padding: 10px 14px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Back to Home Button -->
+  <a href="../index.html" class="back-btn">
+    <i class="fas fa-arrow-left"></i>
+    <span>Back to Home</span>
+  </a>
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="grid-bg"></div>
+    <div class="hero-inner">
+      <div class="badge"><i class="fas fa-circle-question"></i> Help Center</div>
+      <h1>Frequently Asked <span>Questions</span></h1>
+      <p>Find instant answers to the most common questions from our customers.</p>
+
+      <!-- Search -->
+      <div class="search-wrap">
+        <i class="fas fa-search search-icon"></i>
+        <input id="faqSearch" type="text" placeholder="Search questions…" oninput="doSearch(this)">
+        <button class="clear-btn" id="clrBtn" onclick="clearSearch()">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="page-wrap">
+    <div id="faqContent">
+      <div class="faq-layout">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+          <div class="sidebar-label">Categories</div>
+          <button class="slink active" onclick="scrollToGroup('orders', this)"><i class="fas fa-shopping-bag"></i>
+            Orders</button>
+          <button class="slink" onclick="scrollToGroup('shipping', this)"><i class="fas fa-truck"></i> Shipping</button>
+          <button class="slink" onclick="scrollToGroup('payment', this)"><i class="fas fa-credit-card"></i>
+            Payment</button>
+          <button class="slink" onclick="scrollToGroup('returns', this)"><i class="fas fa-rotate-left"></i>
+            Returns</button>
+          <button class="slink" onclick="scrollToGroup('products', this)"><i class="fas fa-box"></i> Products</button>
+          <button class="slink" onclick="scrollToGroup('account', this)"><i class="fas fa-user"></i> Account</button>
+        </aside>
+
+        <!-- FAQ Groups -->
+        <div>
+
+          <!-- Orders -->
+          <div class="faq-group" id="group-orders">
+            <div class="group-header"><i class="fas fa-shopping-bag"></i> Orders</div>
+
+            <div class="faq-card open">
+              <div class="fq" onclick="toggleFaq(this)">
+                <span class="fq-text">How do I place an order?</span>
+                <div class="fq-icon"><i class="fas fa-plus"></i></div>
+              </div>
+              <div class="fq-ans">
+                <div class="fq-ans-inner">
+                  <p>Browse our products, click "Add to Cart", then proceed to checkout. Fill in your shipping details,
+                    choose a payment method, and confirm. You'll receive an order confirmation email immediately.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-card">
+              <div class="fq" onclick="toggleFaq(this)">
+                <span class="fq-text">Can I cancel or change my order?</span>
+                <div class="fq-icon"><i class="fas fa-plus"></i></div>
+              </div>
+              <div class="fq-ans">
+                <div class="fq-ans-inner">
+                  <p>Yes — but only within <strong>2 hours</strong> of placing it. Contact us immediately via WhatsApp
+                    with your order ID. Once dispatched, cancellation is not possible, but you can return after
+                    delivery.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-card">
+              <div class="fq" onclick="toggleFaq(this)">
+                <span class="fq-text">Will I get a confirmation after ordering?</span>
+                <div class="fq-icon"><i class="fas fa-plus"></i></div>
+              </div>
+              <div class="fq-ans">
+                <div class="fq-ans-inner">
+                  <p>Yes. As soon as your order is placed, a confirmation email is sent to your registered address with
+                    your order ID, items list, and total amount. Check your spam folder if you don't see it.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-card">
+              <div class="fq" onclick="toggleFaq(this)">
+                <span class="fq-text">Can I order multiple items in one order?</span>
+                <div class="fq-icon"><i class="fas fa-plus"></i></div>
+              </div>
+              <div class="fq-ans">
+                <div class="fq-ans-inner">
+                  <p>Absolutely! Add as many items to your cart as you like. All items in one order ship together, and
+                    orders over <strong>$50</strong> qualify for free shipping regardless of item count.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Shipping -->
+          <div class="faq-group" id="group-shipping">
+            <div class="group-header"><i class="fas fa-truck"></i> Shipping & Delivery</div>
+
+            <div class="faq-card">
+              <div class="fq" onclick="toggleFaq(this)">
+                <span class="fq-text">How long does delivery take?</span>
+                <div class="fq-icon"><i class="fas fa-plus"></i></div>
+              </div>
+              <div class="fq-ans">
+                <div class="fq-ans-inner">
+                  <p>Standard: <strong>3–5 business days</strong>. Express: <strong>1–2 days</strong> for major cities.
+                    International orders take <strong>7–14 business days</strong> depending on your country.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-card">
+              <div class="fq" onclick="toggleFaq(this)">
+                <span class="fq-text">Do you offer free shipping?</span>
+                <div class="fq-icon"><i class="fas fa-plus"></i></div>
+              </div>
+              <div class="fq-ans">
+                <div class="fq-ans-inner">
+                  <p>Yes! All orders over <strong>$50</strong> get free standard shipping nationwide. The shipping cost
+                    is shown clearly at checkout before you confirm.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-card">
+              <div class="fq" onclick="toggleFaq(this)">
+                <span class="fq-text">How can I track my order?</span>
+                <div class="fq-icon"><i class="fas fa-plus"></i></div>
+              </div>
+              <div class="fq-ans">
+                <div class="fq-ans-inner">
+                  <p>Once shipped, you'll get a tracking number by email. Visit our <a href="track-order.html">Track My
+                      Order</a> page and enter your order ID to see real-time updates.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-card">
+              <div class="fq" onclick="toggleFaq(this)">
+                <span class="fq-text">Do you ship internationally?</span>
+                <div class="fq-icon"><i class="fas fa-plus"></i></div>
+              </div>
+              <div class="fq-ans">
+                <div class="fq-ans-inner">
+                  <p>Yes! We ship to UAE, Saudi Arabia, UK, Canada, and the USA. Rates are calculated at checkout.
+                    Delivery takes <strong>7–14 business days</strong> internationally.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Payment -->
+          <div class="faq-group" id="group-payment">
+            <div class="group-header"><i class="fas fa-credit-card"></i> Payment</div>
+
+            <div class="faq-card">
+              <div class="fq" onclick="toggleFaq(this)">
+                <span class="fq-text">What payment methods do you accept?</span>
+                <div class="fq-icon"><i class="fas fa-plus"></i></div>
+              </div>
+              <div class="fq-ans">
+                <div class="fq-ans-inner">
+                  <p>We accept:</p>
+                  <ul>
+                    <li>Visa &amp; Mastercard (credit/debit)</li>
+                    <li>PayPal</li>
+                    <li>Cash on Delivery (COD) for eligible locations</li>
+                  </ul>
+                  <p style="margin-top:10px">All online payments are secured with <strong>256-bit SSL
+                      encryption</strong>.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-card">
+              <div class="fq" onclick="toggleFaq(this)">
+                <span class="fq-text">Is Cash on Delivery available everywhere?</span>
+                <div class="fq-icon"><i class="fas fa-plus"></i></div>
+              </div>
+              <div class="fq-ans">
+                <div class="fq-ans-inner">
+                  <p>COD is available for most cities in Pakistan. During checkout, if your area is eligible, COD will
+                    appear as an option. Remote areas may be limited to online payment only.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-card">
+              <div class="fq" onclick="toggleFaq(this)">
+                <span class="fq-text">Is my payment information safe?</span>
+                <div class="fq-icon"><i class="fas fa-plus"></i></div>
+              </div>
+              <div class="fq-ans">
+                <div class="fq-ans-inner">
+                  <p>Absolutely. We use <strong>256-bit SSL encryption</strong> for all transactions. We never store
+                    your full card details on our servers. Payments are processed through verified and certified payment
+                    gateways.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Returns -->
+          <div class="faq-group" id="group-returns">
+            <div class="group-header"><i class="fas fa-rotate-left"></i> Returns & Refunds</div>
+
+            <div class="faq-card">
+              <div class="fq" onclick="toggleFaq(this)">
+                <span class="fq-text">What is your return policy?</span>
+                <div class="fq-icon"><i class="fas fa-plus"></i></div>
+              </div>
+              <div class="fq-ans">
+                <div class="fq-ans-inner">
+                  <p>We offer a hassle-free <strong>30-day return policy</strong>. Items must be unused, in original
+                    packaging. Contact us within 30 days of delivery to initiate a return.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-card">
+              <div class="fq" onclick="toggleFaq(this)">
+                <span class="fq-text">How long does a refund take?</span>
+                <div class="fq-icon"><i class="fas fa-plus"></i></div>
+              </div>
+              <div class="fq-ans">
+                <div class="fq-ans-inner">
+                  <p>After we receive and inspect your returned item, refunds are processed within <strong>3–5 business
+                      days</strong> back to your original payment method.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Products -->
+          <div class="faq-group" id="group-products">
+            <div class="group-header"><i class="fas fa-box"></i> Products & Warranty</div>
+
+            <div class="faq-card">
+              <div class="fq" onclick="toggleFaq(this)">
+                <span class="fq-text">Are your products 100% original?</span>
+                <div class="fq-icon"><i class="fas fa-plus"></i></div>
+              </div>
+              <div class="fq-ans">
+                <div class="fq-ans-inner">
+                  <p>Yes, guaranteed. Every product is sourced directly from official brand distributors. No
+                    grey-market, replica, or refurbished items. All products come with manufacturer warranty where
+                    applicable.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-card">
+              <div class="fq" onclick="toggleFaq(this)">
+                <span class="fq-text">Do products come with warranty?</span>
+                <div class="fq-icon"><i class="fas fa-plus"></i></div>
+              </div>
+              <div class="fq-ans">
+                <div class="fq-ans-inner">
+                  <p>Most products include <strong>6–12 months</strong> manufacturer warranty. The warranty period is
+                    listed on each product page. Our support team helps coordinate warranty claims on your behalf.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Account -->
+          <div class="faq-group" id="group-account">
+            <div class="group-header"><i class="fas fa-user"></i> Account & Support</div>
+
+            <div class="faq-card">
+              <div class="fq" onclick="toggleFaq(this)">
+                <span class="fq-text">How do I contact customer support?</span>
+                <div class="fq-icon"><i class="fas fa-plus"></i></div>
+              </div>
+              <div class="fq-ans">
+                <div class="fq-ans-inner">
+                  <p>You can reach us via WhatsApp at <strong>+92 300 0000000</strong> (Mon–Sat, 9am–9pm), email at
+                    <strong>support@hamdanstore.pk</strong>, or through the chat on our website. We typically respond
+                    within 1 hour.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-card">
+              <div class="fq" onclick="toggleFaq(this)">
+                <span class="fq-text">Do I need an account to order?</span>
+                <div class="fq-icon"><i class="fas fa-plus"></i></div>
+              </div>
+              <div class="fq-ans">
+                <div class="fq-ans-inner">
+                  <p>No account needed! You can shop and checkout as a guest. Simply provide your email and shipping
+                    details during checkout. Your order history is accessible via your order confirmation email.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- No Results -->
+          <div class="no-results" id="noResults">
+            <i class="fas fa-face-meh"></i>
+            <p>No questions matched your search.<br>
+              Try different keywords or <a href="#" onclick="clearSearch(); return false;">clear the search</a>.</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Still Need Help -->
+    <div class="help-card">
+      <h2>Still Need Help?</h2>
+      <p>Our support team is available 7 days a week.<br>We usually respond within 1 hour.</p>
+      <div class="help-btns">
+        <a href="https://wa.me/923000000000" class="hbtn hbtn-wa" target="_blank">
+          <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+        </a>
+        <a href="mailto:support@hamdanstore.pk" class="hbtn hbtn-em">
+          <i class="fas fa-envelope"></i> Send Email
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    &copy; 2026 <a href="../index.html">HamdanStore</a>. All rights reserved.
+    Made with <i class="fas fa-heart" style="color:#f87171;font-size:10px"></i> in Pakistan.
+  </div>
+
+  <script>
+    function toggleFaq(el) {
+      const card = el.closest('.faq-card');
+      const isOpen = card.classList.contains('open');
+      document.querySelectorAll('.faq-card').forEach(c => c.classList.remove('open'));
+      if (!isOpen) card.classList.add('open');
+    }
+
+    function scrollToGroup(id, btn) {
+      document.querySelectorAll('.slink').forEach(l => l.classList.remove('active'));
+      btn.classList.add('active');
+      const el = document.getElementById('group-' + id);
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    function doSearch(inp) {
+      const q = inp.value.toLowerCase().trim();
+      document.getElementById('clrBtn').classList.toggle('show', q.length > 0);
+
+      const cards = document.querySelectorAll('.faq-card');
+      let found = 0;
+
+      cards.forEach(card => {
+        const qtEl = card.querySelector('.fq-text');
+        const atEl = card.querySelector('.fq-ans-inner');
+        const origQ = qtEl.getAttribute('data-orig') || qtEl.textContent;
+        qtEl.setAttribute('data-orig', origQ);
+
+        const qLow = origQ.toLowerCase();
+        const aLow = atEl ? atEl.textContent.toLowerCase() : '';
+        const match = !q || qLow.includes(q) || aLow.includes(q);
+
+        card.style.display = match ? '' : 'none';
+        if (match) found++;
+        if (match && q) card.classList.add('open');
+
+        if (q && match) {
+          const regex = new RegExp(q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi');
+          qtEl.innerHTML = origQ.replace(regex, m => `<mark>${m}</mark>`);
+        } else {
+          qtEl.textContent = origQ;
+        }
+      });
+
+      document.querySelectorAll('.faq-group').forEach(g => {
+        const visible = [...g.querySelectorAll('.faq-card')].some(c => c.style.display !== 'none');
+        g.style.display = visible ? '' : 'none';
+      });
+
+      document.getElementById('noResults').style.display = found === 0 ? 'block' : 'none';
+    }
+
+    function clearSearch() {
+      const inp = document.getElementById('faqSearch');
+      inp.value = '';
+      doSearch(inp);
+    }
+
+    // Sidebar active state on scroll
+    const groups = ['orders', 'shipping', 'payment', 'returns', 'products', 'account'];
+    window.addEventListener('scroll', () => {
+      let current = '';
+      groups.forEach(id => {
+        const el = document.getElementById('group-' + id);
+        if (el && window.scrollY >= el.offsetTop - 160) current = id;
+      });
+      document.querySelectorAll('.slink').forEach((btn, i) => {
+        btn.classList.toggle('active', groups[i] === current);
+      });
+    });
+  </script>
+</body>
+
+</html>
