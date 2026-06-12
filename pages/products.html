@@ -13,22 +13,22 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         :root {
-            --bg: #0c0c0f;
-            --surface: #141418;
-            --surface2: #1a1a20;
-            --surface3: #202028;
-            --border: rgba(255, 255, 255, 0.07);
-            --border-md: rgba(255, 255, 255, 0.13);
+            --bg: #f4f4f8;
+            --surface: #ffffff;
+            --surface2: #f0f0f5;
+            --surface3: #e8e8f0;
+            --border: rgba(0, 0, 0, 0.08);
+            --border-md: rgba(0, 0, 0, 0.14);
             --accent: #6c63ff;
-            --accent2: #a78bfa;
-            --accent-glow: rgba(108, 99, 255, 0.18);
+            --accent2: #5b52e8;
+            --accent-glow: rgba(108, 99, 255, 0.10);
             --accent-dark: #4f46c8;
-            --white: #f0f0f5;
-            --muted: rgba(240, 240, 245, 0.45);
-            --muted2: rgba(240, 240, 245, 0.22);
-            --green: #22c55e;
-            --amber: #f59e0b;
-            --red: #ef4444;
+            --white: #1a1a2e;
+            --muted: rgba(26, 26, 46, 0.55);
+            --muted2: rgba(26, 26, 46, 0.30);
+            --green: #16a34a;
+            --amber: #d97706;
+            --red: #dc2626;
             --r-sm: 10px;
             --r-md: 14px;
             --r-lg: 18px;
@@ -61,7 +61,7 @@
 
         /* ── HEADER ── */
         .header-wrapper {
-            background: linear-gradient(180deg, rgba(20, 20, 24, 0.8) 0%, rgba(20, 20, 24, 0.4) 100%);
+            background: linear-gradient(180deg, rgba(71, 71, 181, 0.8) 0%, rgba(20, 20, 24, 0.4) 100%);
             backdrop-filter: blur(8px);
             border-bottom: 1px solid var(--border);
             position: sticky;
@@ -112,9 +112,9 @@
             justify-content: center;
             gap: 8px;
             padding: 10px 20px;
-            border: 1px solid var(--border);
+            border: 1px solid var(--accent-dark);
             border-radius: var(--r-md);
-            color: var(--muted);
+            color: var(--black);
             font-family: var(--font-body);
             font-size: 13px;
             font-weight: 500;
@@ -238,7 +238,7 @@
             flex-wrap: wrap;
             margin-bottom: 32px;
             padding: 22px 26px;
-            background: linear-gradient(135deg, var(--surface) 0%, rgba(26, 26, 32, 0.6) 100%);
+            background: linear-gradient(135deg, var(--surface) 0%, rgba(58, 58, 189, 0.6) 100%);
             border: 1px solid var(--border);
             border-radius: var(--r-lg);
             backdrop-filter: blur(4px);
@@ -440,70 +440,6 @@
             transform: translateY(-8px);
             border-color: rgba(108, 99, 255, 0.4);
             box-shadow: 0 20px 60px rgba(108, 99, 255, 0.15), 0 0 1px rgba(108, 99, 255, 0.2);
-        }
-
-        .p-badge {
-            position: absolute;
-            top: 14px;
-            left: 14px;
-            font-size: 10px;
-            font-weight: 700;
-            letter-spacing: 0.8px;
-            text-transform: uppercase;
-            padding: 5px 12px;
-            border-radius: 999px;
-            z-index: 3;
-            backdrop-filter: blur(4px);
-            transition: all 0.3s;
-        }
-
-        .p-badge.hot {
-            background: rgba(239, 68, 68, 0.2);
-            color: #fca5a5;
-            border: 1px solid rgba(239, 68, 68, 0.35);
-        }
-
-        .p-badge.new {
-            background: rgba(108, 99, 255, 0.2);
-            color: #a78bfa;
-            border: 1px solid rgba(108, 99, 255, 0.35);
-        }
-
-        .p-badge.sale {
-            background: rgba(34, 197, 94, 0.2);
-            color: #86efac;
-            border: 1px solid rgba(34, 197, 94, 0.35);
-        }
-
-        .p-wish {
-            position: absolute;
-            top: 14px;
-            right: 14px;
-            z-index: 3;
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            background: rgba(12, 12, 15, 0.7);
-            border: 1.5px solid var(--border);
-            backdrop-filter: blur(8px);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            color: var(--muted);
-            font-size: 14px;
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .p-wish:hover {
-            transform: scale(1.1);
-        }
-
-        .p-wish:hover,
-        .p-wish.on {
-            color: #f87171;
-            border-color: rgba(248, 113, 113, 0.5);
-            background: rgba(248, 113, 113, 0.1);
         }
 
         .p-img-wrap {
@@ -891,8 +827,8 @@
                         class="cnt" id="cnt-audio">0</span></button>
                 <button class="cat-tab" onclick="onCat(this,'accessories')"><i class="fa-solid fa-plug"></i> Accessories
                     <span class="cnt" id="cnt-accessories">0</span></button>
-                <button class="cat-tab" onclick="onCat(this,'mobile')"><i class="fa-solid fa-mobile-screen"></i> Mobile
-                    <span class="cnt" id="cnt-mobile">0</span></button>
+                <!-- <button class="cat-tab" onclick="onCat(this,'mobile')"><i class="fa-solid fa-mobile-screen"></i> Mobile
+                    <span class="cnt" id="cnt-mobile">0</span></button> -->
             </div>
             <div class="filter-right">
                 <div class="s-search-wrap">
@@ -921,81 +857,150 @@
     <script>
         const PRODUCTS = [
             {
-                id: 1, name: 'Gaming Headset Pro', desc: '7.1 Surround Sound with RGB lighting and noise-cancelling mic', price: 89.99, origPrice: 119.99, cat: 'gaming', badge: 'hot', stars: 4.8, reviews: 124, img: 'https://images.unsplash.com/photo-1583394838336-acd977736f90?auto=format&fit=crop&w=600&q=80',
-                images: ['https://images.unsplash.com/photo-1583394838336-acd977736f90?auto=format&fit=crop&w=800&q=80', 'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?auto=format&fit=crop&w=800&q=80', 'https://images.unsplash.com/photo-1618366712010-f4ae9c647dcb?auto=format&fit=crop&w=800&q=80'],
-                specs: [{ k: 'Driver Size', v: '50mm Neodymium' }, { k: 'Frequency', v: '20Hz – 20KHz' }, { k: 'Impedance', v: '32 Ohm' }, { k: 'Connectivity', v: 'USB + 3.5mm Jack' }, { k: 'Mic', v: 'Retractable Noise-Cancelling' }, { k: 'Lighting', v: 'RGB 16.8M Colors' }, { k: 'Weight', v: '280g' }, { k: 'Warranty', v: '12 Months' }],
-                highlights: ['7.1 Virtual Surround Sound', 'RGB LED Lighting with 10 modes', 'Noise-cancelling flip mic', 'Memory foam ear cushions', 'Compatible with PC, PS5, Xbox']
+                id: 1,
+                name: 'PlayStation 5 Slim',
+                desc: 'Ultra-fast SSD, ray tracing and stunning 4K gaming performance.',
+                price: 189999,
+                cat: 'gaming',
+                badge: 'hot',
+                stars: 5.0,
+                reviews: 842,
+                img: 'https://images.unsplash.com/photo-1606813907291-d86efa9b94db?auto=format&fit=crop&w=800&q=80'
             },
             {
-                id: 2, name: 'RGB Controller X', desc: 'Wireless Pro Gaming Controller with 20-hour battery and haptic feedback', price: 59.99, origPrice: null, cat: 'gaming', badge: '', stars: 4.5, reviews: 89, img: 'https://images.unsplash.com/photo-1609081219090-a6d81d3085bf?auto=format&fit=crop&w=600&q=80',
-                images: ['https://images.unsplash.com/photo-1609081219090-a6d81d3085bf?auto=format&fit=crop&w=800&q=80', 'https://images.unsplash.com/photo-1592840062661-a5a7f78e2056?auto=format&fit=crop&w=800&q=80', 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=800&q=80'],
-                specs: [{ k: 'Battery Life', v: '20 Hours' }, { k: 'Connectivity', v: 'Bluetooth 5.2 + USB-C' }, { k: 'Vibration', v: 'Dual Haptic Motors' }, { k: 'Trigger', v: 'Adjustable Hair Trigger' }, { k: 'Buttons', v: 'Programmable Mapping' }, { k: 'Lighting', v: 'RGB Backlit' }, { k: 'Compatibility', v: 'PC / Android / iOS' }, { k: 'Warranty', v: '12 Months' }],
-                highlights: ['20-hour wireless battery', 'Bluetooth 5.2 low-latency', 'Dual rumble haptic motors', 'Adjustable hair triggers', 'Works on PC, Android & iOS']
+                id: 2,
+                name: 'PlayStation 5 Pro',
+                desc: 'Enhanced graphics performance with advanced ray tracing.',
+                price: 249999,
+                cat: 'gaming',
+                badge: 'new',
+                stars: 5.0,
+                reviews: 421,
+                img: 'https://images.unsplash.com/photo-1606813907291-d86efa9b94db?auto=format&fit=crop&w=800&q=80'
             },
             {
-                id: 3, name: '65W GaN Charger', desc: '3-port ultra-fast charging adapter — USB-C & USB-A, charges laptop too', price: 34.99, origPrice: 44.99, cat: 'accessories', badge: 'sale', stars: 4.7, reviews: 210, img: 'https://images.unsplash.com/photo-1622434641406-a158123450f9?auto=format&fit=crop&w=600&q=80',
-                images: ['https://images.unsplash.com/photo-1622434641406-a158123450f9?auto=format&fit=crop&w=800&q=80', 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80', 'https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?auto=format&fit=crop&w=800&q=80'],
-                specs: [{ k: 'Total Power', v: '65W GaN II' }, { k: 'Ports', v: '2× USB-C + 1× USB-A' }, { k: 'USB-C 1', v: '45W PD Fast Charge' }, { k: 'USB-C 2', v: '20W PD' }, { k: 'USB-A', v: '12W QC 3.0' }, { k: 'Input', v: '100–240V Universal' }, { k: 'Size', v: '62×62×32mm' }, { k: 'Warranty', v: '18 Months' }],
-                highlights: ['Gallium Nitride (GaN) technology', 'Charges laptop + 2 phones simultaneously', 'Auto-detects device wattage', 'No-heat foldable plug design', 'CE / FCC / RoHS certified']
+                id: 3,
+                name: 'Xbox Series X',
+                desc: 'Powerful next-generation console with true 4K gaming.',
+                price: 179999,
+                cat: 'gaming',
+                badge: 'sale',
+                stars: 4.9,
+                reviews: 536,
+                img: 'https://images.unsplash.com/photo-1621259182978-fbf93132d53d?auto=format&fit=crop&w=800&q=80'
             },
             {
-                id: 4, name: 'BassBoom Speaker', desc: 'Portable Bluetooth 5.3 speaker with 360° sound and IPX6 waterproofing', price: 49.99, origPrice: null, cat: 'audio', badge: '', stars: 4.4, reviews: 67, img: 'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?auto=format&fit=crop&w=600&q=80',
-                images: ['https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?auto=format&fit=crop&w=800&q=80', 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80', 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80'],
-                specs: [{ k: 'Driver', v: '2× 40mm Full-Range' }, { k: 'Output', v: '20W RMS' }, { k: 'Bluetooth', v: '5.3 (40m range)' }, { k: 'Battery', v: '5200mAh / 18hrs' }, { k: 'Water Rating', v: 'IPX6 Waterproof' }, { k: 'Charging', v: 'USB-C 20W Fast' }, { k: 'Weight', v: '520g' }, { k: 'Warranty', v: '12 Months' }],
-                highlights: ['360° omnidirectional sound', 'IPX6 fully waterproof', '18-hour battery life', 'Pair 2 speakers in stereo mode', 'Built-in mic for calls']
+                id: 4,
+                name: 'Xbox Series S',
+                desc: 'Compact digital console with lightning-fast load times.',
+                price: 114999,
+                cat: 'gaming',
+                badge: '',
+                stars: 4.8,
+                reviews: 287,
+                img: 'https://images.unsplash.com/photo-1621259182978-fbf93132d53d?auto=format&fit=crop&w=800&q=80'
             },
             {
-                id: 5, name: 'Studio Headphones HD', desc: '40mm premium drivers, foldable design, 32-hour playtime, Hi-Res Audio', price: 79.99, origPrice: 99.99, cat: 'audio', badge: 'sale', stars: 4.6, reviews: 156, img: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=600&q=80',
-                images: ['https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=800&q=80', 'https://images.unsplash.com/photo-1524678714210-9917a6c619c2?auto=format&fit=crop&w=800&q=80', 'https://images.unsplash.com/photo-1546435770-a3e426bf472b?auto=format&fit=crop&w=800&q=80'],
-                specs: [{ k: 'Driver', v: '40mm Hi-Res Audio' }, { k: 'Frequency', v: '10Hz – 40KHz' }, { k: 'Battery', v: '32 Hours Wireless' }, { k: 'ANC', v: 'Active Noise Cancelling' }, { k: 'Connectivity', v: 'Bluetooth 5.0 + 3.5mm' }, { k: 'Foldable', v: 'Yes — carry pouch included' }, { k: 'Weight', v: '240g' }, { k: 'Warranty', v: '12 Months' }],
-                highlights: ['Hi-Res Audio certified', 'Active Noise Cancellation', '32-hour wireless playback', 'Foldable with carry case', 'Works wired with 3.5mm cable']
+                id: 5,
+                name: 'Nintendo Switch OLED',
+                desc: 'Portable gaming console with vibrant OLED display.',
+                price: 99999,
+                cat: 'gaming',
+                badge: 'new',
+                stars: 4.8,
+                reviews: 692,
+                img: 'https://images.unsplash.com/photo-1578303512597-81e6cc155b3e?auto=format&fit=crop&w=800&q=80'
             },
             {
-                id: 6, name: 'True Wireless Earbuds', desc: 'ANC earbuds with 30-hour total battery, transparency mode & wireless case', price: 99.99, origPrice: null, cat: 'audio', badge: 'hot', stars: 4.9, reviews: 301, img: 'https://images.unsplash.com/photo-1572536147248-ac59a8abfa4b?auto=format&fit=crop&w=600&q=80',
-                images: ['https://images.unsplash.com/photo-1572536147248-ac59a8abfa4b?auto=format&fit=crop&w=800&q=80', 'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?auto=format&fit=crop&w=800&q=80', 'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?auto=format&fit=crop&w=800&q=80'],
-                specs: [{ k: 'Driver', v: '10mm Dynamic + Planar' }, { k: 'ANC', v: '-42dB Active Noise Cancel' }, { k: 'Earbud Battery', v: '8 Hours' }, { k: 'Case Battery', v: '22 Hours Extra' }, { k: 'Charging', v: 'Wireless + USB-C' }, { k: 'Codec', v: 'LDAC / AAC / SBC' }, { k: 'IPX', v: 'IPX4 Sweat Proof' }, { k: 'Warranty', v: '12 Months' }],
-                highlights: ['Industry-leading -42dB ANC', 'Transparency / Ambient mode', '30-hour total battery life', 'Wireless charging case', 'LDAC Hi-Res audio support']
+                id: 6,
+                name: 'DualSense Controller',
+                desc: 'Adaptive triggers and immersive haptic feedback.',
+                price: 22999,
+                cat: 'gaming',
+                badge: '',
+                stars: 4.8,
+                reviews: 918,
+                img: 'https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?auto=format&fit=crop&w=800&q=80'
             },
             {
-                id: 7, name: 'USB-C Hub 7-in-1', desc: '4K HDMI, 100W PD passthrough, SD/TF card reader and 3× USB-A 3.0 ports', price: 44.99, origPrice: null, cat: 'accessories', badge: 'new', stars: 4.5, reviews: 78, img: 'https://images.unsplash.com/photo-1625846628099-36cda0d7f4e3?auto=format&fit=crop&w=600&q=80',
-                images: ['https://images.unsplash.com/photo-1625846628099-36cda0d7f4e3?auto=format&fit=crop&w=800&q=80', 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80', 'https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?auto=format&fit=crop&w=800&q=80'],
-                specs: [{ k: 'Ports', v: '7-in-1 Hub' }, { k: 'HDMI', v: '4K@60Hz' }, { k: 'USB-A', v: '3× USB 3.0 (5Gbps)' }, { k: 'PD Charging', v: '100W Passthrough' }, { k: 'Card Reader', v: 'SD + MicroSD' }, { k: 'Material', v: 'Aluminium Alloy' }, { k: 'Cable', v: '18cm fixed USB-C' }, { k: 'Warranty', v: '18 Months' }],
-                highlights: ['4K 60Hz HDMI output', '100W power delivery passthrough', '3× USB 3.0 at 5Gbps', 'SD and MicroSD slots', 'Plug & play — no drivers needed']
+                id: 7,
+                name: 'Gaming Headset RGB',
+                desc: '7.1 surround sound with RGB lighting.',
+                price: 12999,
+                cat: 'audio',
+                badge: 'hot',
+                stars: 4.9,
+                reviews: 375,
+                img: 'https://images.unsplash.com/photo-1583394838336-acd977736f90?auto=format&fit=crop&w=800&q=80'
             },
             {
-                id: 8, name: 'Phone Stand Pro', desc: 'Adjustable aluminum desk stand with 360° rotation for phones & tablets', price: 24.99, origPrice: null, cat: 'mobile', badge: 'new', stars: 4.3, reviews: 44, img: 'https://images.unsplash.com/photo-1585298723682-7115561c51b7?auto=format&fit=crop&w=600&q=80',
-                images: ['https://images.unsplash.com/photo-1585298723682-7115561c51b7?auto=format&fit=crop&w=800&q=80', 'https://images.unsplash.com/photo-1551816230-ef5deaed4a26?auto=format&fit=crop&w=800&q=80', 'https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?auto=format&fit=crop&w=800&q=80'],
-                specs: [{ k: 'Material', v: 'Aircraft-grade Aluminium' }, { k: 'Rotation', v: '360° horizontal + tilt' }, { k: 'Compatibility', v: '4" to 13" devices' }, { k: 'Base', v: 'Anti-slip silicone pad' }, { k: 'Height', v: 'Adjustable 13–22cm' }, { k: 'Foldable', v: 'Yes — travel-friendly' }, { k: 'Weight', v: '185g' }, { k: 'Warranty', v: '12 Months' }],
-                highlights: ['Holds phones & tablets up to 13"', '360° rotation + angle tilt', 'Anti-slip weighted base', 'Foldable compact design', 'Scratch-free silicone pads']
+                id: 8,
+                name: 'Studio Gaming Headphones',
+                desc: 'Premium audio quality with deep bass.',
+                price: 14999,
+                cat: 'audio',
+                badge: '',
+                stars: 4.7,
+                reviews: 254,
+                img: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=800&q=80'
             },
             {
-                id: 9, name: 'MagSafe Power Bank', desc: '15W wireless MagSafe power bank — 10000mAh, folds flat, LED indicator', price: 54.99, origPrice: 69.99, cat: 'mobile', badge: 'hot', stars: 4.7, reviews: 133, img: 'https://images.unsplash.com/photo-1609592806978-cd0c4ed5b8b8?auto=format&fit=crop&w=600&q=80',
-                images: ['https://images.unsplash.com/photo-1609592806978-cd0c4ed5b8b8?auto=format&fit=crop&w=800&q=80', 'https://images.unsplash.com/photo-1585298723682-7115561c51b7?auto=format&fit=crop&w=800&q=80', 'https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?auto=format&fit=crop&w=800&q=80'],
-                specs: [{ k: 'Capacity', v: '10000mAh' }, { k: 'Wireless Output', v: '15W MagSafe' }, { k: 'USB-C Output', v: '20W PD' }, { k: 'Input', v: 'USB-C 18W' }, { k: 'Indicator', v: '4-LED battery dots' }, { k: 'Thickness', v: '11.5mm slim' }, { k: 'Weight', v: '195g' }, { k: 'Warranty', v: '12 Months' }],
-                highlights: ['MagSafe 15W snaps to iPhone', 'Slim 11.5mm pocket design', '10000mAh — 3 full charges', 'USB-C wired output for others', 'LED battery level indicator']
+                id: 9,
+                name: 'Mechanical Gaming Keyboard',
+                desc: 'RGB mechanical switches with anti-ghosting.',
+                price: 18999,
+                cat: 'accessories',
+                badge: 'sale',
+                stars: 4.7,
+                reviews: 289,
+                img: 'https://images.unsplash.com/photo-1511467687858-23d96c32e4ae?auto=format&fit=crop&w=800&q=80'
             },
             {
-                id: 10, name: 'Mechanical Keyboard TKL', desc: 'Tenkeyless mechanical keyboard, hot-swappable red switches, RGB per-key', price: 74.99, origPrice: 94.99, cat: 'gaming', badge: 'new', stars: 4.6, reviews: 98, img: 'https://images.unsplash.com/photo-1595225476474-87563907a212?auto=format&fit=crop&w=600&q=80',
-                images: ['https://images.unsplash.com/photo-1595225476474-87563907a212?auto=format&fit=crop&w=800&q=80', 'https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&w=800&q=80', 'https://images.unsplash.com/photo-1618384887929-16ec33fab9ef?auto=format&fit=crop&w=800&q=80'],
-                specs: [{ k: 'Layout', v: 'TKL 87-Key' }, { k: 'Switch', v: 'Hot-swap Red Linear' }, { k: 'Actuation', v: '1.5mm / 45g' }, { k: 'Lighting', v: 'Per-key RGB 16.8M' }, { k: 'Connectivity', v: 'USB-C braided cable' }, { k: 'Polling Rate', v: '1000Hz' }, { k: 'Keycaps', v: 'PBT Double-shot' }, { k: 'Warranty', v: '12 Months' }],
-                highlights: ['Hot-swappable switches', 'PBT double-shot keycaps', 'Per-key RGB customization', '1000Hz polling rate', 'Includes USB-C braided cable']
+                id: 10,
+                name: 'RGB Gaming Mouse',
+                desc: 'High-precision sensor with customizable DPI.',
+                price: 8999,
+                cat: 'accessories',
+                badge: 'new',
+                stars: 4.8,
+                reviews: 341,
+                img: 'https://images.unsplash.com/photo-1527814050087-3793815479db?auto=format&fit=crop&w=800&q=80'
             },
             {
-                id: 11, name: 'Webcam 4K AutoFocus', desc: '4K 30fps webcam with AI autofocus, built-in ring light, privacy shutter', price: 69.99, origPrice: 89.99, cat: 'accessories', badge: 'sale', stars: 4.5, reviews: 61, img: 'https://images.unsplash.com/photo-1617550523898-b3e8dba9c7b0?auto=format&fit=crop&w=600&q=80',
-                images: ['https://images.unsplash.com/photo-1617550523898-b3e8dba9c7b0?auto=format&fit=crop&w=800&q=80', 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80', 'https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?auto=format&fit=crop&w=800&q=80'],
-                specs: [{ k: 'Resolution', v: '4K @ 30fps / 1080p@60fps' }, { k: 'Autofocus', v: 'AI Face Tracking' }, { k: 'FOV', v: '90° wide angle' }, { k: 'Mic', v: 'Dual noise-cancel mics' }, { k: 'Ring Light', v: '3-level built-in LED' }, { k: 'Privacy', v: 'Physical shutter cover' }, { k: 'Connection', v: 'USB-A plug & play' }, { k: 'Warranty', v: '12 Months' }],
-                highlights: ['4K ultra-clear video', 'AI autofocus + face tracking', 'Built-in 3-level ring light', 'Physical privacy shutter', 'Plug & play — zero drivers']
+                id: 11,
+                name: 'Gaming Mouse Pad XL',
+                desc: 'Large RGB mouse pad for professional gaming.',
+                price: 3999,
+                cat: 'accessories',
+                badge: '',
+                stars: 4.6,
+                reviews: 183,
+                img: 'https://images.unsplash.com/photo-1616628182509-6d1d95b0f4b2?auto=format&fit=crop&w=800&q=80'
             },
             {
-                id: 12, name: 'RGB Gaming Mouse', desc: '16000 DPI optical sensor, 7 programmable buttons, ultralight 68g design', price: 39.99, origPrice: 49.99, cat: 'gaming', badge: 'sale', stars: 4.7, reviews: 187, img: 'https://images.unsplash.com/photo-1527814050087-3793815479db?auto=format&fit=crop&w=600&q=80',
-                images: ['https://images.unsplash.com/photo-1527814050087-3793815479db?auto=format&fit=crop&w=800&q=80', 'https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&w=800&q=80', 'https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?auto=format&fit=crop&w=800&q=80'],
-                specs: [{ k: 'Sensor', v: '16000 DPI Optical' }, { k: 'DPI Steps', v: '400/800/1600/3200/16000' }, { k: 'Buttons', v: '7 Programmable' }, { k: 'Weight', v: '68g Ultralight' }, { k: 'Polling Rate', v: '1000Hz' }, { k: 'Click Life', v: '50M click rated' }, { k: 'Feet', v: 'PTFE pure white pads' }, { k: 'Warranty', v: '12 Months' }],
-                highlights: ['16000 DPI adjustable sensor', 'Ultralight 68g honeycomb shell', '7 programmable buttons', 'PTFE glide feet for smooth aim', 'RGB logo + scroll wheel glow']
-            },
+                id: 12,
+                name: 'Gaming Chair Pro',
+                desc: 'Premium ergonomic gaming chair with lumbar support.',
+                price: 49999,
+                cat: 'gaming',
+                badge: 'hot',
+                stars: 4.9,
+                reviews: 186,
+                img: 'https://images.unsplash.com/photo-1598550476439-6847785fcea6?auto=format&fit=crop&w=800&q=80'
+            }
         ];
 
-        const CAT_LABELS = { gaming: 'Gaming', audio: 'Audio', accessories: 'Accessories', mobile: 'Mobile' };
-        const CAT_ICONS = { gaming: 'fa-gamepad', audio: 'fa-headphones', accessories: 'fa-plug', mobile: 'fa-mobile-screen' };
+        const CAT_LABELS = {
+            gaming: 'Gaming',
+            audio: 'Audio',
+            accessories: 'Accessories'
+        };
+
+        const CAT_ICONS = {
+            gaming: 'fa-gamepad',
+            audio: 'fa-headphones',
+            accessories: 'fa-plug'
+        };
         let liked = {}, activeCat = 'all', activeSort = 'default', searchQ = '';
 
         function init() {
@@ -1024,8 +1029,6 @@
             if (!list.length) { grid.innerHTML = `<div class="empty-state"><i class="fa-regular fa-face-meh"></i><p>No products found.<br>Try a different search or category.</p></div>`; return; }
             grid.innerHTML = list.map(p => `
     <div class="p-card" onclick="goDetail(${p.id})">
-      ${p.badge ? `<span class="p-badge ${p.badge}">${p.badge}</span>` : ''}
-      <button class="p-wish ${liked[p.id] ? 'on' : ''}" onclick="event.stopPropagation();toggleLike(${p.id},this)"><i class="fa-${liked[p.id] ? 'solid' : 'regular'} fa-heart"></i></button>
       <div class="p-img-wrap"><img class="p-img" src="${p.img}" alt="${p.name}" loading="lazy"/></div>
       <div class="p-body">
         <div class="p-tag"><i class="fa-solid ${CAT_ICONS[p.cat] || 'fa-tag'}" style="font-size:10px"></i>${CAT_LABELS[p.cat] || p.cat}</div>
@@ -1033,8 +1036,9 @@
         <p class="p-desc">${p.desc}</p>
         <div class="p-stars">${starsHtml(p.stars)}<span class="rev">(${p.reviews})</span></div>
         <div class="p-footer">
-          <div>${p.origPrice ? `<p class="p-orig">$${p.origPrice.toFixed(2)}</p>` : ''}<p class="p-price"><span class="sym">$</span>${p.price.toFixed(2)}</p></div>
-          <div class="p-btn-group">
+<div>
+    <p class="p-price">PKR ${p.price.toLocaleString()}</p>
+</div>          <div class="p-btn-group">
             <a class="p-view" href="product-detail.html?id=${p.id}" onclick="event.stopPropagation()"><i class="fas fa-eye"></i> View</a>
           </div>
         </div>
