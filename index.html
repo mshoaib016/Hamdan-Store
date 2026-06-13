@@ -3901,7 +3901,7 @@
         // ══ WHATSAPP FUNCTIONS ══
         function quickWA(id) {
             const p = PRODUCTS.find(x => x.id === id); if (!p) return;
-            const msg = `Assalam o Alaikum! 👋\n\nMujhe yeh product order karna hai:\n\n🛒 *${p.name}*\n💰 Price: PKR ${p.price.toLocaleString()}\n\nKripya order confirm karein. Shukriya! 🙏`;
+            const msg = `Assalam o Alaikum! 👋\n\n🛒 *${p.name}*\n💰 Price: PKR ${p.price.toLocaleString()}\n\nKindly mera order confirm karein. Thankyou!`;
             window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
         }
 
@@ -3913,7 +3913,7 @@
                 return `• *${p.name}*\n  Qty: ${cart[id]} × PKR ${p.price.toLocaleString()} = PKR ${(p.price * cart[id]).toLocaleString()}`;
             }).filter(Boolean).join('\n\n');
             const total = cartTotal();
-            const msg = `Assalam o Alaikum! 👋\n\n🛍️ *Hamdan Store — Cart Order*\n━━━━━━━━━━━━━━━━━━\n\n${itemLines}\n\n━━━━━━━━━━━━━━━━━━\n💵 *Total: PKR ${total.toLocaleString()}*\n\nKripya mera order confirm karein. Shukriya! 🙏`;
+            const msg = `Assalam o Alaikum! 👋\n\n🛍️ *Hamdan Store — Cart Order*\n━━━━━━━━━━━━━━━━━━\n\n${itemLines}\n\n━━━━━━━━━━━━━━━━━━\n💵 *Total: PKR ${total.toLocaleString()}*\n\nKindly mera order confirm karein. Thankyou!`;
             window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
         }
 
